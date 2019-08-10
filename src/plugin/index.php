@@ -12,6 +12,8 @@
  * Text Domain: vnh_textdomain
  */
 
+require __DIR__ . '/vendor/autoload.php';
+
 spl_autoload_register(function ($class_name) {
 	if (stripos($class_name, 'vnh_namespace') !== 0) {
 		return;
