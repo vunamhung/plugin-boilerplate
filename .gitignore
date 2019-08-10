@@ -1,0 +1,14 @@
+node_modules/
+vendor/
+docs/
+dist/
+.env
+
+#IDEA
+.idea/workspace.xml
+.idea/jsLinters/jshint.xml
+
+#PLUGIN
+/src/plugin/languages/
+/src/plugin/assets/css/
+/src/plugin/assets/js/dist

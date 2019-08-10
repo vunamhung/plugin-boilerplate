@@ -1,0 +1,40 @@
+{
+    "name": "masterblocks/plugin",
+    "license": "MIT",
+    "version": "1.0",
+    "config": {
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:masterblocks/core.git",
+            "no-api": true
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0",
+        "a5hleyrich/wp-background-processing": "^1.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "mnsami/composer-custom-directory-installer": "1.1.*",
+        "squizlabs/php_codesniffer": "^3.4.2",
+        "wp-coding-standards/wpcs": "^2.1",
+        "wptrt/wpthemereview": "dev-develop",
+        "phpcompatibility/php-compatibility": "^9.1.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "*"
+    },
+    "extra": {
+        "installer-paths": {
+            "src/plugin/vendor/{$name}": [
+                "a5hleyrich/wp-background-processing"
+            ]
+        }
+    },
+    "prefer-stable": true
+}
