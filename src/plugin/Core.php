@@ -7,6 +7,10 @@ use vnh_namespace\tools\contracts\Initable;
 use vnh_namespace\tools\Register_Assets;
 
 abstract class Core implements Bootable, Initable {
+	public $main_plugin_file;
+	public $main_plugin_dir;
+	public static $plugin;
+
 	/**
 	 * @var Register_Assets
 	 */
@@ -18,14 +22,16 @@ abstract class Core implements Bootable, Initable {
 	public $backend_assets;
 
 	public function __clone() {
-		_doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'vnh_textdomain'), '1,0');
+		_doing_it_wrong(__FUNCTION__, esc_html__('Cheatin&#8217; huh?', 'vnh_textdomain'), '1,0');
 	}
 
 	public function __wakeup() {
-		_doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'vnh_textdomain'), '1,0');
+		_doing_it_wrong(__FUNCTION__, esc_html__('Cheatin&#8217; huh?', 'vnh_textdomain'), '1,0');
 	}
 
-	protected function __construct() {
+	protected function __construct($main_plugin_file) {
+		$this->main_plugin_file = $main_plugin_file;
+		$this->main_plugin_dir = dirname($main_plugin_file);
 		$this->prepare();
 		$this->init();
 		$this->register_core();
@@ -41,6 +47,24 @@ abstract class Core implements Bootable, Initable {
 		if (!function_exists('get_plugin_data')) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
+
+		$plugin = get_plugin_data($this->main_plugin_file);
+
+		self::$plugin = [
+			'name' => $plugin['Name'],
+			'description' => $plugin['Description'],
+			'uri' => $plugin['PluginURI'],
+			'version' => $plugin['Version'],
+			'author_name' => $plugin['AuthorName'],
+			'author_uri' => $plugin['AuthorURI'],
+			'textdomain' => $plugin['TextDomain'],
+			'author' => $plugin['Author'],
+			'title' => $plugin['Title'],
+			'base' => plugin_basename($this->main_plugin_file),
+			'slug' => basename($this->main_plugin_file),
+			'path' => trailingslashit($this->main_plugin_dir),
+			'url' => plugin_dir_url($this->main_plugin_file),
+		];
 	}
 
 	public function init() {
@@ -65,8 +89,8 @@ abstract class Core implements Bootable, Initable {
 	public function boot() {
 		add_action('plugin_loaded', [$this, 'load_plugin_textdomain']);
 
-		register_activation_hook(vnh_plugin_file, [$this, 'install']);
-		register_deactivation_hook(vnh_plugin_file, [$this, 'uninstall']);
+		register_activation_hook($this->main_plugin_file, [$this, 'install']);
+		register_deactivation_hook($this->main_plugin_file, [$this, 'uninstall']);
 
 		add_action('admin_enqueue_scripts', [$this, 'enqueue_backend_assets']);
 		add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
@@ -76,10 +100,6 @@ abstract class Core implements Bootable, Initable {
 		load_plugin_textdomain('vnh_textdomain');
 	}
 
-	abstract public function enqueue_frontend_assets();
-
-	abstract public function enqueue_backend_assets();
-
 	public function install() {
 		do_action('vnh_prefix_install');
 	}
@@ -87,4 +107,8 @@ abstract class Core implements Bootable, Initable {
 	public function uninstall() {
 		do_action('vnh_prefix_uninstall');
 	}
+
+	abstract public function enqueue_frontend_assets();
+
+	abstract public function enqueue_backend_assets();
 }

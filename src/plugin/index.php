@@ -29,7 +29,4 @@ spl_autoload_register(function ($class_name) {
 	}
 });
 
-define('vnh_plugin_file', __FILE__);
-define('vnh_plugin_dir', __DIR__);
-
-vnh_namespace\Plugin::instance();
+vnh_namespace\Plugin::instance(__FILE__);

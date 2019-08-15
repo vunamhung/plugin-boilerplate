@@ -9,6 +9,9 @@
     <include_path>
       <path value="$WORDPRESS$" />
       <path value="$KINT$" />
+      <path value="$PROJECT_DIR$/src/plugin/vendor/mnsami/composer-custom-directory-installer" />
+      <path value="$PROJECT_DIR$/src/plugin/vendor/composer" />
+      <path value="$PROJECT_DIR$/src/plugin/vendor/a5hleyrich/wp-background-processing" />
     </include_path>
   </component>
   <component name="PhpRuntimeConfiguration" default_stubs_path="$STUBS$">
