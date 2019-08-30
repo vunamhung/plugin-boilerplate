@@ -13,20 +13,4 @@
  */
 
 require __DIR__ . '/vendor/autoload.php';
-
-spl_autoload_register(function ($class_name) {
-	if (stripos($class_name, 'vnh_namespace') !== 0) {
-		return;
-	}
-
-	$file_name = preg_replace('/^vnh_namespace\\\\/', '', $class_name);
-	$file_name = str_replace('\\', '/', $file_name);
-
-	$file_path = sprintf('%s/%s.php', __DIR__, $file_name);
-
-	if (file_exists($file_path)) {
-		require_once $file_path;
-	}
-});
-
 vnh_namespace\Plugin::instance(__FILE__);

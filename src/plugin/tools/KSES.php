@@ -1,6 +1,6 @@
 <?php
 
-namespace vnh_namespace;
+namespace vnh_namespace\tools;
 
 class KSES {
 	public $context = [

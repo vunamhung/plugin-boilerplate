@@ -4,34 +4,17 @@ namespace vnh_namespace;
 
 use vnh_namespace\tools\contracts\Bootable;
 use vnh_namespace\tools\contracts\Initable;
+use vnh_namespace\tools\KSES;
 use vnh_namespace\tools\Register_Assets;
+use vnh_namespace\tools\Singleton;
 
-abstract class Core implements Bootable, Initable {
-	public $main_plugin_file;
-	public $main_plugin_dir;
-	public static $plugin;
-
-	/**
-	 * @var Register_Assets
-	 */
-	public $frontend_assets;
-
-	/**
-	 * @var Register_Assets
-	 */
-	public $backend_assets;
-
-	public function __clone() {
-		_doing_it_wrong(__FUNCTION__, esc_html__('Cheatin&#8217; huh?', 'vnh_textdomain'), '1,0');
-	}
-
-	public function __wakeup() {
-		_doing_it_wrong(__FUNCTION__, esc_html__('Cheatin&#8217; huh?', 'vnh_textdomain'), '1,0');
-	}
+abstract class Core extends Singleton implements Bootable, Initable {
+	use Core_Variables;
 
 	protected function __construct($main_plugin_file) {
 		$this->main_plugin_file = $main_plugin_file;
 		$this->main_plugin_dir = dirname($main_plugin_file);
+
 		$this->prepare();
 		$this->init();
 		$this->register_core();

@@ -14,11 +14,11 @@
         "lastTranslator": "Vu Nam Hung <vunamhung@gmail.com>"
     },
     "plugin": {
-        "namespace": "GearFury2Woo",
-        "prefix": "gearfury2woo",
-        "name": "gearfury2woo",
-        "title": "Gear Fury 2 Woo",
-        "short_title": "Gear Fury 2 Woo",
+        "namespace": "Plugin_Boilerplate",
+        "prefix": "plugin_boilerplate",
+        "name": "plugin_boilerplate",
+        "title": "Plugin Boilerplate",
+        "short_title": "Plugin Boilerplate",
         "version": "1.0.0",
         "tags": "blocks, gutenberg, site builder, page builder, editor, layout, writing",
         "uri": "https://avitatheme.com",

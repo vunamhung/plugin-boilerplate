@@ -3,8 +3,6 @@
 namespace vnh_namespace;
 
 final class Plugin extends Core {
-	private static $_instance;
-
 	public static function instance($main_plugin_file) {
 		if (!(self::$_instance instanceof self)) {
 			self::$_instance = new self($main_plugin_file);

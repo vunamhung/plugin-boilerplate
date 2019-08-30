@@ -25,18 +25,7 @@ namespace PHPSTORM_META {
 		'date_format'
 	);
 	expectedArguments(\get_bloginfo(), 0, 'version');
-	expectedArguments(
-		\class_exists(),
-		0,
-		'WP_CLI',
-		'Gutenberg_Ramp',
-		'ACF',
-		'OCDI_Plugin',
-		'Kirki',
-		'Jetpack',
-		'TGM_Plugin_Activation',
-		'Freemius'
-	);
+	expectedArguments(\class_exists(), 0, 'WP_CLI', 'Jetpack', 'Freemius');
 	expectedArguments(
 		\wp_kses(),
 		1,
@@ -61,31 +50,4 @@ namespace PHPSTORM_META {
 	);
 	expectedArguments(\trailingslashit(), 0, argumentsSet("trailingslashit"));
 	expectedArguments(\untrailingslashit(), 0, argumentsSet("trailingslashit"));
-
-	registerArgumentsSet(
-		'genesis_layouts',
-		'content-sidebar-sidebar',
-		'sidebar-sidebar-content',
-		'sidebar-content-sidebar',
-		'full-width-content'
-	);
-	expectedArguments(\genesis_unregister_layout(), 0, argumentsSet("genesis_layouts"));
-
-	expectedArguments(\unregister_sidebar(), 0, 'sidebar-alt', 'header-right');
-	expectedArguments(
-		\add_filter(),
-		1,
-		'__return_true',
-		'__return_false',
-		'__return_zero',
-		'__return_empty_array',
-		'__return_null',
-		'__return_empty_string',
-		'__genesis_return_full_width_content',
-		'__genesis_return_sidebar_content_sidebar',
-		'__genesis_return_sidebar_sidebar_content',
-		'__genesis_return_content_sidebar_sidebar',
-		'__genesis_return_sidebar_content',
-		'__genesis_return_content_sidebar'
-	);
 }
