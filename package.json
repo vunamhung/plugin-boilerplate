@@ -1,6 +1,6 @@
 {
     "author": "Vu Nam Hung",
-    "license": "MIT",
+    "license": "GPL-3.0",
     "scripts": {
         "download:libs": "node ./node_modules/frontend-dependencies/index.js",
         "clean:composer": "rm -rf ./vendor && rm -rf ./src/plugin/vendor",
@@ -30,14 +30,10 @@
         "php_requires": "5.6",
         "tested_up_to": "5.1.1",
         "dev_mode": "disable",
-        "license": "GNU General Public License version 3",
+        "license": "GPL-3.0",
         "license_uri": "http://www.opensource.org/licenses/gpl-license.php",
         "copyright": "Copyright (c) 2019, AvitaTheme",
-        "description": "Next generation site builder for WordPress.",
-        "constant": {
-            "plugin_file": "G2W_PLUGIN_FILE",
-            "plugin_dir": "G2W_PLUGIN_DIR"
-        }
+        "description": "Next generation site builder for WordPress."
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",
