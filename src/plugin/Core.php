@@ -22,6 +22,9 @@ abstract class Core extends Singleton implements Bootable, Initable {
 	}
 
 	public function prepare() {
+		register_activation_hook($this->main_plugin_file, [$this, 'install']);
+		register_deactivation_hook($this->main_plugin_file, [$this, 'uninstall']);
+
 		if (empty($GLOBALS['wp_filesystem'])) {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 			WP_Filesystem();
@@ -71,10 +74,6 @@ abstract class Core extends Singleton implements Bootable, Initable {
 
 	public function boot() {
 		add_action('plugin_loaded', [$this, 'load_plugin_textdomain']);
-
-		register_activation_hook($this->main_plugin_file, [$this, 'install']);
-		register_deactivation_hook($this->main_plugin_file, [$this, 'uninstall']);
-
 		add_action('admin_enqueue_scripts', [$this, 'enqueue_backend_assets']);
 		add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
 	}
