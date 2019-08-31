@@ -1,14 +1,7 @@
 {
-    "name": "masterblocks/plugin",
-    "license": "GPL-3.0",
-    "version": "1.0",
     "autoload": {
         "psr-4": {
             "vnh_namespace\\": "."
         }
-    },
-    "require": {
-        "a5hleyrich/wp-background-processing": "^1.0"
-    },
-    "prefer-stable": true
+    }
 }
