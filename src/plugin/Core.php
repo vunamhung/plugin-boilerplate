@@ -11,9 +11,9 @@ use vnh_namespace\tools\Singleton;
 abstract class Core extends Singleton implements Bootable, Initable {
 	use Core_Variables;
 
-	protected function __construct($main_plugin_file) {
-		$this->main_plugin_file = $main_plugin_file;
-		$this->main_plugin_dir = dirname($main_plugin_file);
+	protected function __construct($plugin_file) {
+		$this->plugin_file = $plugin_file;
+		$this->plugin_dir = dirname($plugin_file);
 
 		$this->prepare();
 		$this->init();
@@ -22,8 +22,8 @@ abstract class Core extends Singleton implements Bootable, Initable {
 	}
 
 	public function prepare() {
-		register_activation_hook($this->main_plugin_file, [$this, 'install']);
-		register_deactivation_hook($this->main_plugin_file, [$this, 'uninstall']);
+		register_activation_hook($this->plugin_file, [$this, 'install']);
+		register_deactivation_hook($this->plugin_file, [$this, 'uninstall']);
 
 		if (empty($GLOBALS['wp_filesystem'])) {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -34,7 +34,7 @@ abstract class Core extends Singleton implements Bootable, Initable {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$plugin = get_plugin_data($this->main_plugin_file);
+		$plugin = get_plugin_data($this->plugin_file);
 
 		self::$plugin = [
 			'name' => $plugin['Name'],
@@ -46,10 +46,10 @@ abstract class Core extends Singleton implements Bootable, Initable {
 			'textdomain' => $plugin['TextDomain'],
 			'author' => $plugin['Author'],
 			'title' => $plugin['Title'],
-			'base' => plugin_basename($this->main_plugin_file),
-			'slug' => basename($this->main_plugin_file),
-			'path' => trailingslashit($this->main_plugin_dir),
-			'url' => plugin_dir_url($this->main_plugin_file),
+			'base' => plugin_basename($this->plugin_file),
+			'slug' => basename($this->plugin_dir),
+			'path' => trailingslashit($this->plugin_dir),
+			'url' => plugin_dir_url($this->plugin_file),
 		];
 	}
 

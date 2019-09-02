@@ -18,18 +18,18 @@ function flatten_version($version) {
 
 function get_plugin_path($dir = null) {
 	if (empty($dir)) {
-		return plugin_dir_path(Core::$plugin['path']);
+		return Core::$plugin['path'];
 	}
 
-	return plugin_dir_path(Core::$plugin['path']) . $dir;
+	return Core::$plugin['path'] . $dir;
 }
 
 function get_plugin_url($dir = null) {
 	if (empty($dir)) {
-		return plugin_dir_url(Core::$plugin['url']);
+		return Core::$plugin['url'];
 	}
 
-	return plugin_dir_url(Core::$plugin['url']) . $dir;
+	return Core::$plugin['url'] . $dir;
 }
 
 function is_dev() {
