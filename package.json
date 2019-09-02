@@ -9,7 +9,7 @@
         "build:analytic": "webpack --mode=production --analytic"
     },
     "languages": {
-        "team": "Avita Theme <avitatheme@gmail.com>",
+        "team": "Avita Theme <avitatheme.com@gmail.com>",
         "bugReport": "https://avitatheme.com",
         "lastTranslator": "Vu Nam Hung <vunamhung@gmail.com>"
     },
@@ -25,7 +25,7 @@
         "author": "Avita Team",
         "author_uri": "https://avitatheme.com",
         "plugin_uri": "https://avitatheme.com",
-        "document_uri": "https://base.avitatheme.com/documentation",
+        "document_uri": "https://plugin.avitatheme.com/documentation",
         "wp_requires": "5.0",
         "php_requires": "5.6",
         "tested_up_to": "5.1.1",
