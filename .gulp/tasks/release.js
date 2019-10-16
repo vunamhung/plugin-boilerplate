@@ -69,8 +69,6 @@ export function replacePluginTexts() {
 							php_requires: plugin.php_requires,
 							tested_up_to: plugin.tested_up_to,
 							dev_mode: plugin.dev_mode,
-							plugin_file: plugin.constant.plugin_file,
-							plugin_dir: plugin.constant.plugin_dir,
 						},
 					},
 				],
