@@ -11,9 +11,13 @@ import paths from "../paths";
 
 const { plugin } = require("../../package");
 
+export function copyToDropbox() {
+	return gulp.src("dist/*.zip").pipe(gulp.dest("/Users/vunamhung/Dropbox/GearGag/plugins"));
+}
+
 export function zipPlugin() {
 	return gulp
-		.src(`./dist/done/${plugin.name}/**/*`)
+		.src(["./dist/done/**/*", "!**/composer.*"])
 		.pipe(zip(`${plugin.name}.zip`))
 		.pipe(gulp.dest("./dist"));
 }
@@ -24,6 +28,16 @@ export function deleteEmptyDir() {
 
 export function cleanDSStore(done) {
 	const cmd = "find ./src -type f -name '*.DS_Store' -ls -delete",
+		run = exec(cmd);
+
+	run.stdout.pipe(process.stdout);
+	run.stderr.pipe(process.stderr);
+
+	done();
+}
+
+export function updateComposer(done) {
+	const cmd = `cd ./dist/done/${plugin.name}/ && composer dump-autoload --no-interaction --ansi --verbose --optimize`,
 		run = exec(cmd);
 
 	run.stdout.pipe(process.stdout);

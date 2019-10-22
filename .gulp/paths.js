@@ -14,6 +14,13 @@ const paths = {
 			"!src/plugin/assets/js/font/**/*.js",
 			"!src/plugin/src/composer.json",
 			"!src/plugin/src/composer.lock",
+			"!src/plugin/vendor/cmb2/cmb2/languages/*",
+			"!src/plugin/vendor/cmb2/cmb2/CHANGELOG.md",
+			"!src/plugin/vendor/cmb2/cmb2/CONTRIBUTING.md",
+			"!src/plugin/vendor/cmb2/cmb2/example-functions.php",
+			"!src/plugin/vendor/cmb2/cmb2/package-lock.json",
+			"!**/apigen/**",
+			"!**/apigen.neon",
 		],
 	},
 };
