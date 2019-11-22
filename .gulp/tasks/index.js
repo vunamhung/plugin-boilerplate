@@ -8,7 +8,8 @@ import { buildPluginPotFile } from "./language";
 import { readmeToMarkdown } from "./general";
 
 task("build:potFile", buildPluginPotFile);
-task("build:plugin", series(cleanDist, cleanDSStore, copyPlugin, deleteEmptyDir, replacePluginTexts, updateComposer, readmeToMarkdown));
-task("zip:plugin", series(zipPlugin, getPluginSize));
+task("build:plugin", series(cleanDist, cleanDSStore, copyPlugin, deleteEmptyDir, replacePluginTexts, updateComposer));
+task("zip:pluginForGithub", series(zipPlugin));
+task("zip:plugin", series(zipPlugin, readmeToMarkdown, getPluginSize));
 
 task("default", parallel(watchFiles, bsLocal));
