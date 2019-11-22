@@ -66,6 +66,7 @@ export function replacePluginTexts() {
 							name: plugin.name,
 							version: plugin.version,
 							uri: plugin.uri,
+							contributors: plugin.contributors,
 							author: plugin.author,
 							author_uri: plugin.author_uri,
 							plugin_uri: plugin.plugin_uri,
