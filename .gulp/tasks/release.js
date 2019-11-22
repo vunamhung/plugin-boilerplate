@@ -11,10 +11,6 @@ import paths from "../paths";
 
 const { plugin } = require("../../package");
 
-export function copyToDropbox() {
-	return gulp.src("dist/*.zip").pipe(gulp.dest("/Users/vunamhung/Dropbox/GearGag/plugins"));
-}
-
 export function zipPlugin() {
 	return gulp
 		.src(["./dist/done/**/*", "!**/composer.*"])
