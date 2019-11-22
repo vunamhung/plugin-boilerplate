@@ -29,11 +29,11 @@
         "document_uri": "https://plugin.geargag.com/documentation",
         "wp_requires": "5.0",
         "php_requires": "5.6",
-        "tested_up_to": "5.1.1",
+        "tested_up_to": "5.3",
         "dev_mode": "disable",
         "license": "GPL-3.0",
         "license_uri": "http://www.opensource.org/licenses/gpl-license.php",
-        "copyright": "Copyright (c) 2019, GearGagTheme",
+        "copyright": "Copyright (c) 2019, GearGag Team",
         "description": "Next generation site builder for WordPress."
     },
     "devDependencies": {
