@@ -22,6 +22,7 @@ abstract class Core extends Singleton implements Bootable, Initable {
 		$this->prepare();
 		$this->init();
 		$this->register_core();
+		$this->register_assets();
 		$this->boot();
 	}
 
@@ -64,17 +65,19 @@ abstract class Core extends Singleton implements Bootable, Initable {
 		new Constants();
 	}
 
-	abstract public function register_frontend_assets();
+	abstract public function register_core();
 
-	abstract public function register_backend_assets();
-
-	public function register_core() {
+	public function register_assets() {
 		$this->frontend_assets = new Register_Assets($this->register_frontend_assets(), 'frontend');
 		$this->frontend_assets->boot();
 
 		$this->backend_assets = new Register_Assets($this->register_backend_assets(), 'backend');
 		$this->backend_assets->boot();
 	}
+
+	abstract public function register_frontend_assets();
+
+	abstract public function register_backend_assets();
 
 	public function boot() {
 		add_action('plugin_loaded', [$this, 'load_plugin_textdomain']);

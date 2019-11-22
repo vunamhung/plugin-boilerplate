@@ -7,12 +7,19 @@ if (!defined('ABSPATH')) {
 }
 
 final class Plugin extends Core {
+	public $admin;
+
 	public static function instance($main_plugin_file) {
 		if (!(self::$_instance instanceof self)) {
 			self::$_instance = new self($main_plugin_file);
 		}
 
 		return self::$_instance;
+	}
+
+	public function register_core() {
+		$this->admin = new Admin();
+		$this->admin->boot();
 	}
 
 	public function register_frontend_assets() {
