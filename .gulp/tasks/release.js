@@ -78,6 +78,8 @@ export function replacePluginTexts() {
 							description: plugin.description,
 							wp_requires: plugin.wp_requires,
 							php_requires: plugin.php_requires,
+							wc_requires: plugin.wc_requires,
+							wc_tested_up_to: plugin.wc_tested_up_to,
 							tested_up_to: plugin.tested_up_to,
 							dev_mode: plugin.dev_mode,
 						},

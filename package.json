@@ -34,7 +34,9 @@
         "license": "GPL-3.0",
         "license_uri": "http://www.opensource.org/licenses/gpl-license.php",
         "copyright": "Copyright (c) 2019, GearGag Team",
-        "description": "Next generation site builder for WordPress."
+        "description": "Next generation site builder for WordPress.",
+        "wc_requires": "3.2.0",
+        "wc_tested_up_to": "3.8.0"
     },
     "devDependencies": {
         "@babel/core": "^7.7.2",
