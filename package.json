@@ -55,7 +55,7 @@
         "downloadjs": "^1.4.7",
         "duplicate-package-checker-webpack-plugin": "^3.0.0",
         "eslint": "^6.6.0",
-        "esm": "^3.2.22",
+        "esm": "^3.2.25",
         "frontend-dependencies": "^1.1.5",
         "gulp": "^4.0.2",
         "gulp-imagemin": "^6.2.0",

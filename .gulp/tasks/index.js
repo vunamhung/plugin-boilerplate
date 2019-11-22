@@ -8,7 +8,6 @@ import { buildPluginPotFile } from "./language";
 import { readmeToMarkdown } from "./general";
 
 task("build:potFile", buildPluginPotFile);
-task("build:pluginForGithub", series(cleanDSStore, copyPlugin, replacePluginTexts, updateComposer));
 task("build:plugin", series(cleanDist, cleanDSStore, copyPlugin, deleteEmptyDir, replacePluginTexts, updateComposer));
 task("zip:plugin", series(zipPlugin, readmeToMarkdown, getPluginSize));
 

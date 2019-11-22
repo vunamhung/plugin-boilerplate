@@ -13,4 +13,3 @@ dist/
 /src/plugin/languages/
 /src/plugin/assets/css/
 /src/plugin/assets/js/dist
-package-lock.json

@@ -14,8 +14,8 @@ jobs:
       - uses: actions/setup-node@v1.1.0
         with:
           node-version: '11.x'
-      - run: npm install gulp gulp-replace-task
-      - run: gulp build:pluginForGithub
+      - run: npm install
+      - run: gulp build:plugin
       - name: WordPress Plugin Deploy
         uses: geargag/action-wordpress-plugin-deploy@master
         env:
