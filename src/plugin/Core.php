@@ -4,6 +4,7 @@ namespace vnh_namespace;
 
 defined('ABSPATH') || wp_die(esc_html__('Direct access not permitted', 'vnh_textdomain'));
 
+use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\contracts\Bootable;
 use vnh_namespace\tools\contracts\Initable;
 use vnh_namespace\tools\KSES;
@@ -19,6 +20,9 @@ abstract class Core extends Singleton implements Bootable, Initable {
 
 		$this->prepare();
 		$this->init();
+		if (!is_plugin_active('woocommerce/woocommerce.php')) {
+			return;
+		}
 		$this->register_core();
 		$this->register_assets();
 		$this->boot();
@@ -56,11 +60,27 @@ abstract class Core extends Singleton implements Bootable, Initable {
 		];
 	}
 
+	public function install() {
+		do_action('vnh_prefix_install');
+	}
+
+	public function uninstall() {
+		do_action('vnh_prefix_uninstall');
+	}
+
 	public function init() {
 		new Helpers();
 		new Helpers_Global();
 		new KSES();
 		new Constants();
+		if (is_admin()) {
+			$this->admin_notices = new Admin_Notices();
+			$this->admin_notices->boot();
+
+			$this->settings_page = new Settings_Page();
+			$this->settings_page->init();
+			$this->settings_page->boot();
+		}
 	}
 
 	abstract public function register_core();
@@ -85,14 +105,6 @@ abstract class Core extends Singleton implements Bootable, Initable {
 
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain('vnh_textdomain');
-	}
-
-	public function install() {
-		do_action('vnh_prefix_install');
-	}
-
-	public function uninstall() {
-		do_action('vnh_prefix_uninstall');
 	}
 
 	abstract public function enqueue_frontend_assets();

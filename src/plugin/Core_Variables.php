@@ -2,12 +2,24 @@
 
 namespace vnh_namespace;
 
+use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Register_Assets;
 
 trait Core_Variables {
 	public $plugin_file;
 	public $plugin_dir;
 	public static $plugin;
+
+	/**
+	 * @var Settings_Page
+	 */
+	public $settings_page;
+
+	/**
+	 * @var Admin_Notices
+	 */
+	public $admin_notices;
+
 	/**
 	 * @var Register_Assets
 	 */

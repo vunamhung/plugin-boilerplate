@@ -4,7 +4,7 @@ namespace vnh_namespace;
 
 use vnh_namespace\tools\contracts\Bootable;
 
-class Admin implements Bootable {
+class Admin_Notices implements Bootable {
 	public function boot() {
 		add_action('admin_notices', [$this, 'global_note']);
 	}

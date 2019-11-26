@@ -3,6 +3,7 @@ vendor/
 docs/
 dist/
 .env
+wp-cli.local.yml
 
 #IDEA
 .idea/workspace.xml
@@ -11,5 +12,4 @@ dist/
 #PLUGIN
 /src/plugin/vendor/
 /src/plugin/languages/
-/src/plugin/assets/css/
 /src/plugin/assets/js/dist
