@@ -17,6 +17,7 @@ class Settings_Page implements Enqueueable, Initable {
 	public $save_message;
 	public $page_title;
 	public $menu_title;
+	public $sub_menu_title;
 	public $premium_url = 'http://geargag.com/';
 	public $icon_url = 'dashicons-carrot';
 	public $capacity = 'manage_options';
@@ -31,7 +32,8 @@ class Settings_Page implements Enqueueable, Initable {
 		$this->save_message = esc_html__('Settings Saved Successfully', 'vnh_textdomain');
 
 		$this->page_title = sprintf(esc_html__('Welcome to %s', 'vnh_textdomain'), PLUGIN_NAME);
-		$this->menu_title = esc_html__('Settings', 'vnh_textdomain');
+		$this->menu_title = esc_html__('vnh_short_title', 'vnh_textdomain');
+		$this->sub_menu_title = esc_html__('Settings', 'vnh_textdomain');
 	}
 
 	public function init() {
@@ -47,8 +49,8 @@ class Settings_Page implements Enqueueable, Initable {
 
 	public function add_menu_page() {
 		global $submenu;
-		add_menu_page($this->page_title, PLUGIN_NAME, $this->capacity, self::MENU_SLUG, [$this, 'display'], $this->icon_url, 2);
-		add_submenu_page(self::MENU_SLUG, $this->page_title, $this->menu_title, $this->capacity, PLUGIN_SLUG, [$this, 'display']);
+		add_menu_page($this->page_title, $this->menu_title, $this->capacity, self::MENU_SLUG, [$this, 'display'], $this->icon_url, 2);
+		add_submenu_page(self::MENU_SLUG, $this->page_title, $this->sub_menu_title, $this->capacity, PLUGIN_SLUG, [$this, 'display']);
 		$submenu[self::MENU_SLUG][] = [esc_html__('Try Premium Version', 'vnh_textdomain'), $this->capacity, $this->premium_url];
 	}
 
