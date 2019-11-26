@@ -2,6 +2,8 @@
 
 namespace vnh_namespace\tools;
 
+defined('WPINC') || die();
+
 use vnh_namespace\tools\contracts\Bootable;
 use vnh_namespace\tools\contracts\Initable;
 use vnh_namespace\tools\contracts\Renderable;
@@ -14,14 +16,14 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	public $setting_fields;
 
 	public function __construct() {
-		$this->option_name = sprintf('%s_%s_settings', PLUGIN_SLUG, $this->prefix);
+		$this->option_name = sprintf('%s_%s', PLUGIN_SLUG, $this->prefix);
 		$this->setting_fields = $this->register_setting_fields();
-		$this->setting_fields = apply_filters("vnh_prefix/$this->prefix/settings", $this->setting_fields);
+		$this->setting_fields = apply_filters("vnh_prefix/$this->prefix", $this->setting_fields);
 	}
 
 	public function init() {
 		if (!empty($this->default_settings) && empty(get_option($this->option_name))) {
-			add_option($this->option_name, apply_filters("vnh_prefix/$this->prefix/default_settings", $this->default_settings));
+			add_option($this->option_name, apply_filters("vnh_prefix/$this->prefix/defaults", $this->default_settings));
 		}
 	}
 

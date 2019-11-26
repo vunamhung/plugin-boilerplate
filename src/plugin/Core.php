@@ -2,7 +2,7 @@
 
 namespace vnh_namespace;
 
-defined('ABSPATH') || wp_die(esc_html__('Direct access not permitted', 'vnh_textdomain'));
+defined('WPINC') || die();
 
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\contracts\Bootable;

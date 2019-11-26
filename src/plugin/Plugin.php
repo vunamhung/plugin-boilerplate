@@ -2,7 +2,7 @@
 
 namespace vnh_namespace;
 
-defined('ABSPATH') || wp_die(esc_html__('Direct access not permitted', 'vnh_textdomain'));
+defined('WPINC') || die();
 
 final class Plugin extends Core {
 	public static function instance($main_plugin_file) {

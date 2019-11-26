@@ -2,7 +2,7 @@
 
 namespace vnh_namespace;
 
-defined('ABSPATH') || wp_die(esc_html__('Direct access not permitted', 'vnh_textdomain'));
+defined('WPINC') || die();
 
 define(__NAMESPACE__ . '\PLUGIN_NAME', Core::$plugin['name']);
 define(__NAMESPACE__ . '\PLUGIN_DESCRIPTION', Core::$plugin['description']);

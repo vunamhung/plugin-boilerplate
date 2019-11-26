@@ -2,6 +2,8 @@
 
 namespace vnh_namespace\settings_page;
 
+defined('WPINC') || die();
+
 use vnh_namespace\tools\Register_Settings;
 
 class Tab_Settings extends Register_Settings {

@@ -2,6 +2,8 @@
 
 namespace vnh_namespace;
 
+defined('WPINC') || die();
+
 use PAnD;
 use vnh_namespace\tools\contracts\Bootable;
 

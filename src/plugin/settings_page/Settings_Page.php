@@ -2,6 +2,8 @@
 
 namespace vnh_namespace\settings_page;
 
+defined('WPINC') || die();
+
 use vnh_namespace\tools\contracts\Enqueueable;
 use vnh_namespace\tools\contracts\Initable;
 use function vnh_namespace\get_plugin_url;
