@@ -1,0 +1,63 @@
+.toggle {
+	position: relative;
+	display: inline-block;
+	width: 42px;
+	height: 24px;
+	cursor: pointer;
+	transform: translate3d(0, 0, 0);
+
+	-webkit-tap-highlight-color: transparent;
+	&:before {
+		position: relative;
+		top: 1px;
+		left: 1px;
+		display: block;
+		width: 40px;
+		height: 22px;
+		border-radius: 12px;
+		background: #c8ccd4;
+		content: "";
+		transition: background 0.2s ease;
+	}
+	span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background: #fff;
+		box-shadow: 0 2px 6px rgba(154, 153, 153, 0.75);
+		transition: all 0.2s ease;
+		svg {
+			margin: 7px;
+			fill: none;
+			path {
+				transition: all 0.5s linear;
+
+				stroke: #c8ccd4;
+				stroke-dasharray: 24;
+				stroke-dashoffset: 0;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+				stroke-width: 2;
+			}
+		}
+	}
+}
+
+.input-toggle {
+	display: none !important;
+	&:checked + .toggle:before {
+		background: #52d66b;
+	}
+	&:checked + .toggle span {
+		transform: translateX(18px);
+	}
+	&:checked + .toggle span path {
+		stroke: #52d66b;
+		stroke-dasharray: 25;
+		stroke-dashoffset: 25;
+	}
+}

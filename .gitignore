@@ -13,3 +13,4 @@ wp-cli.local.yml
 /src/plugin/vendor/
 /src/plugin/languages/
 /src/plugin/assets/js/dist
+/src/plugin/assets/css

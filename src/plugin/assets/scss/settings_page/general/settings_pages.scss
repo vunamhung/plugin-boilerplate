@@ -133,77 +133,6 @@
 	font-family: Consolas, Monaco, monospace;
 }
 
-.toggle {
-	position: relative;
-	display: inline-block;
-	width: 42px;
-	height: 24px;
-	cursor: pointer;
-	transform: translate3d(0, 0, 0);
-
-	-webkit-tap-highlight-color: transparent;
-}
-
-.toggle:before {
-	position: relative;
-	top: 1px;
-	left: 1px;
-	display: block;
-	width: 40px;
-	height: 22px;
-	border-radius: 12px;
-	background: #c8ccd4;
-	content: "";
-	transition: background 0.2s ease;
-}
-
-.toggle span {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	background: #fff;
-	box-shadow: 0 2px 6px rgba(154, 153, 153, 0.75);
-	transition: all 0.2s ease;
-}
-
-.toggle span svg {
-	margin: 7px;
-	fill: none;
-}
-
-.toggle span svg path {
-	transition: all 0.5s linear;
-
-	stroke: #c8ccd4;
-	stroke-dasharray: 24;
-	stroke-dashoffset: 0;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	stroke-width: 2;
-}
-
-.input-toggle {
-	display: none !important;
-}
-
-.input-toggle:checked + .toggle:before {
-	background: #52d66b;
-}
-
-.input-toggle:checked + .toggle span {
-	transform: translateX(18px);
-}
-
-.input-toggle:checked + .toggle span path {
-	stroke: #52d66b;
-	stroke-dasharray: 25;
-	stroke-dashoffset: 25;
-}
-
 .successModal {
 	position: fixed;
 	right: 20px;
@@ -223,18 +152,19 @@ div.settings h2 {
 	font-size: 2em;
 }
 
-.form-table .tooltip {
-	position: absolute;
-	left: 0;
-	margin-top: 3px;
-	margin-bottom: 0;
-	max-width: 205px;
-	background: #f1f1f1;
-	font-size: 75%;
-	opacity: 0;
-	transition: .3s;
-}
-
-.form-table tr:hover .tooltip {
-	opacity: 1;
+.form-table {
+	.tooltip {
+		position: absolute;
+		left: 0;
+		margin-top: 3px;
+		margin-bottom: 0;
+		max-width: 205px;
+		background: #f1f1f1;
+		font-size: 75%;
+		opacity: 0;
+		transition: .3s;
+	}
+	tr:hover .tooltip {
+		opacity: 1;
+	}
 }
