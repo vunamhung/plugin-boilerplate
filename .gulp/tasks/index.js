@@ -6,9 +6,11 @@ import { cleanDist, cleanDSStore, copyPlugin, deleteEmptyDir, updateComposer } f
 import { getPluginSize, replacePluginTexts, zipPlugin } from "./release";
 import { buildPluginPotFile } from "./language";
 import { readmeToMarkdown } from "./general";
+import { linkPlugin } from "./setup";
 
 task("build:potFile", buildPluginPotFile);
 task("build:plugin", series(cleanDist, cleanDSStore, copyPlugin, deleteEmptyDir, replacePluginTexts, updateComposer));
 task("zip:plugin", series(zipPlugin, readmeToMarkdown, getPluginSize));
 
+task("link:plugin", parallel(linkPlugin));
 task("default", parallel(watchFiles, bsLocal));
