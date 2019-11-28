@@ -8,7 +8,7 @@ use vnh_namespace\tools\Register_Assets;
 trait Core_Variables {
 	public $plugin_file;
 	public $plugin_dir;
-	public static $plugin;
+	public static $info;
 
 	/**
 	 * @var Settings_Page

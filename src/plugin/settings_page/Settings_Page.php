@@ -4,19 +4,13 @@ namespace vnh_namespace\settings_page;
 
 defined('WPINC') || die();
 
-use vnh_namespace\tools\contracts\Enqueueable;
 use vnh_namespace\tools\contracts\Initable;
-use function vnh_namespace\get_plugin_url;
-use function vnh_namespace\is_plugin_settings_page;
 use const vnh_namespace\PLUGIN_DESCRIPTION;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
 use const vnh_namespace\PLUGIN_VERSION;
 
-class Settings_Page implements Enqueueable, Initable {
-	public $css_file;
-	public $js_file;
-	public $save_message;
+class Settings_Page implements Initable {
 	public $page_title;
 	public $menu_title;
 	public $sub_menu_title;
@@ -26,13 +20,8 @@ class Settings_Page implements Enqueueable, Initable {
 	public $settings;
 
 	const MENU_SLUG = PLUGIN_SLUG;
-	const HANDLE = PLUGIN_SLUG . '-settings-page';
 
 	public function __construct() {
-		$this->css_file = get_plugin_url('assets/css/settings_page.css');
-		$this->js_file = get_plugin_url('assets/js/settings-page.js');
-		$this->save_message = esc_html__('Settings Saved Successfully', 'vnh_textdomain');
-
 		$this->page_title = sprintf(esc_html__('Welcome to %s', 'vnh_textdomain'), PLUGIN_NAME);
 		$this->menu_title = esc_html__('vnh_short_name', 'vnh_textdomain');
 		$this->sub_menu_title = esc_html__('Settings', 'vnh_textdomain');
@@ -46,7 +35,6 @@ class Settings_Page implements Enqueueable, Initable {
 
 	public function boot() {
 		add_action('admin_menu', [$this, 'add_menu_page']);
-		add_action('admin_enqueue_scripts', [$this, 'enqueue']);
 	}
 
 	public function add_menu_page() {
@@ -54,18 +42,6 @@ class Settings_Page implements Enqueueable, Initable {
 		add_menu_page($this->page_title, $this->menu_title, $this->capacity, self::MENU_SLUG, [$this, 'display'], $this->icon_url, 2);
 		add_submenu_page(self::MENU_SLUG, $this->page_title, $this->sub_menu_title, $this->capacity, PLUGIN_SLUG, [$this, 'display']);
 		$submenu[self::MENU_SLUG][] = [esc_html__('Try Premium Version', 'vnh_textdomain'), $this->capacity, $this->premium_url];
-	}
-
-	public function enqueue() {
-		if (!is_plugin_settings_page()) {
-			return;
-		}
-
-		wp_enqueue_style(self::HANDLE, $this->css_file, [], PLUGIN_VERSION);
-		wp_enqueue_script(self::HANDLE, $this->js_file, ['jquery', 'jquery-form'], PLUGIN_VERSION, true);
-		wp_localize_script(self::HANDLE, 'settingsPage', [
-			'saveMessage' => $this->save_message,
-		]);
 	}
 
 	public function general_info() {

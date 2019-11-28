@@ -39,18 +39,18 @@ function flatten_version($version) {
 
 function get_plugin_path($dir = null) {
 	if (empty($dir)) {
-		return Core::$plugin['path'];
+		return Plugin::$info['path'];
 	}
 
-	return Core::$plugin['path'] . $dir;
+	return Plugin::$info['path'] . $dir;
 }
 
 function get_plugin_url($dir = null) {
 	if (empty($dir)) {
-		return Core::$plugin['url'];
+		return Plugin::$info['url'];
 	}
 
-	return Core::$plugin['url'] . $dir;
+	return Plugin::$info['url'] . $dir;
 }
 
 function is_dev() {

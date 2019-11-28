@@ -5,6 +5,14 @@ namespace vnh_namespace\tools;
 abstract class Singleton {
 	protected static $_instance;
 
+	public static function instance($plugin_file) {
+		if (!(self::$_instance instanceof self)) {
+			self::$_instance = new static($plugin_file);
+		}
+
+		return self::$_instance;
+	}
+
 	/**
 	 * Clone.
 	 *
