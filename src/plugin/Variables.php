@@ -5,7 +5,7 @@ namespace vnh_namespace;
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Register_Assets;
 
-trait Core_Variables {
+trait Variables {
 	public $plugin_file;
 	public $plugin_dir;
 	public static $info;

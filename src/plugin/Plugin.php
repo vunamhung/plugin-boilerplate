@@ -13,7 +13,7 @@ use vnh_namespace\tools\Register_Assets;
 use vnh_namespace\tools\Singleton;
 
 final class Plugin extends Singleton implements Loadable, Bootable, Initable {
-	use Core_Variables;
+	use Variables;
 
 	protected function __construct($plugin_file) {
 		$this->plugin_file = $plugin_file;
