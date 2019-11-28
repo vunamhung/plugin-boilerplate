@@ -32,27 +32,11 @@ abstract class Core extends Singleton implements Bootable, Initable {
 		register_activation_hook($this->plugin_file, [$this, 'install']);
 		register_deactivation_hook($this->plugin_file, [$this, 'uninstall']);
 
-		if (empty($GLOBALS['wp_filesystem'])) {
-			require_once ABSPATH . 'wp-admin/includes/file.php';
-			WP_Filesystem();
-		}
-
-		if (!function_exists('get_plugin_data')) {
+		if (!function_exists('is_plugin_active')) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$plugin = get_plugin_data($this->plugin_file);
-
 		self::$plugin = [
-			'name' => $plugin['Name'],
-			'description' => $plugin['Description'],
-			'uri' => $plugin['PluginURI'],
-			'version' => $plugin['Version'],
-			'author_name' => $plugin['AuthorName'],
-			'author_uri' => $plugin['AuthorURI'],
-			'textdomain' => $plugin['TextDomain'],
-			'author' => $plugin['Author'],
-			'title' => $plugin['Title'],
 			'base' => plugin_basename($this->plugin_file),
 			'slug' => basename($this->plugin_dir),
 			'path' => trailingslashit($this->plugin_dir),

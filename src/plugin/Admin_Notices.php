@@ -21,7 +21,7 @@ class Admin_Notices implements Bootable {
 
 			printf(
 				'<div id="message" data-dismissible="disable-woo-forever" class="notice notice-error is-dismissible"><p>%s</p></div>',
-				esc_html__('Please install and activate WooCommerce to use vnh_title plugin.', 'vnh_textdomain')
+				esc_html__('Please install and activate WooCommerce to use vnh_name plugin.', 'vnh_textdomain')
 			);
 		}
 		if (is_plugin_active('vnh_name-pro/index.php')) {

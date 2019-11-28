@@ -34,7 +34,7 @@ class Settings_Page implements Enqueueable, Initable {
 		$this->save_message = esc_html__('Settings Saved Successfully', 'vnh_textdomain');
 
 		$this->page_title = sprintf(esc_html__('Welcome to %s', 'vnh_textdomain'), PLUGIN_NAME);
-		$this->menu_title = esc_html__('vnh_short_title', 'vnh_textdomain');
+		$this->menu_title = esc_html__('vnh_short_name', 'vnh_textdomain');
 		$this->sub_menu_title = esc_html__('Settings', 'vnh_textdomain');
 	}
 

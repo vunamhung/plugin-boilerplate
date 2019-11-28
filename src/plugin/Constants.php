@@ -4,18 +4,17 @@ namespace vnh_namespace;
 
 defined('WPINC') || die();
 
-define(__NAMESPACE__ . '\PLUGIN_NAME', Core::$plugin['name']);
-define(__NAMESPACE__ . '\PLUGIN_DESCRIPTION', Core::$plugin['description']);
-define(__NAMESPACE__ . '\PLUGIN_URI', Core::$plugin['uri']);
-define(__NAMESPACE__ . '\PLUGIN_VERSION', Core::$plugin['version']);
-define(__NAMESPACE__ . '\PLUGIN_TITLE', Core::$plugin['title']);
-define(__NAMESPACE__ . '\PLUGIN_BASE', Core::$plugin['base']);
+define(__NAMESPACE__ . '\PLUGIN_NAME', 'vnh_name');
+define(__NAMESPACE__ . '\PLUGIN_DESCRIPTION', 'vnh_description');
+define(__NAMESPACE__ . '\PLUGIN_URI', 'vnh_uri');
+define(__NAMESPACE__ . '\PLUGIN_VERSION', 'vnh_version');
+define(__NAMESPACE__ . '\PLUGIN_TEXT_DOMAIN', 'vnh_slug');
+define(__NAMESPACE__ . '\PLUGIN_AUTHOR', 'vnh_author');
+define(__NAMESPACE__ . '\PLUGIN_AUTHOR_NAME', 'vnh_author_name');
+define(__NAMESPACE__ . '\PLUGIN_AUTHOR_URI', 'vnh_author_uri');
+define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', 'vnh_document_uri');
 define(__NAMESPACE__ . '\PLUGIN_SLUG', Core::$plugin['slug']);
-define(__NAMESPACE__ . '\PLUGIN_TEXT_DOMAIN', Core::$plugin['textdomain']);
-define(__NAMESPACE__ . '\PLUGIN_AUTHOR', Core::$plugin['author']);
-define(__NAMESPACE__ . '\PLUGIN_AUTHOR_NAME', Core::$plugin['author_name']);
-define(__NAMESPACE__ . '\PLUGIN_AUTHOR_URI', Core::$plugin['author_uri']);
-define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', 'https://geargag.com');
+define(__NAMESPACE__ . '\PLUGIN_BASE', Core::$plugin['base']);
 
 const DS = DIRECTORY_SEPARATOR;
 const DEV_MODE = 'vnh_dev_mode';

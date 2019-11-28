@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: vnh_title
+ * Plugin Name: vnh_name
  * Description: vnh_description
  * Version: vnh_version
  * Tags: vnh_tags

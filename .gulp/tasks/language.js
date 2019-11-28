@@ -9,5 +9,5 @@ export function buildPluginPotFile() {
 	return src("src/theme/**/*.php")
 		.pipe(sort())
 		.pipe(wpPot({ bugReport, team, lastTranslator }))
-		.pipe(dest(`src/theme/languages/${plugin.name}.pot`));
+		.pipe(dest(`src/theme/languages/${plugin.slug}.pot`));
 }
