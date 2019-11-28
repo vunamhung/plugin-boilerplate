@@ -199,21 +199,6 @@ class Tab_Diagnostic_Info implements Renderable {
 			'WP_PLUGIN_URL' => defined('WP_PLUGIN_URL') && WP_PLUGIN_URL ? WP_PLUGIN_URL : $not_defined,
 		];
 
-		$diagnostic_info['core'] = [
-			__('Kirki', 'vnh_textdomain') => current_theme_supports('core_kirki') ? $enable : $disable,
-			__('Advanced Custom Fields', 'vnh_textdomain') => current_theme_supports('core_acf') ? $enable : $disable,
-			__('Custom Post Type UI', 'vnh_textdomain') => current_theme_supports('core_cptui') ? $enable : $disable,
-			__('Gutenberg Ramp', 'vnh_textdomain') => current_theme_supports('core_gutenberg_ramp') ? $enable : $disable,
-			__('SVG Upload', 'vnh_textdomain') => current_theme_supports('core_svg_upload') ? $enable : $disable,
-			__('Recommend Plugins', 'vnh_textdomain') => current_theme_supports('core_recommend_plugins') ? $enable : $disable,
-			__('Generate Child Theme', 'vnh_textdomain') => current_theme_supports('core_generate_child_theme') ? $enable : $disable,
-			__('Social Menu', 'vnh_textdomain') => current_theme_supports('core_social_menu') ? $enable : $disable,
-			__('SVG Icons', 'vnh_textdomain') => current_theme_supports('core_svg_icons') ? $enable : $disable,
-			__('Cookie Notice', 'vnh_textdomain') => current_theme_supports('core_cookie_notice') ? $enable : $disable,
-			__('Maintenance Mode', 'vnh_textdomain') => current_theme_supports('core_maintenance_mode') ? $enable : $disable,
-			__('Instant Page', 'vnh_textdomain') => current_theme_supports('core_instant_page') ? $enable : $disable,
-		];
-
 		$theme_info_log = [
 			__('Active Theme Name', 'vnh_textdomain') => PLUGIN_NAME,
 			__('Active Theme Folder', 'vnh_textdomain') => $theme_dir,
