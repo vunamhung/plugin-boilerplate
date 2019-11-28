@@ -103,23 +103,19 @@ class Settings_Page implements Enqueueable, Initable {
 			__('Settings', 'vnh_textdomain')
 		);
 
-		if (apply_filters('core/enable/changelog', true)) {
-			$tabs .= sprintf(
-				'<a href="%s" class="nav-tab %s">%s</a>',
-				add_query_arg(['page' => PLUGIN_SLUG, 'tab' => 'changelog'], admin_url('admin.php')),
-				$active_tab === 'changelog' ? 'nav-tab-active' : null,
-				__('Changelog', 'vnh_textdomain')
-			);
-		}
+		$tabs .= sprintf(
+			'<a href="%s" class="nav-tab %s">%s</a>',
+			add_query_arg(['page' => PLUGIN_SLUG, 'tab' => 'changelog'], admin_url('admin.php')),
+			$active_tab === 'changelog' ? 'nav-tab-active' : null,
+			__('Changelog', 'vnh_textdomain')
+		);
 
-		if (apply_filters('core/enable/diagnostic', true)) {
-			$tabs .= sprintf(
-				'<a href="%s" class="nav-tab %s">%s</a>',
-				add_query_arg(['page' => PLUGIN_SLUG, 'tab' => 'diagnostic'], admin_url('admin.php')),
-				$active_tab === 'diagnostic' ? 'nav-tab-active' : null,
-				__('Diagnostic Info', 'vnh_textdomain')
-			);
-		}
+		$tabs .= sprintf(
+			'<a href="%s" class="nav-tab %s">%s</a>',
+			add_query_arg(['page' => PLUGIN_SLUG, 'tab' => 'diagnostic'], admin_url('admin.php')),
+			$active_tab === 'diagnostic' ? 'nav-tab-active' : null,
+			__('Diagnostic Info', 'vnh_textdomain')
+		);
 
 		return $tabs;
 	}

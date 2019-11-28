@@ -55,8 +55,8 @@ abstract class Core extends Singleton implements Bootable, Initable {
 	public function init() {
 		new Helpers();
 		new Helpers_Global();
-		new KSES();
 		new Constants();
+		new KSES();
 		if (is_admin()) {
 			$this->admin_notices = new Admin_Notices();
 			$this->admin_notices->boot();

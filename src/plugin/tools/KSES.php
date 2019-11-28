@@ -432,10 +432,7 @@ class KSES {
 	}
 
 	public function allowed_html($allowed_tags, $context) {
-		$contexts = !empty(get_theme_support('kses_contexts')[0]) ? get_theme_support('kses_contexts')[0] : [];
-		$contexts = wp_parse_args($contexts, $this->context);
-
-		foreach ($contexts as $name => $tags) {
+		foreach ($this->context as $name => $tags) {
 			if ($context === $name) {
 				$allowed_tags = $tags;
 			}
