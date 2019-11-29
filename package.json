@@ -91,11 +91,23 @@
     },
     "frontendDependencies": {
         "packages": {
-            "headroom.js": {
+            "spectre.css": {
                 "version": "latest",
-                "src": "dist/{headroom,headroom.min}.js",
+                "src": "src/*",
                 "namespaced": true,
-                "target": "src/theme/assets/libs"
+                "target": "src/plugin/assets/libs"
+            },
+            "hint.css": {
+                "version": "latest",
+                "src": "src/*",
+                "namespaced": true,
+                "target": "src/plugin/assets/libs"
+            },
+            "family.scss": {
+                "version": "latest",
+                "src": "source/src/*",
+                "namespaced": true,
+                "target": "src/plugin/assets/libs"
             }
         }
     },
