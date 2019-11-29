@@ -1,0 +1,45 @@
+@mixin grid($breakpoint, $grid_template_columns, $grid_column_gap: -1, $grid_row_gap: -1) {
+	@extend %grid;
+	@include media-breakpoint-up($breakpoint) {
+		grid-template-columns: $grid_template_columns;
+		@if $grid_column_gap != -1 {
+			grid-column-gap: $grid_column_gap;
+		}
+		@if $grid_row_gap != -1 {
+			grid-row-gap: $grid_row_gap;
+		}
+		@content;
+	}
+}
+
+@mixin is-translated($width: 100%) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: auto;
+	width: $width;
+	transform: translate(-50%, -50%);
+}
+
+@mixin aspect-ratio($ratio-or-width, $height: null) {
+	$padding: if($height, percentage($height/$ratio-or-width), percentage(1 / $ratio-or-width));
+	display: inline-block;
+	&:before {
+		float: left;
+		padding-bottom: $padding;
+		content: "";
+	}
+	&:after {
+		display: table;
+		clear: both;
+		content: "";
+	}
+}
+
+@mixin clearfix() {
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}

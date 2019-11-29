@@ -1,0 +1,58 @@
+%grid {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-row-gap: $grid-row-gap;
+	grid-column-gap: $grid-column-gap;
+	> * {
+		min-width: 0;
+		max-width: 100%;
+	}
+}
+
+%contain {
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $container-gutter;
+	padding-left: $container-gutter;
+}
+
+%container {
+	@extend %contain;
+	@each $breakpoint, $max-width in $container-max-widths {
+		@if $breakpoint == xl {
+			@include media-breakpoint-up($breakpoint) {
+				width: $max-width;
+			}
+		} @else {
+			@include media-breakpoint-only($breakpoint) {
+				width: $max-width;
+			}
+		}
+	}
+}
+
+%container-fluid {
+	width: auto;
+	@each $breakpoint, $gutter in $container-fluid-gutter {
+		@if $breakpoint == xl {
+			@include media-breakpoint-up($breakpoint) {
+				padding-right: $gutter;
+				padding-left: $gutter;
+			}
+		} @else {
+			@include media-breakpoint-only($breakpoint) {
+				padding-right: $gutter;
+				padding-left: $gutter;
+			}
+		}
+	}
+}
+
+.container {
+	@extend %container;
+}
+
+.container-fluid {
+	@extend %container-fluid;
+}

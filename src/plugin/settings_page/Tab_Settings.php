@@ -20,9 +20,46 @@ class Tab_Settings extends Register_Settings {
 				'fields' => [
 					[
 						'id' => 'enable',
-						'name' => __('Enable', 'vnh_textdomain'),
+						'name' => __('Toggle', 'vnh_textdomain'),
 						'tooltip' => __('On/off global', 'vnh_textdomain'),
 						'type' => 'toggle',
+					],
+					[
+						'id' => 'text',
+						'name' => __('Text', 'vnh_textdomain'),
+						'tooltip' => __('On/off global', 'vnh_textdomain'),
+						'placeholder' => __('Enter your text here', 'vnh_textdomain'),
+						'type' => 'text',
+					],
+					[
+						'id' => 'textarea',
+						'name' => __('Textarea', 'vnh_textdomain'),
+						'tooltip' => __('On/off global', 'vnh_textdomain'),
+						'placeholder' => __('Enter your text here', 'vnh_textdomain'),
+						'type' => 'textarea',
+					],
+					[
+						'id' => 'select',
+						'name' => __('Select', 'vnh_textdomain'),
+						'tooltip' => __('On/off global', 'vnh_textdomain'),
+						'type' => 'select',
+						'options' => [
+							'option_1' => __('Option 1', 'vnh_textdomain'),
+							'option_2' => __('Option 2', 'vnh_textdomain'),
+							'option_3' => __('Option 3', 'vnh_textdomain'),
+						],
+					],
+					[
+						'id' => 'number',
+						'name' => __('Number', 'vnh_textdomain'),
+						'tooltip' => __('On/off global', 'vnh_textdomain'),
+						'placeholder' => __('Enter your number here', 'vnh_textdomain'),
+						'type' => 'number',
+						'options' => [
+							'min' => 0,
+							'max' => 100,
+							'step' => 1,
+						],
 					],
 				],
 			],

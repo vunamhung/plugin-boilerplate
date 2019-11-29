@@ -1,0 +1,11 @@
+@function _strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@function resunit($max, $min: $max/2, $min_vw: map_get($grid-breakpoints, sm), $max_vw: map_get($grid-breakpoints, ul)) {
+	@return calc(#{$min} + (#{_strip-unit($max - $min)}) * ((100vw - #{$min_vw}) / (#{_strip-unit($max_vw - $min_vw)})));
+}
+
+@function baseline($level) {
+	@return $base_font_size * $base_line_height * $level;
+}

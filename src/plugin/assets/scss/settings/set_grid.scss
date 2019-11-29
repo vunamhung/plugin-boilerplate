@@ -1,0 +1,25 @@
+$grid-max-columns: 12;
+$grid-row-gap: baseline(1);
+$grid-column-gap: baseline(1);
+$grid-breakpoints: (
+	xs: 0,
+	sm: 370px,
+	md: 768px,
+	lg: 992px,
+	xl: 1280px,
+);
+$container-gutter: baseline(1);
+$container-max-widths: (
+	xs: 100%,
+	sm: 550px,
+	md: 746px,
+	lg: 946px,
+	xl: 1210px,
+);
+$container-fluid-gutter: (
+	xs: baseline(1),
+	sm: baseline(1),
+	md: baseline(1),
+	lg: baseline(2),
+	xl: baseline(3),
+);

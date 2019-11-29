@@ -91,7 +91,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	 * Output setting field
 	 *
 	 * @param $args
-	 * @uses display_field_toggle, display_field_number
+	 * @uses display_field_toggle(), display_field_text(), display_field_textarea(), display_field_select(), display_field_number()
 	 */
 	public function display_field($args) {
 		$field = $args['field'];
@@ -109,18 +109,72 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		$label =
 			'<label for="%1$s" class="toggle"><span><svg width="10px" height="10px" ><path d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z"></path></svg></span></label>';
 
-		printf(
+		$output = sprintf(
 			'<input type="checkbox" name="%1$s" class="input-toggle" id="%1$s" value="true" %2$s/>' . $label . $tooltip,
-			sprintf('%s[%s]', $this->option_name, $field['id']),
+			$this->get_name_attr($field),
 			!empty($option[$field['id']]) ? 'checked' : null
 		);
+
+		echo $output;
+	}
+
+	public function display_field_text($field, $option) {
+		$output = sprintf(
+			'<input type="text" name="%1$s" id="%1$s" %3$s value="%2$s"/>',
+			$this->get_name_attr($field),
+			!empty($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
+			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null
+		);
+
+		echo $output;
+	}
+
+	public function display_field_textarea($field, $option) {
+		$output = sprintf(
+			'<textarea name="%1$s" id="%1$s" %3$s >%2$s</textarea>',
+			$this->get_name_attr($field),
+			!empty($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
+			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null
+		);
+
+		echo $output;
+	}
+
+	public function display_field_select($field, $option) {
+		$options = '';
+		foreach ($field['options'] as $value => $label) {
+			$options .= sprintf(
+				'<option %1$s value="%2$s">%3$s</option>',
+				$option[$field['id']] === $value ? 'selected="selected"' : '',
+				$value,
+				$label
+			);
+		}
+		$output = sprintf(
+			'<select type="text" name="%1$s" id="%1$s" %2$s>%3$s</select>',
+			$this->get_name_attr($field),
+			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null,
+			$options
+		);
+
+		echo $output;
 	}
 
 	public function display_field_number($field, $option) {
-		printf(
-			'<input type="number" min="0" max="100" name="%1$s" id="%1$s" value="%2$s"/>',
-			sprintf('%s[%s]', $this->option_name, $field['id']),
-			!empty($option[$field['id']]) ? $option[$field['id']] : null
+		$output = sprintf(
+			'<input type="number" name="%1$s" id="%1$s" %3$s %4$s %5$s %6$s value="%2$s"/>',
+			$this->get_name_attr($field),
+			isset($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
+			isset($field['options']['min']) ? sprintf('min="%s"', esc_attr($field['options']['min'])) : null,
+			isset($field['options']['max']) ? sprintf('max="%s"', esc_attr($field['options']['max'])) : null,
+			isset($field['options']['step']) ? sprintf('step="%s"', esc_attr($field['options']['step'])) : null,
+			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null
 		);
+
+		echo $output;
+	}
+
+	protected function get_name_attr($field) {
+		return sprintf('%s[%s]', $this->option_name, esc_html($field['id']));
 	}
 }

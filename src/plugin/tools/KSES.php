@@ -218,6 +218,7 @@ class KSES {
 			],
 			'input' => [
 				'type' => true,
+				'placeholder' => true,
 				'id' => true,
 				'class' => true,
 				'field_name' => true,
