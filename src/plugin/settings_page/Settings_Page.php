@@ -9,12 +9,13 @@ use const vnh_namespace\PLUGIN_DESCRIPTION;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
 use const vnh_namespace\PLUGIN_VERSION;
+use const vnh_namespace\PREMIUM_URL;
 
 class Settings_Page implements Initable {
 	public $page_title;
 	public $menu_title;
 	public $sub_menu_title;
-	public $premium_url = 'http://geargag.com/';
+	public $premium_url = PREMIUM_URL;
 	public $icon_url = 'dashicons-carrot';
 	public $capacity = 'manage_options';
 	public $settings;

@@ -16,4 +16,4 @@
  */
 
 require __DIR__ . '/vendor/autoload.php';
-vnh_namespace\Plugin::instance(__FILE__);
+vnh_namespace\Plugin::instance();

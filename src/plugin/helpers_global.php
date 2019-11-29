@@ -25,6 +25,3 @@ function fs() {
 
 	return $wp_filesystem;
 }
-
-class Helpers_Global {
-}

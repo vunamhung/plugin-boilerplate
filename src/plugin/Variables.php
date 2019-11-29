@@ -6,10 +6,6 @@ use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Register_Assets;
 
 trait Variables {
-	public $plugin_file;
-	public $plugin_dir;
-	public static $info;
-
 	/**
 	 * @var Settings_Page
 	 */

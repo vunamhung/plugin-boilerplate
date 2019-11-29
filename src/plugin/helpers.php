@@ -39,23 +39,20 @@ function flatten_version($version) {
 
 function get_plugin_path($dir = null) {
 	if (empty($dir)) {
-		return Plugin::$info['path'];
+		return PLUGIN_PATH;
 	}
 
-	return Plugin::$info['path'] . $dir;
+	return PLUGIN_PATH . $dir;
 }
 
 function get_plugin_url($dir = null) {
 	if (empty($dir)) {
-		return Plugin::$info['url'];
+		return PLUGIN_URL;
 	}
 
-	return Plugin::$info['url'] . $dir;
+	return PLUGIN_URL . $dir;
 }
 
 function is_dev() {
 	return (defined(__NAMESPACE__ . '\DEV_MODE') && DEV_MODE !== 'disable') || isset($_GET['dev']);
-}
-
-class Helpers {
 }

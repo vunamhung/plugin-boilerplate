@@ -24,8 +24,8 @@ class Admin_Notices implements Bootable {
 				esc_html__('Please install and activate WooCommerce to use vnh_name plugin.', 'vnh_textdomain')
 			);
 		}
-		if (is_plugin_active('vnh_name-pro/index.php')) {
-			deactivate_plugins(PLUGIN_BASE);
+		if (is_plugin_active('vnh_slug-pro/index.php')) {
+			deactivate_plugins('vnh_slug/index.php');
 			unset($_GET['activate']);
 		}
 	}

@@ -15,16 +15,7 @@ use vnh_namespace\tools\Singleton;
 final class Plugin extends Singleton implements Loadable, Bootable, Initable {
 	use Variables;
 
-	protected function __construct($plugin_file) {
-		$this->plugin_file = $plugin_file;
-		$this->plugin_dir = dirname($plugin_file);
-		self::$info = [
-			'base' => plugin_basename($plugin_file),
-			'slug' => basename(dirname($plugin_file)),
-			'path' => trailingslashit(dirname($plugin_file)),
-			'url' => plugin_dir_url($plugin_file),
-		];
-
+	protected function __construct() {
 		$this->load();
 		$this->init();
 		$this->core();
@@ -39,10 +30,8 @@ final class Plugin extends Singleton implements Loadable, Bootable, Initable {
 	}
 
 	public function init() {
-		new Helpers();
-		new Helpers_Global();
-		new Constants();
 		new KSES();
+
 		if (is_admin()) {
 			$this->admin_notices = new Admin_Notices();
 			$this->admin_notices->boot();
