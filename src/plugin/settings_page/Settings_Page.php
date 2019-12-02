@@ -6,6 +6,7 @@ defined('WPINC') || die();
 
 use vnh_namespace\tools\contracts\Initable;
 use function vnh_namespace\get_plugin_url;
+use function vnh_namespace\is_plugin_settings_page;
 use const vnh_namespace\PLUGIN_DESCRIPTION;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
@@ -27,7 +28,7 @@ class Settings_Page implements Initable {
 	public function __construct() {
 		$this->page_title = sprintf(esc_html__('Welcome to %s', 'vnh_textdomain'), PLUGIN_NAME);
 		$this->menu_title = esc_html__('vnh_short_name', 'vnh_textdomain');
-		$this->sub_menu_title = esc_html__('Settings', 'vnh_textdomain');
+		$this->sub_menu_title = esc_html__('Get Started', 'vnh_textdomain');
 		$this->plugins_list = [
 			[
 				'name' => __('GearGag Feed', 'vnh_textdomain'),
@@ -75,7 +76,16 @@ class Settings_Page implements Initable {
 	}
 
 	public function boot() {
+		add_filter('admin_body_class', [$this, 'body_class'], 10, 2);
 		add_action('admin_menu', [$this, 'add_menu_page']);
+	}
+
+	public function body_class($classes) {
+		if (is_plugin_settings_page()) {
+			$classes .= 'settings-page';
+		}
+
+		return $classes;
 	}
 
 	public function add_menu_page() {
@@ -94,16 +104,20 @@ class Settings_Page implements Initable {
 	}
 
 	public function general_info() {
-		$html = sprintf('<h1>' . esc_html__('Welcome to %1$s - Version %2$s', 'vnh_textdomain') . '</h1>', PLUGIN_NAME, PLUGIN_VERSION);
+		$html = sprintf(
+			'<h1>' . __('Getting Started with <strong>%1$s</strong> <code>%2$s</code>', 'vnh_textdomain') . '</h1>',
+			PLUGIN_NAME,
+			PLUGIN_VERSION
+		);
 		$html .= sprintf('<div class="about-text">%s</div>', PLUGIN_DESCRIPTION);
 
 		return $html;
 	}
 
 	public function display() {
-		$active_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : null; //phpcs:disable
+		$active_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : null;
 
-		$html = '<div class="wrap about-wrap theme_info_wrapper">';
+		$html = '<div class="wrapper">';
 		$html .= $this->general_info();
 		$html .= '<div class="nav-tab-wrapper">';
 		$html .= $this->get_nav_link(null, $active_tab, __('Settings', 'vnh_textdomain'));
@@ -127,7 +141,7 @@ class Settings_Page implements Initable {
 	public function extra() {
 		$active_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : null; //phpcs:disable
 
-		$html = '<div class="wrap about-wrap theme_info_wrapper">';
+		$html = '<div class="wrapper">';
 		$html .= $this->general_info();
 		$html .= '<div class="nav-tab-wrapper">';
 		$html .= $this->get_nav_link(null, $active_tab, __('Hot plugins', 'vnh_textdomain'));

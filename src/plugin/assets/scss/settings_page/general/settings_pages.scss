@@ -1,170 +1,96 @@
-.theme_info_wrapper .about-text,
-.theme_info_wrapper h1 {
-	margin-right: 0;
-}
-
-.theme_info_wrapper p span {
-	margin-left: 30px;
-}
-
-.info-tab-content {
-	margin: 50px 0;
-}
-
-.theme_info_left {
-	float: left;
-	margin-right: 4%;
-	width: 39%;
-}
-
-.theme_info_right {
-	float: left;
-	width: 57%;
-}
-
-.theme_info_right img {
-	width: 100%;
-	box-shadow: 0 0 15px 0 rgba(0, 0, 0, .1);
-}
-
-.theme_info h3 {
-	margin-top: 0;
-	margin-bottom: 10px;
-	font-size: 17px;
-}
-
-.theme_info h4 {
-	margin-top: 0;
-	margin-bottom: 10px;
-	font-size: 17px;
-}
-
-.theme_info .theme_link {
-	margin-bottom: 30px;
-}
-
-.clearfix:after {
-	display: block;
-	visibility: hidden;
-	clear: both;
-	height: 0;
-	content: ".";
-}
-
-.clearfix {
-	display: inline-block;
-}
-
-.clearfix {
-	display: block;
-}
-
-@media screen and (max-width: 782px) {
-	.theme_info_left {
-		margin-right: 0;
+.settings-page {
+	#wpcontent {
+		padding-left: 0;
+	}
+	.wrapper {
+		padding: baseline(2);
+		background: #fff;
+		border-bottom: 1px solid #ddd;
+		h1 {
+			font-weight: 300;
+			font-size: 45px;
+			line-height: 1;
+			padding-bottom: 10px;
+			margin: 0;
+		}
+	}
+	code {
+		margin-left: 5px;
+		border-radius: 2px;
+		font-size: 11px;
+		font-weight: 400;
+		font-family: inherit;
+		background-color: #e5e5e5;
+		color: #000;
+		opacity: 0.7;
+	}
+	.about-text {
+		color: #333;
+		font-size: 18px;
+		margin-bottom: 50px;
+		line-height: 1.5;
+	}
+	.nav-tab-wrapper {
+		margin: 0 baseline(-2);
+		padding: 0 baseline(2);
+	}
+	.nav-tab {
+		font-size: 18px;
+		padding: 10px 15px;
+		border: none;
+		background: none;
+		border-bottom: 5px solid transparent;
+		opacity: 0.7;
+		font-weight: 500;
+		margin: 0;
+		&:hover,
+		&-active {
+			border-color: #272c56;
+			background: #fff;
+		}
+		&:hover {
+			opacity: 0.9;
+			border-color: #ccc;
+			background: #f5f6f8;
+		}
+	}
+	.info-tab-content {
+		padding: baseline(2) 0 0;
+	}
+	.debug-log-textarea {
 		width: 100%;
+		min-height: 500px;
+		font-family: Consolas, Monaco, monospace;
 	}
-
-	.theme_info_right {
-		width: 100%;
+	.form-table {
+		.tooltip {
+			position: absolute;
+			margin-top: 3px;
+			margin-bottom: 0;
+			max-width: 205px;
+			font-size: 75%;
+			left: baseline(2);
+			opacity: 0;
+			transition: 0.3s;
+		}
+		tr:hover .tooltip {
+			opacity: 1;
+		}
+		textarea {
+			width: 100%;
+		}
 	}
-}
-
-.theme-action-count {
-	z-index: 26;
-	display: inline-block;
-	margin: 3px 0 0 5px;
-	padding: 0 6px;
-	border-radius: 10px;
-	background-color: #d54e21;
-	color: #fff;
-	vertical-align: top;
-	font-weight: 600;
-	font-size: 9px;
-	line-height: 17px;
-}
-
-.action-required {
-	position: relative;
-	margin-bottom: 15px;
-	padding: 10px 25px 5px;
-	border-left: 3px solid #f8800c;
-	background: #fff;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-}
-
-.action-required h3 {
-	margin-top: 10px;
-}
-
-.action-required .dismiss {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	color: #d54e21;
-	text-decoration: none;
-}
-
-.theme_info_boxed {
-	padding: 20px 30px;
-	background: #fff;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-	text-align: center;
-}
-
-.demo-import-boxed {
-	position: relative;
-	overflow: auto;
-	margin-bottom: 25px;
-	padding: 0 12px;
-	max-width: 1050px;
-	border-left: 4px solid #0085ba;
-	background: #fff none repeat scroll 0 0;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-	font-size: 14px;
-	line-height: 2.1em;
-}
-
-.debug-log-textarea {
-	padding: 10px;
-	min-height: 400px;
-	width: 100%;
-	background-color: #eee;
-	font-family: Consolas, Monaco, monospace;
-}
-
-.successModal {
-	position: fixed;
-	right: 20px;
-	bottom: 20px;
-	z-index: 1002;
-	display: block;
-	overflow: auto;
-	padding: 0 30px;
-	width: auto;
-	height: auto;
-	background-color: #222;
-	color: #fff;
-}
-
-div.settings h2 {
-	text-align: left;
-	font-size: 2em;
-}
-
-.form-table {
-	.tooltip {
-		position: absolute;
-		left: 0;
-		margin-top: 3px;
-		margin-bottom: 0;
-		max-width: 205px;
-		background: #f1f1f1;
-		font-size: 75%;
-		opacity: 0;
-		transition: .3s;
-	}
-	tr:hover .tooltip {
-		opacity: 1;
+	.successModal {
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		z-index: 1002;
+		display: block;
+		overflow: auto;
+		padding: 0 30px;
+		width: auto;
+		height: auto;
+		background-color: #222;
+		color: #fff;
 	}
 }
