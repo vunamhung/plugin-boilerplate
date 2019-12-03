@@ -7,9 +7,13 @@ import { getPluginSize, replacePluginTexts, zipPlugin } from "./release";
 import { buildPluginPotFile } from "./language";
 import { readmeToMarkdown, replaceNamespaceText } from "./general";
 import { linkPlugin } from "./setup";
+import { buildPluginSass } from "./sass";
+import { backupLocalDB } from "./backup";
 
 task("replace:nameSpace", replaceNamespaceText);
+task("backup:local", backupLocalDB);
 task("build:potFile", buildPluginPotFile);
+task("build:assets", buildPluginSass);
 task("build:plugin", series(cleanDist, cleanDSStore, copyPlugin, deleteEmptyDir, replacePluginTexts, updateComposer));
 task("zip:plugin", series(zipPlugin, readmeToMarkdown, getPluginSize));
 

@@ -145,7 +145,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		foreach ($field['options'] as $value => $label) {
 			$options .= sprintf(
 				'<option %1$s value="%2$s">%3$s</option>',
-				$option[$field['id']] === $value ? 'selected="selected"' : '',
+				isset($option[$field['id']]) && $option[$field['id']] === $value ? 'selected="selected"' : '',
 				$value,
 				$label
 			);
