@@ -1,20 +1,22 @@
 <?php
 
-namespace vnh_namespace;
+namespace vnh_namespace\admin;
 
 defined('WPINC') || die();
 
 use PAnD;
 use vnh_namespace\tools\contracts\Bootable;
+use function vnh_namespace\is_woocommerce_active;
+use const vnh_namespace\PLUGIN_BASE;
 
-class Admin_Notices implements Bootable {
+class Notices implements Bootable {
 	public function boot() {
 		add_action('admin_init', ['PAnD', 'init']);
 		add_action('admin_notices', [$this, 'global_note']);
 	}
 
 	public function global_note() {
-		if (!is_plugin_active('woocommerce/woocommerce.php')) {
+		if (!is_woocommerce_active()) {
 			if (!PAnD::is_admin_notice_active('disable-woo-forever')) {
 				return;
 			}
@@ -24,8 +26,9 @@ class Admin_Notices implements Bootable {
 				esc_html__('Please install and activate WooCommerce to use vnh_name plugin.', 'vnh_textdomain')
 			);
 		}
+
 		if (is_plugin_active('vnh_slug-pro/index.php')) {
-			deactivate_plugins('vnh_slug/index.php');
+			deactivate_plugins(PLUGIN_BASE);
 			unset($_GET['activate']);
 		}
 	}

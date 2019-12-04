@@ -1,6 +1,6 @@
 {
     "autoload": {
-        "files": ["constants.php", "helpers.php","helpers_global.php"],
+        "files": ["constants.php", "helpers.php"],
         "psr-4": {
             "vnh_namespace\\": "."
         }

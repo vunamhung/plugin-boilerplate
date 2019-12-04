@@ -2,6 +2,12 @@
 
 namespace vnh_namespace;
 
+defined('WPINC') || die();
+
+function is_woocommerce_active() {
+	return is_plugin_active('woocommerce/woocommerce.php');
+}
+
 function get_plugin_details($plugin_path) {
 	$plugin_data = get_plugin_data($plugin_path);
 	$plugin_name = $plugin_data['Name'] ?: basename($plugin_path);

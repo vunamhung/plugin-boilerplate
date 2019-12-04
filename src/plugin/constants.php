@@ -2,22 +2,28 @@
 
 namespace vnh_namespace;
 
-define(__NAMESPACE__ . '\PLUGIN_SLUG', basename(__DIR__));
-define(__NAMESPACE__ . '\PLUGIN_PATH', trailingslashit(__DIR__));
-define(__NAMESPACE__ . '\PLUGIN_URL', plugin_dir_url(__FILE__));
+defined('WPINC') || die();
+
+if (!function_exists('get_plugin_data')) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+$plugin = get_plugin_data(PLUGIN_FILE);
+
+define(__NAMESPACE__ . '\PLUGIN_NAME', $plugin['Name']);
+define(__NAMESPACE__ . '\PLUGIN_DESCRIPTION', $plugin['Description']);
+define(__NAMESPACE__ . '\PLUGIN_URI', $plugin['PluginURI']);
+define(__NAMESPACE__ . '\PLUGIN_VERSION', $plugin['Version']);
+define(__NAMESPACE__ . '\PLUGIN_AUTHOR', $plugin['Author']);
+define(__NAMESPACE__ . '\PLUGIN_AUTHOR_URI', $plugin['AuthorURI']);
+define(__NAMESPACE__ . '\PLUGIN_TEXT_DOMAIN', $plugin['TextDomain']);
+define(__NAMESPACE__ . '\PLUGIN_SLUG', basename(PLUGIN_DIR));
+define(__NAMESPACE__ . '\PLUGIN_BASE', plugin_basename(PLUGIN_FILE));
+define(__NAMESPACE__ . '\PLUGIN_PATH', trailingslashit(PLUGIN_DIR));
+define(__NAMESPACE__ . '\PLUGIN_URL', plugin_dir_url(PLUGIN_FILE));
+define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', get_file_data(PLUGIN_FILE, ['Document URI'])[0]);
 
 const DS = '/';
-
-const PLUGIN_NAME = 'vnh_name';
-const PLUGIN_DESCRIPTION = 'vnh_description';
-const PLUGIN_URI = 'vnh_uri';
-const PLUGIN_VERSION = 'vnh_version';
-const PLUGIN_TEXT_DOMAIN = 'vnh_slug';
-const PLUGIN_AUTHOR = 'vnh_author';
-const PLUGIN_AUTHOR_URI = 'vnh_author_uri';
-const PLUGIN_DOCUMENT_URI = 'vnh_document_uri';
-
 const DEV_MODE = 'vnh_dev_mode';
 const WPORG = false;
-
-const PREMIUM_URL = 'http://geargag.com/';
+const PREMIUM_URL = 'http://woostore.net/';

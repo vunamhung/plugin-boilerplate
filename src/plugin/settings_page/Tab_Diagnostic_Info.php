@@ -7,7 +7,6 @@ defined('WPINC') || die();
 use vnh_namespace\tools\contracts\Renderable;
 use function vnh_namespace\get_plugin_details;
 use function vnh_namespace\is_open_ssl_enabled;
-use function vnh_namespace\wpdb;
 use const vnh_namespace\DS;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
@@ -93,6 +92,8 @@ class Tab_Diagnostic_Info implements Renderable {
 	}
 
 	public function get_diagnostic_info() {
+		global $wpdb;
+
 		$theme_dir = wp_get_theme()->get_stylesheet_directory();
 		$parent_theme_dir = wp_get_theme()->get('Template');
 
@@ -114,8 +115,8 @@ class Tab_Diagnostic_Info implements Renderable {
 		];
 
 		$diagnostic_info['db-info'] = [
-			__('Database Name', 'vnh_textdomain') => wpdb()->dbname,
-			__('Table Prefix', 'vnh_textdomain') => wpdb()->base_prefix,
+			__('Database Name', 'vnh_textdomain') => $wpdb->dbname,
+			__('Table Prefix', 'vnh_textdomain') => $wpdb->base_prefix,
 		];
 
 		$response = wp_remote_get(site_url() . '/license.txt');
@@ -169,8 +170,8 @@ class Tab_Diagnostic_Info implements Renderable {
 		];
 
 		$diagnostic_info['db-server-info'] = [
-			'MySQL' => mysqli_get_server_info(wpdb()->dbh),
-			'ext/mysqli' => !empty(wpdb()->use_mysqli) ? __('yes', 'vnh_textdomain') : __('no', 'vnh_textdomain'),
+			'MySQL' => mysqli_get_server_info($wpdb->dbh),
+			'ext/mysqli' => !empty($wpdb->use_mysqli) ? __('yes', 'vnh_textdomain') : __('no', 'vnh_textdomain'),
 			'WP Locale' => get_locale(),
 			'DB Charset' => DB_CHARSET,
 		];
