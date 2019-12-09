@@ -10,7 +10,7 @@ use vnh_namespace\tools\contracts\Renderable;
 use const vnh_namespace\PLUGIN_SLUG;
 
 abstract class Register_Settings implements Initable, Bootable, Renderable {
-	public $prefix;
+	public $prefix = 'settings';
 	public $option_name;
 	public $default_settings;
 	public $setting_fields;

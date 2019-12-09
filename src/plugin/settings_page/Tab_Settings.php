@@ -7,7 +7,6 @@ defined('WPINC') || die();
 use vnh_namespace\tools\Register_Settings;
 
 class Tab_Settings extends Register_Settings {
-	public $prefix = 'vnh_prefix_settings';
 	public $default_settings = [
 		'enable' => true,
 	];
