@@ -119,8 +119,10 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_text($field, $option) {
+		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+
 		$output = sprintf(
-			'<input type="text" name="%1$s" id="%1$s" %3$s value="%2$s"/>',
+			'<input type="text" name="%1$s" id="%1$s" %3$s value="%2$s"/>' . $tooltip,
 			$this->get_name_attr($field),
 			!empty($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
 			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null
@@ -130,8 +132,10 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_textarea($field, $option) {
+		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+
 		$output = sprintf(
-			'<textarea name="%1$s" id="%1$s" %3$s >%2$s</textarea>',
+			'<textarea name="%1$s" id="%1$s" %3$s >%2$s</textarea>' . $tooltip,
 			$this->get_name_attr($field),
 			!empty($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
 			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null
@@ -141,6 +145,8 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_select($field, $option) {
+		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+
 		$options = '';
 		foreach ($field['options'] as $value => $label) {
 			$options .= sprintf(
@@ -151,7 +157,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 			);
 		}
 		$output = sprintf(
-			'<select type="text" name="%1$s" id="%1$s" %2$s>%3$s</select>',
+			'<select type="text" name="%1$s" id="%1$s" %2$s>%3$s</select>' . $tooltip,
 			$this->get_name_attr($field),
 			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null,
 			$options
@@ -161,8 +167,10 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_number($field, $option) {
+		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+
 		$output = sprintf(
-			'<input type="number" name="%1$s" id="%1$s" %3$s %4$s %5$s %6$s value="%2$s"/>',
+			'<input type="number" name="%1$s" id="%1$s" %3$s %4$s %5$s %6$s value="%2$s"/>' . $tooltip,
 			$this->get_name_attr($field),
 			isset($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
 			isset($field['options']['min']) ? sprintf('min="%s"', esc_attr($field['options']['min'])) : null,

@@ -3,7 +3,6 @@ vendor/
 docs/
 dist/
 .env
-wp-cli.local.yml
 
 #IDEA
 .idea/workspace.xml
