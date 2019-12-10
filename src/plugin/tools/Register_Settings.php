@@ -10,20 +10,17 @@ use vnh_namespace\tools\contracts\Renderable;
 use const vnh_namespace\PLUGIN_SLUG;
 
 abstract class Register_Settings implements Initable, Bootable, Renderable {
-	public $prefix = 'settings';
-	public $option_name;
 	public $default_settings;
 	public $setting_fields;
+	public static $option_name = PLUGIN_SLUG . '_settings';
 
 	public function __construct() {
-		$this->option_name = sprintf('%s_%s', PLUGIN_SLUG, $this->prefix);
-		$this->setting_fields = $this->register_setting_fields();
-		$this->setting_fields = apply_filters("vnh_prefix/$this->prefix", $this->setting_fields);
+		$this->setting_fields = apply_filters('vnh_prefix/settings', $this->register_setting_fields());
 	}
 
 	public function init() {
-		if (!empty($this->default_settings) && empty(get_option($this->option_name))) {
-			add_option($this->option_name, apply_filters("vnh_prefix/$this->prefix/defaults", $this->default_settings));
+		if (!empty($this->default_settings) && empty(get_option(self::$option_name))) {
+			add_option(self::$option_name, apply_filters('vnh_prefix/settings/defaults', $this->default_settings));
 		}
 	}
 
@@ -40,7 +37,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		$html .= '<form method="post" action="options.php" id="settings-tab" enctype="multipart/form-data">';
 		ob_start();
 		foreach ($this->setting_fields as $section => $values) {
-			$option_group = $this->prefix . '_settings_' . $section;
+			$option_group = PLUGIN_SLUG . '_settings_' . $section;
 			$page = $option_group;
 			settings_fields($option_group);
 			do_settings_sections($page);
@@ -62,7 +59,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		}
 
 		foreach ($this->setting_fields as $section_id => $section_values) {
-			$section = $option_group = $page = $this->prefix . '_settings_' . $section_id;
+			$section = $option_group = $page = PLUGIN_SLUG . '_settings_' . $section_id;
 
 			$callback = function () use ($section_values) {
 				if (!empty($section_values['description'])) {
@@ -72,14 +69,14 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 			$title = !empty($section_values['title']) ? $section_values['title'] : null;
 			add_settings_section($section, $title, $callback, $page);
 
-			register_setting($option_group, $this->option_name);
+			register_setting($option_group, self::$option_name);
 
 			if (empty($section_values['fields'])) {
 				return;
 			}
 
 			foreach ($section_values['fields'] as $field) {
-				$id = sprintf('%s[%s]', $this->option_name, $field['id']);
+				$id = sprintf('%s[%s]', self::$option_name, $field['id']);
 				$args['field'] = $field;
 
 				add_settings_field($id, esc_html($field['name']), [$this, 'display_field'], $page, $section, $args);
@@ -96,7 +93,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	public function display_field($args) {
 		$field = $args['field'];
 
-		$option = get_option($this->option_name);
+		$option = get_option(self::$option_name);
 		$display_field = "display_field_{$field['type']}";
 
 		if (method_exists($this, $display_field)) {
@@ -183,6 +180,10 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	protected function get_name_attr($field) {
-		return sprintf('%s[%s]', $this->option_name, esc_html($field['id']));
+		return sprintf('%s[%s]', self::$option_name, esc_html($field['id']));
+	}
+
+	public static function get_option($id) {
+		return get_option(self::$option_name)[$id];
 	}
 }
