@@ -32,7 +32,7 @@ const webpackModules = {
 const pluginConfig = {
 	mode: "development",
 	entry: {
-		plugin: "./src/plugin/assets/js/src/index.js",
+		settings_page: "./src/plugin/assets/js/settings_page/index.js",
 	},
 	output: {
 		path: resolve("./src/plugin/assets/js/dist"),

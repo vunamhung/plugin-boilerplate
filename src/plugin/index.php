@@ -81,8 +81,8 @@ final class Plugin {
 			],
 			'scripts' => [
 				PLUGIN_SLUG . '-settings-page' => [
-					'src' => get_plugin_url('assets/js/settings-page.js'),
-					'deps' => ['jquery', 'jquery-form'],
+					'src' => get_plugin_url('assets/js/dist/settings_page.js'),
+					'deps' => ['jquery', 'jquery-form', 'jquery-ui-sortable'],
 					'localize_script' => [
 						'settingsPage' => [
 							'saveMessage' => esc_html__('Settings Saved Successfully', 'vnh_textdomain'),

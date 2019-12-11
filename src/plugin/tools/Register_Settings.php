@@ -88,7 +88,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	 * Output setting field
 	 *
 	 * @param $args
-	 * @uses display_field_toggle(), display_field_text(), display_field_textarea(), display_field_select(), display_field_number()
+	 * @uses display_field_toggle(), display_field_text(), display_field_textarea(), display_field_select(), display_field_number(), display_field_repeater()
 	 */
 	public function display_field($args) {
 		$field = $args['field'];
@@ -177,6 +177,76 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		);
 
 		echo $output;
+	}
+
+	public function display_field_repeater($field, $option) {
+		$html = '<table class="repeat-table">';
+		$html .= '<thead><tr>';
+
+		foreach ($field['children'] as $child) {
+			$html .= sprintf('<th>%s</th>', $child['name']);
+		}
+
+		$html .= '</tr></thead>';
+		$html .= sprintf('<tbody data-repeater-list="%s[%s]">', self::$option_name, $field['id']);
+
+		if (!empty($option[$field['id']])) {
+			foreach ($option[$field['id']] as $index => $value) {
+				$html .= $this->build_repeat_field($field, $option, $index);
+			}
+		} else {
+			$html .= $this->build_repeat_field($field, $option, 0);
+		}
+		$html .= '</tbody>';
+		$html .= '<tfoot><tr><th>';
+		$html .= sprintf(
+			'<input data-repeater-create type="button" class="button button-primary" value="%s"/>',
+			$field['options']['add_button']
+		);
+		$html .= '</th></tr></tfoot>';
+		$html .= '</table>';
+
+		echo $html;
+	}
+
+	protected function build_repeat_field($field, $option, $index) {
+		$html = '<tr class="repeating" data-repeater-item>';
+		foreach ($field['children'] as $child) {
+			$html .= '<td>';
+			switch ($child['type']) {
+				case 'text':
+					$html .= sprintf(
+						'<input type="text" name="%1$s" value="%2$s"/>',
+						$child['id'],
+						!empty($option[$field['id']][$index][$child['id']]) ? $option[$field['id']][$index][$child['id']] : null
+					);
+
+					break;
+				case 'number':
+					$html .= sprintf(
+						'<input type="number" min="0" max="100" name="%1$s" value="%2$s"/>',
+						$child['id'],
+						!empty($option[$field['id']][$index][$child['id']]) ? $option[$field['id']][$index][$child['id']] : null
+					);
+
+					break;
+				case 'toggle':
+					$label =
+						'<label for="%1$s" class="toggle"><span><svg width="10px" height="10px" ><path d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z"></path></svg></span></label>';
+
+					$html .= sprintf(
+						'<input type="checkbox" name="%1$s" class="input-toggle" id="%1$s" value="true" %2$s/>' . $label,
+						$child['id'],
+						!empty($option[$field['id']][$index][$child['id']]) ? 'checked' : null
+					);
+					break;
+			}
+			$html .= '</td>';
+		}
+		$html .= '<td><input data-repeater-delete type="button" class="button button-secondary" value="Delete"/></td>';
+		$html .= '</tr>';
+
+		return $html;
 	}
 
 	protected function get_name_attr($field) {

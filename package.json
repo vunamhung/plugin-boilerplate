@@ -121,5 +121,8 @@
             "path": "./dist/done/**/*.jpg",
             "maxSize": "700 kB"
         }
-    ]
+    ],
+    "dependencies": {
+        "jquery.repeater": "^1.2.1"
+    }
 }
