@@ -1,8 +1,6 @@
 name: Deploy to WordPress.org
 on:
   push:
-    branches:
-      - master
     tags:
       - "*"
 jobs:
@@ -15,7 +13,7 @@ jobs:
         with:
           node-version: '11.x'
       - run: npm install
-      - run: npm build
+      - run: npm run build
       - run: gulp build:assets
       - run: gulp build:plugin
       - name: WordPress Plugin Deploy
