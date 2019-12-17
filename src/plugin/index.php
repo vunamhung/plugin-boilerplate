@@ -19,7 +19,7 @@ namespace vnh_namespace;
 
 defined('WPINC') || die();
 
-use vnh_namespace\admin\Notices;
+use vnh_namespace\admin\Admin;
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\KSES;
 use vnh_namespace\tools\Register_Assets;
@@ -49,7 +49,7 @@ final class Plugin {
 		new KSES();
 
 		if (is_admin()) {
-			$this->admin_notices = new Notices();
+			$this->admin_notices = new Admin();
 			$this->admin_notices->init();
 			$this->admin_notices->boot();
 
