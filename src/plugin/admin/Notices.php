@@ -23,7 +23,7 @@ class Notices implements Initable, Bootable {
 	public function global_note() {
 		if (!is_woocommerce_active()) {
 			printf(
-				'<div id="message" class="notice notice-error is-dismissible"><p>%s</p></div>',
+				'<div id="message" class="notice notice-error"><p>%s</p></div>',
 				esc_html__('Please install and activate WooCommerce to use vnh_name plugin.', 'vnh_textdomain')
 			);
 		}

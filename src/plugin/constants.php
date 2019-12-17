@@ -26,4 +26,4 @@ define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', get_file_data(PLUGIN_FILE, ['Docu
 const DS = '/';
 const DEV_MODE = 'vnh_dev_mode';
 const WPORG = false;
-const PREMIUM_URL = 'http://woostore.net/';
+const PREMIUM_URL = 'https://geargag.com/';

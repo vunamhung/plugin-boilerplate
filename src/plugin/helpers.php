@@ -2,6 +2,8 @@
 
 namespace vnh_namespace;
 
+use vnh_namespace\settings_page\Settings_Page;
+
 defined('WPINC') || die();
 
 function is_woocommerce_active() {
@@ -26,7 +28,7 @@ function is_open_ssl_enabled() {
 }
 
 function is_plugin_settings_page() {
-	return strpos(get_current_screen()->id, PLUGIN_SLUG) !== false || strpos(get_current_screen()->id, 'extra') !== false;
+	return strpos(get_current_screen()->id, Settings_Page::MENU_SLUG) !== false;
 }
 
 function flatten_version($version) {
