@@ -60,6 +60,28 @@ class Tab_Settings extends Register_Settings {
 							'step' => 1,
 						],
 					],
+					[
+						'id' => 'repeater',
+						'name' => __('Repeater', 'vnh_textdomain'),
+						'tooltip' => __('On/off global', 'vnh_textdomain'),
+						'type' => 'repeater',
+						'options' => [
+							'add_button' => __('Add Row', 'vnh_textdomain'),
+							'remove_button' => __('Remove', 'vnh_textdomain'),
+						],
+						'children' => [
+							[
+								'id' => 'number',
+								'name' => __('Number', 'vnh_textdomain'),
+								'type' => 'number',
+							],
+							[
+								'id' => 'text',
+								'name' => __('Text', 'vnh_textdomain'),
+								'type' => 'text',
+							],
+						],
+					],
 				],
 			],
 		];

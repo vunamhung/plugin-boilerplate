@@ -50,6 +50,7 @@ final class Plugin {
 
 		if (is_admin()) {
 			$this->admin_notices = new Notices();
+			$this->admin_notices->init();
 			$this->admin_notices->boot();
 
 			$this->settings_page = new Settings_Page();

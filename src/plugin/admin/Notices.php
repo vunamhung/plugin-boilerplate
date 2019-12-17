@@ -4,25 +4,26 @@ namespace vnh_namespace\admin;
 
 defined('WPINC') || die();
 
-use PAnD;
 use vnh_namespace\tools\contracts\Bootable;
+use vnh_namespace\tools\contracts\Initable;
+use WP_Review_Me;
 use function vnh_namespace\is_woocommerce_active;
 use const vnh_namespace\PLUGIN_BASE;
+use const vnh_namespace\PLUGIN_SLUG;
 
-class Notices implements Bootable {
+class Notices implements Initable, Bootable {
+	public function init() {
+		new WP_Review_Me(['days_after' => 10, 'type' => 'plugin', 'slug' => PLUGIN_SLUG]);
+	}
+
 	public function boot() {
-		add_action('admin_init', ['PAnD', 'init']);
 		add_action('admin_notices', [$this, 'global_note']);
 	}
 
 	public function global_note() {
 		if (!is_woocommerce_active()) {
-			if (!PAnD::is_admin_notice_active('disable-woo-forever')) {
-				return;
-			}
-
 			printf(
-				'<div id="message" data-dismissible="disable-woo-forever" class="notice notice-error is-dismissible"><p>%s</p></div>',
+				'<div id="message" class="notice notice-error is-dismissible"><p>%s</p></div>',
 				esc_html__('Please install and activate WooCommerce to use vnh_name plugin.', 'vnh_textdomain')
 			);
 		}

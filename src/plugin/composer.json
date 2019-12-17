@@ -6,6 +6,6 @@
         }
     },
     "require": {
-        "collizo4sky/persist-admin-notices-dismissal": "^1.4"
+        "julien731/wp-review-me": "^2.0.1"
     }
 }
