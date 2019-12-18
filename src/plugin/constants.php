@@ -27,3 +27,4 @@ const DS = '/';
 const DEV_MODE = 'vnh_dev_mode';
 const WPORG = false;
 const PREMIUM_URL = 'https://geargag.com/';
+const PLUGINS_LIST_FILE = 'https://geargag.com/geargag_plugins.json';
