@@ -102,12 +102,14 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_toggle($field, $option) {
-		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+		$description = !empty($field['description'])
+			? sprintf('<a class="hint--top hint--medium" aria-label="%s"><span class="woocommerce-help-tip"></span></a>', $field['description'])
+			: null;
 		$label =
 			'<label for="%1$s" class="toggle"><span><svg width="10px" height="10px" ><path d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z"></path></svg></span></label>';
 
 		$output = sprintf(
-			'<input type="checkbox" name="%1$s" class="input-toggle" id="%1$s" value="true" %2$s/>' . $label . $tooltip,
+			$description . '<input type="checkbox" name="%1$s" class="input-toggle" id="%1$s" value="true" %2$s/>' . $label,
 			$this->get_name_attr($field),
 			!empty($option[$field['id']]) ? 'checked' : null
 		);
@@ -116,33 +118,39 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_text($field, $option) {
-		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+		$description = !empty($field['description'])
+			? sprintf('<a class="hint--top hint--medium" aria-label="%s"><span class="woocommerce-help-tip"></span></a>', $field['description'])
+			: null;
 
 		$output = sprintf(
-			'<input type="text" name="%1$s" id="%1$s" %3$s value="%2$s"/>' . $tooltip,
+			$description . '<input type="text" name="%1$s" id="%1$s" %3$s value="%2$s"/>',
 			$this->get_name_attr($field),
 			!empty($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
-			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null
+			$this->get_custom_attribute_html($field)
 		);
 
 		echo $output;
 	}
 
 	public function display_field_textarea($field, $option) {
-		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+		$description = !empty($field['description'])
+			? sprintf('<a class="hint--top hint--medium" aria-label="%s"><span class="woocommerce-help-tip"></span></a>', $field['description'])
+			: null;
 
 		$output = sprintf(
-			'<textarea name="%1$s" id="%1$s" %3$s >%2$s</textarea>' . $tooltip,
+			$description . '<textarea name="%1$s" id="%1$s" %3$s >%2$s</textarea>',
 			$this->get_name_attr($field),
 			!empty($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
-			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null
+			$this->get_custom_attribute_html($field)
 		);
 
 		echo $output;
 	}
 
 	public function display_field_select($field, $option) {
-		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+		$description = !empty($field['description'])
+			? sprintf('<a class="hint--top hint--medium" aria-label="%s"><span class="woocommerce-help-tip"></span></a>', $field['description'])
+			: null;
 
 		$options = '';
 		foreach ($field['options'] as $value => $label) {
@@ -154,7 +162,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 			);
 		}
 		$output = sprintf(
-			'<select type="text" name="%1$s" id="%1$s" %2$s>%3$s</select>' . $tooltip,
+			$description . '<select type="text" name="%1$s" id="%1$s" %2$s>%3$s</select>',
 			$this->get_name_attr($field),
 			!empty($field['placeholder']) ? sprintf('placeholder="%s"', esc_attr($field['placeholder'])) : null,
 			$options
@@ -164,10 +172,12 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_number($field, $option) {
-		$tooltip = !empty($field['tooltip']) ? "<p class='tooltip'>{$field['tooltip']}</p>" : null;
+		$description = !empty($field['description'])
+			? sprintf('<a class="hint--top hint--medium" aria-label="%s"><span class="woocommerce-help-tip"></span></a>', $field['description'])
+			: null;
 
 		$output = sprintf(
-			'<input type="number" name="%1$s" id="%1$s" %3$s %4$s %5$s %6$s value="%2$s"/>' . $tooltip,
+			$description . '<input type="number" name="%1$s" id="%1$s" %3$s %4$s %5$s %6$s value="%2$s"/>',
 			$this->get_name_attr($field),
 			isset($option[$field['id']]) ? esc_attr($option[$field['id']]) : null,
 			isset($field['options']['min']) ? sprintf('min="%s"', esc_attr($field['options']['min'])) : null,
@@ -180,13 +190,29 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	public function display_field_repeater($field, $option) {
-		$html = '<table class="repeat-table">';
+		$html = '<table class="repeat-table wp-list-table widefat striped">';
+		$html .= '<colgroup>';
+		foreach ($field['children'] as $child) {
+			$html .= sprintf('<col span="1" style="width: %s%s">', $child['width'], '%');
+		}
+		$html .= '</colgroup>';
+		$html .= '<thead><tr>';
 		$html .= '<thead><tr>';
 
 		foreach ($field['children'] as $child) {
-			$html .= sprintf('<th>%s</th>', $child['name']);
+			$html .= sprintf(
+				'<th>%s %s</th>',
+				$child['title'],
+				!empty($child['description'])
+					? sprintf(
+						'<a class="hint--top hint--medium" aria-label="%s"><span class="woocommerce-help-tip"></span></a>',
+						$child['description']
+					)
+					: null
+			);
 		}
 
+		$html .= sprintf('<th>%s</th>', __('Action', 'vnh_textdomain'));
 		$html .= '</tr></thead>';
 		$html .= sprintf('<tbody data-repeater-list="%s[%s]">', self::$option_name, $field['id']);
 
@@ -198,7 +224,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 			$html .= $this->build_repeat_field($field, $option, 0);
 		}
 		$html .= '</tbody>';
-		$html .= '<tfoot><tr><th>';
+		$html .= '<tfoot><tr><th class="add-row">';
 		$html .= sprintf(
 			'<input data-repeater-create type="button" class="button button-primary" value="%s"/>',
 			$field['options']['add_button']
@@ -211,34 +237,51 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 
 	protected function build_repeat_field($field, $option, $index) {
 		$html = '<tr class="repeating" data-repeater-item>';
-		foreach ($field['children'] as $child) {
-			$html .= '<td>';
+		foreach ($field['children'] as $key => $child) {
+			$html .= sprintf('<td class="%s">', $child['type']);
 			switch ($child['type']) {
 				case 'text':
 					$html .= sprintf(
-						'<input type="text" name="%1$s" value="%2$s"/>',
-						$child['id'],
-						!empty($option[$field['id']][$index][$child['id']]) ? $option[$field['id']][$index][$child['id']] : null
+						'<input type="text" name="%s" value="%s"/>',
+						$key,
+						!empty($option[$field['id']][$index][$key]) ? $option[$field['id']][$index][$key] : null
+					);
+
+					break;
+				case 'checkbox':
+					$html .= sprintf(
+						'<input type="checkbox" name="%s" value="true" %s/>',
+						$key,
+						!empty($option[$field['id']][$index][$key]) ? 'checked' : null
+					);
+
+					break;
+				case 'select':
+					$options = '';
+					foreach ($child['options'] as $value => $label) {
+						$options .= sprintf(
+							'<option %s value="%s">%s</option>',
+							isset($option[$field['id']][$index][$key]) && $option[$field['id']][$index][$key] === $value ? 'selected' : '',
+							$value,
+							$label
+						);
+					}
+					$html .= sprintf(
+						'<select class="select" name="%s" %s>%s</select>',
+						$key,
+						!empty($child['placeholder']) ? sprintf('placeholder="%s"', esc_attr($child['placeholder'])) : null,
+						$options
 					);
 
 					break;
 				case 'number':
 					$html .= sprintf(
-						'<input type="number" min="0" max="100" name="%1$s" value="%2$s"/>',
-						$child['id'],
-						!empty($option[$field['id']][$index][$child['id']]) ? $option[$field['id']][$index][$child['id']] : null
+						'<input type="number" min="0" max="100" name="%s" value="%s" %s/>',
+						$key,
+						!empty($option[$field['id']][$index][$key]) ? $option[$field['id']][$index][$key] : null,
+						$this->get_custom_attribute_html($child)
 					);
 
-					break;
-				case 'toggle':
-					$label =
-						'<label for="%1$s" class="toggle"><span><svg width="10px" height="10px" ><path d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z"></path></svg></span></label>';
-
-					$html .= sprintf(
-						'<input type="checkbox" name="%1$s" class="input-toggle" id="%1$s" value="true" %2$s/>' . $label,
-						$child['id'],
-						!empty($option[$field['id']][$index][$child['id']]) ? 'checked' : null
-					);
 					break;
 			}
 			$html .= '</td>';
@@ -251,6 +294,18 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 
 	protected function get_name_attr($field) {
 		return sprintf('%s[%s]', self::$option_name, esc_html($field['id']));
+	}
+
+	protected function get_custom_attribute_html($data) {
+		$custom_attributes = array();
+
+		if (!empty($data['custom_attributes']) && is_array($data['custom_attributes'])) {
+			foreach ($data['custom_attributes'] as $attribute => $attribute_value) {
+				$custom_attributes[] = esc_attr($attribute) . '="' . esc_attr($attribute_value) . '"';
+			}
+		}
+
+		return implode(' ', $custom_attributes);
 	}
 
 	public static function get_option($id) {

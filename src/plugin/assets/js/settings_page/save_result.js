@@ -8,6 +8,6 @@ $("#settings-tab").submit(function() {
 		},
 		timeout: 5000,
 	});
-	setTimeout("$('#saveMessage').hide('slow');", 5000);
+	setTimeout("jQuery('#saveMessage').hide('slow');", 5000);
 	return false;
 });

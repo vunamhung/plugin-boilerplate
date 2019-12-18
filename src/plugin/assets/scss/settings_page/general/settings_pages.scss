@@ -4,30 +4,30 @@
 	}
 	.wrapper {
 		padding: baseline(2);
-		background: #fff;
 		border-bottom: 1px solid #ddd;
+		background: #fff;
 		h1 {
+			margin: 0;
+			padding-bottom: 10px;
 			font-weight: 300;
 			font-size: 45px;
 			line-height: 1;
-			padding-bottom: 10px;
-			margin: 0;
 		}
 	}
 	code {
 		margin-left: 5px;
 		border-radius: 2px;
-		font-size: 11px;
-		font-weight: 400;
-		font-family: inherit;
 		background-color: #e5e5e5;
 		color: #000;
+		font-weight: 400;
+		font-size: 11px;
+		font-family: inherit;
 		opacity: 0.7;
 	}
 	.about-text {
+		margin-bottom: 50px;
 		color: #333;
 		font-size: 18px;
-		margin-bottom: 50px;
 		line-height: 1.5;
 	}
 	.nav-tab-wrapper {
@@ -35,43 +35,62 @@
 		padding: 0 baseline(2);
 	}
 	.nav-tab {
-		font-size: 18px;
+		margin: 0;
 		padding: 10px 15px;
 		border: none;
-		background: none;
 		border-bottom: 5px solid transparent;
-		opacity: 0.7;
+		background: none;
 		font-weight: 500;
-		margin: 0;
+		font-size: 18px;
+		opacity: 0.7;
 		&:hover,
 		&-active {
 			border-color: #272c56;
 			background: #fff;
 		}
 		&:hover {
-			opacity: 0.9;
 			border-color: #ccc;
 			background: #f5f6f8;
+			opacity: 0.9;
 		}
 	}
 	.info-tab-content {
 		padding: baseline(2) 0 0;
+		h2 {
+			position: relative;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 12px;
+			font-size: 1.5em;
+			&:before,
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 20px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+			}
+			&:after {
+				top: 10px;
+				border-color: transparent transparent #fff transparent;
+				border-width: 11px;
+			}
+			&:before {
+				top: 9px;
+				border-color: transparent transparent #ddd transparent;
+				border-width: 11px;
+			}
+		}
 	}
 	.debug-log-textarea {
-		width: 100%;
 		min-height: 500px;
+		width: 100%;
 		font-family: Consolas, Monaco, monospace;
 	}
 	.form-table {
-		.tooltip {
-			position: absolute;
-			margin-top: 3px;
-			margin-bottom: 0;
-			max-width: 205px;
-			font-size: 75%;
-			left: baseline(2);
-			opacity: 0;
-			transition: 0.3s;
+		.woocommerce-help-tip {
+			margin-left: -25px;
 		}
 		tr:hover .tooltip {
 			opacity: 1;
@@ -82,8 +101,8 @@
 	}
 	.successModal {
 		position: fixed;
-		left: 50%;
 		top: 50%;
+		left: 50%;
 		z-index: 1002;
 		display: block;
 		overflow: auto;
