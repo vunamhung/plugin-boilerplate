@@ -42,7 +42,9 @@ final class Plugin {
 	}
 
 	public function load() {
-		require PLUGIN_DIR . '/vendor/autoload.php';
+		require_once PLUGIN_DIR . '/vendor/autoload.php';
+		require_once PLUGIN_DIR . '/constants.php';
+		require_once PLUGIN_DIR . '/helpers.php';
 	}
 
 	public function init() {
