@@ -9,12 +9,6 @@
             <id>PHP</id>
           </State>
           <State>
-            <id>Php Inspections (EA Extended)PHP</id>
-          </State>
-          <State>
-            <id>Probable bugsPhp Inspections (EA Extended)PHP</id>
-          </State>
-          <State>
             <id>Quality toolsPHP</id>
           </State>
         </expanded-state>
@@ -25,5 +19,8 @@
         </selected-state>
       </profile-state>
     </entry>
+  </component>
+  <component name="YarnPnpManager">
+    <pnp-files />
   </component>
 </project>
