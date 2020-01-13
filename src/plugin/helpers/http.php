@@ -965,7 +965,8 @@ function random_user_agent() {
 	foreach ($browser_freq as $k => $v) {
 		$max += $v;
 	}
-	$roll = wp_rand(0, $max);
+	$roll = mt_rand(0, $max);
+
 	$rcount = 0;
 
 	$browser_type = null;
