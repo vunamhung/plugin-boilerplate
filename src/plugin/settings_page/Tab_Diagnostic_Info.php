@@ -5,8 +5,6 @@ namespace vnh_namespace\settings_page;
 defined('WPINC') || die();
 
 use vnh_namespace\tools\contracts\Renderable;
-use function vnh_namespace\get_plugin_details;
-use function vnh_namespace\is_open_ssl_enabled;
 use const vnh_namespace\DS;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
@@ -164,7 +162,7 @@ class Tab_Diagnostic_Info implements Renderable {
 			__('Blocked External HTTP Requests', 'vnh_textdomain') =>
 				!defined('WP_HTTP_BLOCK_EXTERNAL') || !WP_HTTP_BLOCK_EXTERNAL ? __('None', 'vnh_textdomain') : $access,
 			'fsockopen' => function_exists('fsockopen') ? $enable : $disable,
-			'OpenSSL' => is_open_ssl_enabled() ? OPENSSL_VERSION_TEXT : $disable,
+			'OpenSSL' => $this->is_open_ssl_enabled() ? OPENSSL_VERSION_TEXT : $disable,
 			'cURL' => function_exists('curl_init') ? $enable : $disable,
 			__('Opcache Enabled', 'vnh_textdomain') => function_exists('ini_get') && ini_get('opcache.enable') ? $enable : $disable,
 		];
@@ -219,7 +217,7 @@ class Tab_Diagnostic_Info implements Renderable {
 		if (!empty($active_plugins)) {
 			$active_plugins_log = [__('Active Plugins:', 'vnh_textdomain')];
 			foreach ($active_plugins as $plugin) {
-				$active_plugins_log[1][] = get_plugin_details(WP_PLUGIN_DIR . DS . $plugin);
+				$active_plugins_log[1][] = $this->get_plugin_details(WP_PLUGIN_DIR . DS . $plugin);
 			}
 			$diagnostic_info['active-plugins'] = $active_plugins_log;
 		}
@@ -227,9 +225,26 @@ class Tab_Diagnostic_Info implements Renderable {
 		return $diagnostic_info;
 	}
 
-	public function get_post_max_size() {
+	protected function get_post_max_size() {
 		$bytes = max(wp_convert_hr_to_bytes(trim(ini_get('post_max_size'))), wp_convert_hr_to_bytes(trim(ini_get('hhvm.server.max_post_size'))));
 
 		return $bytes;
+	}
+
+	protected function get_plugin_details($plugin_path) {
+		$plugin_data = get_plugin_data($plugin_path);
+		$plugin_name = $plugin_data['Name'] ?: basename($plugin_path);
+		$plugin_version = $plugin_data['Version'] ? sprintf(__('(v%s)', 'vnh_textdomain'), $plugin_data['Version']) : null;
+		$plugin_author_name = $plugin_data['AuthorName'] ? sprintf(__(' by %s', 'vnh_textdomain'), $plugin_data['AuthorName']) : null;
+
+		return sprintf('%s%s%s', $plugin_name, $plugin_version, $plugin_author_name);
+	}
+
+	protected function is_open_ssl_enabled() {
+		if (defined('OPENSSL_VERSION_TEXT')) {
+			return true;
+		}
+
+		return false;
 	}
 }

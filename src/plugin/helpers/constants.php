@@ -4,10 +4,6 @@ namespace vnh_namespace;
 
 defined('WPINC') || die();
 
-if (!function_exists('get_plugin_data')) {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-}
-
 $plugin_data = get_plugin_data(PLUGIN_FILE);
 
 define(__NAMESPACE__ . '\PLUGIN_NAME', $plugin_data['Name']);

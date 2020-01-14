@@ -5,7 +5,6 @@ namespace vnh_namespace\tools;
 defined('WPINC') || die();
 
 use vnh_namespace\tools\contracts\Bootable;
-use function vnh_namespace\flatten_version;
 
 class Register_Assets implements Bootable {
 	public $scripts;
@@ -56,7 +55,7 @@ class Register_Assets implements Bootable {
 				$src = $args['src'];
 			}
 
-			wp_register_script($handle, esc_url($src), $args['deps'], flatten_version($args['version']), $args['in_footer']);
+			wp_register_script($handle, esc_url($src), $args['deps'], $this->flatten_version($args['version']), $args['in_footer']);
 
 			if (!empty($args['inline_script'])) {
 				wp_add_inline_script($handle, $args['inline_script'], $args['inline_script_position']);
@@ -85,11 +84,25 @@ class Register_Assets implements Bootable {
 			$args = apply_filters("$this->context/register/styles/args", $args);
 			$args = apply_filters("$this->context/register/styles/$handle/args", $args);
 
-			wp_register_style($handle, esc_url($args['src']), $args['deps'], flatten_version($args['version']), $args['media']);
+			wp_register_style($handle, esc_url($args['src']), $args['deps'], $this->flatten_version($args['version']), $args['media']);
 
 			if ($args['has_rtl']) {
 				wp_style_add_data($handle, 'rtl', 'replace');
 			}
 		}
+	}
+
+	protected function flatten_version($version) {
+		if (empty($version)) {
+			return null;
+		}
+
+		$parts = explode('.', $version);
+
+		if (count($parts) === 2) {
+			$parts[] = '0';
+		}
+
+		return implode('', $parts);
 	}
 }
