@@ -32,6 +32,7 @@ final class Plugin {
 	public $admin_notices;
 	public $frontend_assets;
 	public $backend_assets;
+	public $widgets;
 
 	public function __construct() {
 		$this->load();
@@ -67,6 +68,9 @@ final class Plugin {
 		if (!is_woocommerce_active()) {
 			return;
 		}
+
+		$this->widgets = new Register_Widgets();
+		$this->widgets->boot();
 	}
 
 	public function register_assets() {
