@@ -4,6 +4,7 @@ namespace vnh_namespace\settings_page;
 
 defined('WPINC') || die();
 
+use vnh_namespace\tools\contracts\Bootable;
 use vnh_namespace\tools\contracts\Initable;
 use WP_Error;
 use function vnh_namespace\get_plugin_url;
@@ -15,7 +16,7 @@ use const vnh_namespace\PLUGIN_VERSION;
 use const vnh_namespace\PLUGINS_LIST_FILE;
 use const vnh_namespace\PREMIUM_URL;
 
-class Settings_Page implements Initable {
+class Settings_Page implements Initable, Bootable {
 	public $premium_url = PREMIUM_URL;
 	public $icon_url = 'dashicons-carrot';
 	public $capacity = 'manage_options';
