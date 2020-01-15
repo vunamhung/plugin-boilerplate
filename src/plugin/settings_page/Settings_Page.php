@@ -4,6 +4,7 @@ namespace vnh_namespace\settings_page;
 
 defined('WPINC') || die();
 
+use vnh_namespace\admin\Settings;
 use vnh_namespace\tools\contracts\Bootable;
 use vnh_namespace\tools\contracts\Initable;
 use WP_Error;
@@ -26,7 +27,7 @@ class Settings_Page implements Initable, Bootable {
 	const PLUGIN_PAGE_SLUG = self::MENU_SLUG . '_' . PLUGIN_SLUG;
 
 	public function init() {
-		$this->settings = new Tab_Settings();
+		$this->settings = new Settings();
 		$this->settings->init();
 		$this->settings->boot();
 	}
@@ -113,7 +114,7 @@ class Settings_Page implements Initable, Bootable {
 		$html .= '</div>';
 
 		if ($active_tab === null) {
-			$html .= new Tab_Settings();
+			$html .= new Settings();
 		} elseif ($active_tab === 'changelog') {
 			$html .= new Tab_Changelog();
 		}

@@ -308,6 +308,10 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		return implode(' ', $custom_attributes);
 	}
 
+	public static function get_options() {
+		return get_option(self::$option_name);
+	}
+
 	public static function get_option($id) {
 		return get_option(self::$option_name)[$id];
 	}

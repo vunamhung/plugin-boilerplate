@@ -1,12 +1,12 @@
 <?php
 
-namespace vnh_namespace\settings_page;
+namespace vnh_namespace\admin;
 
 defined('WPINC') || die();
 
 use vnh_namespace\tools\Register_Settings;
 
-class Tab_Settings extends Register_Settings {
+class Settings extends Register_Settings {
 	public $default_settings = [
 		'enable' => true,
 	];
