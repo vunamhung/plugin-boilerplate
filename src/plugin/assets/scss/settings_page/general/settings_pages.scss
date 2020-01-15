@@ -1,9 +1,9 @@
 .settings-page {
-  background-color: #fff;
-  #wpfooter {
-	 background-color: #e5e5e5;
-	 padding: 20px;
-  }
+	background-color: #fff;
+	#wpfooter {
+		padding: 20px;
+		background-color: #e5e5e5;
+	}
 	#wpcontent {
 		padding-left: 0;
 	}
@@ -59,31 +59,30 @@
 		}
 	}
 	.info-tab-content {
-		padding: baseline(2) 0 0;
 		h2 {
 			position: relative;
-			border-bottom: 1px solid #eee;
 			padding-bottom: 12px;
+			border-bottom: 1px solid #eee;
 			font-size: 1.5em;
 			&:before,
 			&:after {
-				content: "";
-				display: block;
 				position: absolute;
 				left: 20px;
+				display: block;
 				width: 0;
 				height: 0;
 				border-style: solid;
+				content: "";
 			}
 			&:after {
 				top: 10px;
-				border-color: transparent transparent #fff transparent;
 				border-width: 11px;
+				border-color: transparent transparent #fff transparent;
 			}
 			&:before {
 				top: 9px;
-				border-color: transparent transparent #ddd transparent;
 				border-width: 11px;
+				border-color: transparent transparent #ddd transparent;
 			}
 		}
 	}
