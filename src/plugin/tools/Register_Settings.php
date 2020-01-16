@@ -12,15 +12,16 @@ use const vnh_namespace\PLUGIN_SLUG;
 abstract class Register_Settings implements Initable, Bootable, Renderable {
 	public $default_settings;
 	public $setting_fields;
-	public static $option_name = PLUGIN_SLUG . '_settings';
+	public static $option_name = 'vnh_prefix_settings';
 
 	public function __construct() {
+		$this->default_settings = apply_filters('vnh_prefix/settings/defaults', $this->register_default_settings());
 		$this->setting_fields = apply_filters('vnh_prefix/settings', $this->register_setting_fields());
 	}
 
 	public function init() {
 		if (!empty($this->default_settings) && empty(get_option(self::$option_name))) {
-			add_option(self::$option_name, apply_filters('vnh_prefix/settings/defaults', $this->default_settings));
+			add_option(self::$option_name, $this->default_settings);
 		}
 	}
 
@@ -50,6 +51,8 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 
 		return $html;
 	}
+
+	abstract public function register_default_settings();
 
 	abstract public function register_setting_fields();
 
@@ -88,7 +91,8 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	 * Output setting field
 	 *
 	 * @param $args
-	 * @uses display_field_toggle(), display_field_text(), display_field_textarea(), display_field_select(), display_field_number(), display_field_repeater()
+	 * @uses display_field_toggle(), display_field_text(), display_field_textarea()
+	 * @uses display_field_select(), display_field_number(), display_field_repeater()
 	 */
 	public function display_field($args) {
 		$field = $args['field'];
@@ -197,12 +201,11 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		}
 		$html .= '</colgroup>';
 		$html .= '<thead><tr>';
-		$html .= '<thead><tr>';
 
 		foreach ($field['children'] as $child) {
 			$html .= sprintf(
 				'<th>%s %s</th>',
-				$child['title'],
+				$child['name'],
 				!empty($child['description'])
 					? sprintf(
 						'<a class="hint--top hint--medium" aria-label="%s"><span class="woocommerce-help-tip"></span></a>',
@@ -212,7 +215,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 			);
 		}
 
-		$html .= sprintf('<th>%s</th>', __('Action', 'vnh_textdomain'));
+		$html .= sprintf('<th>%s</th>', __('Actions', 'vnh_textdomain'));
 		$html .= '</tr></thead>';
 		$html .= sprintf('<tbody data-repeater-list="%s[%s]">', self::$option_name, $field['id']);
 
@@ -221,7 +224,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 				$html .= $this->build_repeat_field($field, $option, $index);
 			}
 		} else {
-			$html .= $this->build_repeat_field($field, $option, 0);
+			$html .= $this->build_repeat_field($field, $this->default_settings, 0);
 		}
 		$html .= '</tbody>';
 		$html .= '<tfoot><tr><th class="add-row">';
@@ -242,9 +245,10 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 			switch ($child['type']) {
 				case 'text':
 					$html .= sprintf(
-						'<input type="text" name="%s" value="%s"/>',
+						'<input type="text" name="%s" value="%s" %s/>',
 						$key,
-						!empty($option[$field['id']][$index][$key]) ? $option[$field['id']][$index][$key] : null
+						!empty($option[$field['id']][$index][$key]) ? $option[$field['id']][$index][$key] : null,
+						$this->get_custom_attribute_html($child)
 					);
 
 					break;
@@ -276,17 +280,41 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 					break;
 				case 'number':
 					$html .= sprintf(
-						'<input type="number" min="0" max="100" name="%s" value="%s" %s/>',
+						'<input type="number" name="%s" value="%s" %s/>',
 						$key,
 						!empty($option[$field['id']][$index][$key]) ? $option[$field['id']][$index][$key] : null,
 						$this->get_custom_attribute_html($child)
 					);
 
 					break;
+				case 'currency_rate':
+					$rate_fee_key = sprintf('%s_free', $key);
+					$html .= sprintf(
+						'<input type="number" name="%s" value="%s" %s/>+<input type="number" name="%s" value="%s" %s/>',
+						$key,
+						!empty($option[$field['id']][$index][$key]) ? $option[$field['id']][$index][$key] : null,
+						$this->get_custom_attribute_html($child),
+						$rate_fee_key,
+						!empty($option[$field['id']][$index][$rate_fee_key]) ? $option[$field['id']][$index][$rate_fee_key] : null,
+						$this->get_custom_attribute_html($child)
+					);
+					break;
 			}
 			$html .= '</td>';
 		}
-		$html .= '<td><input data-repeater-delete type="button" class="button button-secondary" value="Delete"/></td>';
+
+		// render action buttons
+		$html .= '<td>';
+		if (isset($field['options']['action_buttons'])) {
+			foreach ($field['options']['action_buttons'] as $button) {
+				$html .= sprintf('<input %s type="button" value="%s"/>', $this->get_custom_attribute_html($button), $button['text']);
+			}
+		}
+		$html .= sprintf(
+			'<input data-repeater-delete type="button" class="button button-secondary" value="%s"/>',
+			$field['options']['remove_button']
+		);
+		$html .= '</td>';
 		$html .= '</tr>';
 
 		return $html;

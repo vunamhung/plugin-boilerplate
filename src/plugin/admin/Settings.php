@@ -6,10 +6,21 @@ defined('WPINC') || die();
 
 use vnh_namespace\tools\Register_Settings;
 
+use function vnh_namespace\all_currencies;
+
 class Settings extends Register_Settings {
-	public $default_settings = [
-		'enable' => true,
-	];
+	public function register_default_settings() {
+		return [
+			'enable' => true,
+			'currency_options' => [
+				[
+					'currency' => get_option('woocommerce_currency'),
+					'rate' => 1,
+					'decimals' => get_option('woocommerce_price_num_decimals'),
+				],
+			],
+		];
+	}
 
 	public function register_setting_fields() {
 		return [
@@ -66,49 +77,56 @@ class Settings extends Register_Settings {
 						],
 					],
 					[
-						'id' => 'repeater',
-						'name' => __('Repeater', 'vnh_textdomain'),
-						'description' => __('On/off global', 'vnh_textdomain'),
+						'id' => 'currency_options',
+						'name' => __('Currency Options', 'vnh_textdomain'),
 						'type' => 'repeater',
 						'options' => [
-							'add_button' => __('Add Row', 'vnh_textdomain'),
+							'add_button' => __('Add Currency', 'vnh_textdomain'),
 							'remove_button' => __('Remove', 'vnh_textdomain'),
-						],
-						'children' => [
-							'condition' => [
-								'title' => __('Condition', 'vnh_textdomain'),
-								'type' => 'select',
-								'width' => 40,
-								'description' => __('Condition vs. destination', 'vnh_textdomain'),
-								'options' => [
-									'' => __('None', 'vnh_textdomain'),
-									'items' => __('Item count', 'vnh_textdomain'),
+							'action_buttons' => [
+								[
+									'text' => __('Update Rate', 'vnh_textdomain'),
+									'custom_attributes' => [
+										'class' => 'button button-secondary update-rate',
+									],
 								],
 							],
-							'break' => [
-								'title' => __('Break', 'vnh_textdomain'),
-								'type' => 'checkbox',
-								'width' => 9,
-								'description' => __(
-									'Break at this point. For per-order rates, no rates other than this will be offered. For calculated rates, this will stop any further rates being matched.',
-									'vnh_textdomain'
-								),
+						],
+						'children' => [
+							'currency' => [
+								'name' => __('Currency', 'vnh_textdomain'),
+								'type' => 'select',
+								'width' => 37,
+								'options' => all_currencies(),
 							],
-							'per_item' => [
-								'title' => __('Item Cost', 'vnh_textdomain'),
-								'type' => 'number',
-								'width' => 12,
-								'description' => __('Cost per item.', 'vnh_textdomain'),
+							'rate' => [
+								'name' => __('Rate + Fee', 'vnh_textdomain'),
+								'type' => 'currency_rate',
+								'width' => 20,
+								'description' => __('Rate plus exchange free rate', 'vnh_textdomain'),
 								'custom_attributes' => [
 									'min' => '0',
 									'step' => '0.01',
 								],
 							],
-							'shipping_label' => [
-								'title' => __('Label', 'vnh_textdomain'),
+							'decimals' => [
+								'name' => __('Decimals', 'vnh_textdomain'),
+								'type' => 'number',
+								'width' => 11,
+								'description' => __('Number of decimals', 'vnh_textdomain'),
+								'custom_attributes' => [
+									'min' => '0',
+									'max' => '5',
+									'step' => '1',
+								],
+							],
+							'custom_symbol' => [
+								'name' => __('Custom Symbol', 'vnh_textdomain'),
 								'type' => 'text',
-								'width' => 30,
-								'description' => __('Label for the shipping method which the user will be presented.', 'vnh_textdomain'),
+								'width' => 13,
+								'custom_attributes' => [
+									'placeholder' => __('eg: CAD $', 'vnh_textdomain'),
+								],
 							],
 						],
 					],

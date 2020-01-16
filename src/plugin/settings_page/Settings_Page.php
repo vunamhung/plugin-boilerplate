@@ -110,7 +110,9 @@ class Settings_Page implements Bootable {
 		$html .= '<div class="nav-tab-wrapper">';
 		$html .= $this->get_nav_link(null, $active_tab, __('Settings', 'vnh_textdomain'));
 		$html .= $this->get_nav_link('changelog', $active_tab, __('Changelog', 'vnh_textdomain'));
-		$html .= sprintf('<a href="%s" target="_blank" class="nav-tab">%s</a>', $this->premium_url, __('Premium Version', 'vnh_textdomain'));
+		if (!empty(PREMIUM_URL)) {
+			$html .= sprintf('<a href="%s" target="_blank" class="nav-tab">%s</a>', $this->premium_url, __('Premium Version', 'vnh_textdomain'));
+		}
 		$html .= '</div>';
 
 		if ($active_tab === null) {
@@ -148,8 +150,8 @@ class Settings_Page implements Bootable {
 
 		$html = '<div class="wrapper">';
 		$html .= '<h1>Welcome to <strong>GearGag Plugins Ecosystem</strong></h1>';
-		$html .=
-			'<p>Thanks for choosing our plugins for your website! If you are satisfied, please reward it a full five-star <span style="color:#ffb900">★★★★★</span> rating.</p>';
+		$html .= '<p>Thanks for choosing our plugins for your website!
+If you are satisfied, please reward it a full five-star <span style="color:#ffb900">★★★★★</span> rating.</p>';
 		$html .= '<div class="nav-tab-wrapper">';
 		$html .= $this->get_nav_link(null, $active_tab, __('Hot plugins', 'vnh_textdomain'));
 		$html .= '</div>';
