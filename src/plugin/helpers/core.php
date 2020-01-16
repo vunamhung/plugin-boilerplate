@@ -6,10 +6,25 @@ use vnh_namespace\settings_page\Settings_Page;
 
 defined('WPINC') || die();
 
+/*
+ * WOOCOMMERCE
+ */
+function all_currencies() {
+	$all = [];
+	foreach (get_woocommerce_currencies() as $code => $currency) {
+		$all[$code] = sprintf('%s-%s', $code, $currency);
+	}
+
+	return $all;
+}
+
 function is_woocommerce_active() {
 	return is_plugin_active('woocommerce/woocommerce.php');
 }
 
+/*
+ * CORE
+ */
 function is_plugin_settings_page() {
 	return strpos(get_current_screen()->id, Settings_Page::MENU_SLUG) !== false;
 }

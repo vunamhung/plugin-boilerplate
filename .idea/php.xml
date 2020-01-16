@@ -9,6 +9,7 @@
     <include_path>
       <path value="$WORDPRESS$" />
       <path value="$KINT$" />
+      <path value="$LIBS$/woocommerce" />
     </include_path>
   </component>
   <component name="PhpRuntimeConfiguration" default_stubs_path="$STUBS$" />
