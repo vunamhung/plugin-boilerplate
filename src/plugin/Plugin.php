@@ -59,7 +59,6 @@ final class Plugin {
 			$this->admin_notices->boot();
 
 			$this->settings_page = new Settings_Page();
-			$this->settings_page->init();
 			$this->settings_page->boot();
 		}
 	}
