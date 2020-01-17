@@ -34,7 +34,7 @@ function is_woocommerce_active() {
  * CORE
  */
 function is_plugin_settings_page() {
-	return strpos(get_current_screen()->id, Settings_Page::MENU_SLUG) !== false;
+	return strpos(get_current_screen()->id, MENU_SLUG) !== false;
 }
 
 function get_plugin_path($dir = null) {

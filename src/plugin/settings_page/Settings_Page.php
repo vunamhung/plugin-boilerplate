@@ -9,6 +9,7 @@ use vnh_namespace\tools\contracts\Bootable;
 use WP_Error;
 use function vnh_namespace\get_plugin_url;
 use function vnh_namespace\is_plugin_settings_page;
+use const vnh_namespace\MENU_SLUG;
 use const vnh_namespace\PLUGIN_DESCRIPTION;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
@@ -22,8 +23,7 @@ class Settings_Page implements Bootable {
 	public $capacity = 'manage_options';
 	public $settings;
 
-	const MENU_SLUG = 'geargag_plugins';
-	const PLUGIN_PAGE_SLUG = self::MENU_SLUG . '_' . PLUGIN_SLUG;
+	const PLUGIN_PAGE_SLUG = MENU_SLUG . '_' . PLUGIN_SLUG;
 
 	public function init() {
 		$this->settings = new Settings();
@@ -49,7 +49,7 @@ class Settings_Page implements Bootable {
 		global $menu;
 		$geargag_menu_exist = false;
 		foreach ($menu as $item) {
-			if ($item[2] === self::MENU_SLUG) {
+			if ($item[2] === MENU_SLUG) {
 				$geargag_menu_exist = true;
 			}
 		}
@@ -58,31 +58,31 @@ class Settings_Page implements Bootable {
 				esc_html__('GearGag Plugins', 'vnh_textdomain'),
 				esc_html__('GearGag', 'vnh_textdomain'),
 				$this->capacity,
-				self::MENU_SLUG,
+				MENU_SLUG,
 				[$this, 'our_plugins'],
 				$this->icon_url,
 				2
 			);
 			add_submenu_page(
-				self::MENU_SLUG,
+				MENU_SLUG,
 				esc_html__('Our Plugins', 'vnh_textdomain'),
 				esc_html__('Our Plugins', 'vnh_textdomain'),
 				$this->capacity,
-				self::MENU_SLUG,
+				MENU_SLUG,
 				[$this, 'our_plugins']
 			);
 			add_submenu_page(
-				self::MENU_SLUG,
+				MENU_SLUG,
 				esc_html__('System Status', 'vnh_textdomain'),
 				esc_html__('System Status', 'vnh_textdomain'),
 				$this->capacity,
-				self::MENU_SLUG . '_diagnostic',
+				MENU_SLUG . '_diagnostic',
 				[$this, 'diagnostic_page']
 			);
 		}
 
 		add_submenu_page(
-			self::MENU_SLUG,
+			MENU_SLUG,
 			esc_html__('vnh_short_name', 'vnh_textdomain'),
 			esc_html__('vnh_short_name', 'vnh_textdomain'),
 			$this->capacity,
