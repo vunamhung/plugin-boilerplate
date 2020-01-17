@@ -45,9 +45,6 @@ final class Plugin {
 	public function load() {
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		require_once PLUGIN_DIR . '/vendor/autoload.php';
-		require_once PLUGIN_DIR . '/helpers/constants.php';
-		require_once PLUGIN_DIR . '/helpers/core.php';
-		require_once PLUGIN_DIR . '/helpers/http.php';
 	}
 
 	public function init() {
