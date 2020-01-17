@@ -100,6 +100,7 @@ final class Plugin {
 
 	public function register_frontend_assets() {
 		return [
+			'styles' => [],
 			'scripts' => [
 				PLUGIN_SLUG => [
 					'src' => get_plugin_url('assets/js/dist/frontend.js'),
