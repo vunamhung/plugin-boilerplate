@@ -73,8 +73,8 @@ final class Plugin {
 		$this->backend_assets = new Register_Assets($this->register_backend_assets(), 'backend');
 		$this->backend_assets->boot();
 
-		//$this->frontend_assets = new Register_Assets($this->register_frontend_assets(), 'frontend');
-		//$this->frontend_assets->boot();
+		$this->frontend_assets = new Register_Assets($this->register_frontend_assets(), 'frontend');
+		$this->frontend_assets->boot();
 	}
 
 	public function register_backend_assets() {
@@ -98,10 +98,21 @@ final class Plugin {
 		];
 	}
 
+	public function register_frontend_assets() {
+		return [
+			'scripts' => [
+				PLUGIN_SLUG => [
+					'src' => get_plugin_url('assets/js/dist/frontend.js'),
+					'deps' => ['jquery'],
+				],
+			],
+		];
+	}
+
 	public function boot() {
 		add_action('plugin_loaded', [$this, 'load_plugin_textdomain']);
 		add_action('admin_enqueue_scripts', [$this, 'enqueue_backend_assets']);
-		//add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
+		add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
 	}
 
 	public function load_plugin_textdomain() {
@@ -113,6 +124,10 @@ final class Plugin {
 			wp_enqueue_style(PLUGIN_SLUG . '-settings-page');
 			wp_enqueue_script(PLUGIN_SLUG . '-settings-page');
 		}
+	}
+
+	public function enqueue_frontend_assets() {
+		wp_enqueue_script(PLUGIN_SLUG);
 	}
 }
 
