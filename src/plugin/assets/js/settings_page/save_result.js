@@ -1,6 +1,6 @@
 $("#settings-tab").submit(function() {
 	$(this).ajaxSubmit({
-		success: function() {
+		success: () => {
 			$("#saveResult").html("<div id='saveMessage' class='successModal'></div>");
 			$("#saveMessage")
 				.append(`<p>${settingsPage.saveMessage}</p>`)
