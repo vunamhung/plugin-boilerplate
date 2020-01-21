@@ -21,6 +21,7 @@ defined('WPINC') || die();
 
 use vnh_namespace\admin\Admin;
 use vnh_namespace\settings_page\Settings_Page;
+use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\KSES;
 use vnh_namespace\tools\Register_Assets;
 
@@ -33,6 +34,7 @@ final class Plugin {
 	public $frontend_assets;
 	public $backend_assets;
 	public $widgets;
+	public $config_cmb2;
 
 	public function __construct() {
 		$this->load();
@@ -64,6 +66,9 @@ final class Plugin {
 		if (!is_woocommerce_active()) {
 			return;
 		}
+
+		$this->config_cmb2 = new Config_CMB2();
+		$this->config_cmb2->boot();
 
 		$this->widgets = new Register_Widgets();
 		$this->widgets->boot();

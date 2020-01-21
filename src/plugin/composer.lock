@@ -4,8 +4,61 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ff1aed22e1237562754b5f7441581f7",
+    "content-hash": "f51012163b7db7e416c2641ab075af1d",
     "packages": [
+        {
+            "name": "cmb2/cmb2",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CMB2/CMB2.git",
+                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/008d9b83263d971d6bd41c27e31113db852d5ef3",
+                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2.4"
+            },
+            "require-dev": {
+                "apigen/apigen": "4.1.2",
+                "nette/utils": "2.5.3",
+                "phpunit/phpunit": "6.5.13"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Justin Sternberg",
+                    "email": "justin@dsgnwrks.pro",
+                    "homepage": "https://dsgnwrks.pro",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
+            "homepage": "https://github.com/CMB2/CMB2",
+            "keywords": [
+                "metabox",
+                "plugin",
+                "wordpress"
+            ],
+            "time": "2019-01-21T04:30:08+00:00"
+        },
         {
             "name": "julien731/wp-dismissible-notices-handler",
             "version": "1.2.0",
@@ -85,6 +138,53 @@
             "description": "A lightweight library to help you get more reviews for your WordPress theme/plugin",
             "homepage": "https://github.com/julien731/WP-Review-Me",
             "time": "2016-09-27T04:04:50+00:00"
+        },
+        {
+            "name": "vunamhung/cmb2_tab",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vunamhung/cmb2_tab.git",
+                "reference": "cdea42063c6ff76b80195f3c3c811ed05b8b4347"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vunamhung/cmb2_tab/zipball/cdea42063c6ff76b80195f3c3c811ed05b8b4347",
+                "reference": "cdea42063c6ff76b80195f3c3c811ed05b8b4347",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "tab.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Vu Nam Hung",
+                    "email": "vunamhung@gmail.com",
+                    "homepage": "https://github.com/vunamhung/",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "This is a CMB2 Extension repository which help modify the default behavior of CMB2 and extends it's functionality.",
+            "homepage": "https://github.com/vunamhung/cmb2_tab",
+            "keywords": [
+                "CMB2",
+                "cmb2 tab",
+                "wordpress"
+            ],
+            "time": "2020-01-21T08:42:12+00:00"
         }
     ],
     "packages-dev": [],

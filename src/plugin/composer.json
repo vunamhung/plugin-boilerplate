@@ -5,13 +5,16 @@
             "helpers/core.php",
             "helpers/general.php",
             "helpers/woo.php",
-            "helpers/http.php"
+            "helpers/http.php",
+            "vendor/cmb2/cmb2/init.php"
         ],
         "psr-4": {
             "vnh_namespace\\": "."
         }
     },
     "require": {
-        "julien731/wp-review-me": "^2.0.1"
+        "julien731/wp-review-me": "^2.0.1",
+        "cmb2/cmb2": "^2.6.0",
+        "vunamhung/cmb2_tab": "^1.0.0"
     }
 }
