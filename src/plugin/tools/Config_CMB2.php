@@ -9,8 +9,6 @@ use function vnh_namespace\get_plugin_url;
 use const vnh_namespace\PLUGIN_SLUG;
 
 class Config_CMB2 implements Bootable {
-	public $tab;
-
 	public function boot() {
 		add_filter('cmb2_meta_box_url', [$this, 'url']);
 		add_action('cmb2_admin_init', [$this, 'fields']);

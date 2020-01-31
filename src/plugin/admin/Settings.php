@@ -2,7 +2,7 @@
 
 namespace vnh_namespace\admin;
 
-defined('WPINC') || die();
+defined('ABSPATH') || die();
 
 use vnh_namespace\tools\Register_Settings;
 

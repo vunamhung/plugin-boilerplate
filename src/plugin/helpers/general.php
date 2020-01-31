@@ -2,7 +2,7 @@
 
 namespace vnh_namespace;
 
-defined('WPINC') || die();
+defined('ABSPATH') || die();
 
 function handle($name) {
 	return PLUGIN_SLUG . '-' . $name;

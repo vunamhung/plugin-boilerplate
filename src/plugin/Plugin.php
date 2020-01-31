@@ -17,16 +17,13 @@
 
 namespace vnh_namespace;
 
-defined('WPINC') || die();
+defined('ABSPATH') || die();
 
 use vnh_namespace\admin\Admin;
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\KSES;
 use vnh_namespace\tools\Register_Assets;
-
-const PLUGIN_FILE = __FILE__;
-const PLUGIN_DIR = __DIR__;
 
 final class Plugin {
 	public $settings_page;
@@ -35,6 +32,9 @@ final class Plugin {
 	public $backend_assets;
 	public $widgets;
 	public $config_cmb2;
+
+	const FILE = __FILE__;
+	const DIR = __DIR__;
 
 	public function __construct() {
 		$this->load();
@@ -46,7 +46,7 @@ final class Plugin {
 
 	public function load() {
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
-		require_once PLUGIN_DIR . '/vendor/autoload.php';
+		require_once __DIR__ . '/vendor/autoload.php';
 	}
 
 	public function init() {

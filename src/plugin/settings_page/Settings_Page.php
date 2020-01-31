@@ -2,7 +2,7 @@
 
 namespace vnh_namespace\settings_page;
 
-defined('WPINC') || die();
+defined('ABSPATH') || die();
 
 use vnh_namespace\admin\Settings;
 use vnh_namespace\tools\contracts\Bootable;

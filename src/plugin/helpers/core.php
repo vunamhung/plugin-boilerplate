@@ -2,7 +2,7 @@
 
 namespace vnh_namespace;
 
-defined('WPINC') || die();
+defined('ABSPATH') || die();
 
 function is_plugin_settings_page() {
 	return strpos(get_current_screen()->id, MENU_SLUG) !== false;
@@ -10,18 +10,18 @@ function is_plugin_settings_page() {
 
 function get_plugin_path($dir = null) {
 	if (empty($dir)) {
-		return trailingslashit(PLUGIN_DIR);
+		return trailingslashit(Plugin::DIR);
 	}
 
-	return trailingslashit(PLUGIN_DIR) . $dir;
+	return trailingslashit(Plugin::DIR) . $dir;
 }
 
 function get_plugin_url($dir = null) {
 	if (empty($dir)) {
-		return plugin_dir_url(PLUGIN_FILE);
+		return plugin_dir_url(Plugin::FILE);
 	}
 
-	return plugin_dir_url(PLUGIN_FILE) . $dir;
+	return plugin_dir_url(Plugin::FILE) . $dir;
 }
 
 function is_dev() {
