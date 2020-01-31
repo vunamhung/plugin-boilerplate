@@ -10,20 +10,20 @@ function is_plugin_settings_page() {
 
 function get_plugin_path($dir = null) {
 	if (empty($dir)) {
-		return PLUGIN_PATH;
+		return trailingslashit(PLUGIN_DIR);
 	}
 
-	return PLUGIN_PATH . $dir;
+	return trailingslashit(PLUGIN_DIR) . $dir;
 }
 
 function get_plugin_url($dir = null) {
 	if (empty($dir)) {
-		return PLUGIN_URL;
+		return plugin_dir_url(PLUGIN_FILE);
 	}
 
-	return PLUGIN_URL . $dir;
+	return plugin_dir_url(PLUGIN_FILE) . $dir;
 }
 
 function is_dev() {
-	return (defined(__NAMESPACE__ . '\DEV_MODE') && DEV_MODE !== 'disable') || isset($_GET['dev']);
+	return (defined(__NAMESPACE__ . '\DEV_MODE') && DEV_MODE !== 'disable' && DEV_MODE !== false) || isset($_GET['dev']);
 }

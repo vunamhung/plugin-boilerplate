@@ -85,12 +85,12 @@ final class Plugin {
 	public function register_backend_assets() {
 		return [
 			'styles' => [
-				PLUGIN_SLUG . '-settings-page' => [
+				handle('settings-page') => [
 					'src' => get_plugin_url('assets/css/settings_page.css'),
 				],
 			],
 			'scripts' => [
-				PLUGIN_SLUG . '-settings-page' => [
+				handle('settings-page') => [
 					'src' => get_plugin_url('assets/js/dist/settings_page.js'),
 					'deps' => ['jquery', 'jquery-form', 'jquery-ui-sortable'],
 					'localize_script' => [
@@ -127,8 +127,8 @@ final class Plugin {
 
 	public function enqueue_backend_assets() {
 		if (is_plugin_settings_page()) {
-			wp_enqueue_style(PLUGIN_SLUG . '-settings-page');
-			wp_enqueue_script(PLUGIN_SLUG . '-settings-page');
+			wp_enqueue_style(handle('settings-page'));
+			wp_enqueue_script(handle('settings-page'));
 		}
 	}
 

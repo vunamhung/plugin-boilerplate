@@ -5,6 +5,7 @@ namespace vnh_namespace\settings_page;
 defined('WPINC') || die();
 
 use vnh_namespace\tools\contracts\Renderable;
+
 use function vnh_namespace\get_plugin_path;
 
 class Tab_Changelog implements Renderable {

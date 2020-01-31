@@ -7,6 +7,7 @@ defined('WPINC') || die();
 use vnh_namespace\tools\contracts\Bootable;
 use vnh_namespace\tools\contracts\Initable;
 use vnh_namespace\tools\contracts\Renderable;
+
 use const vnh_namespace\PLUGIN_SLUG;
 
 abstract class Register_Settings implements Initable, Bootable, Renderable {
@@ -91,6 +92,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	 * Output setting field
 	 *
 	 * @param $args
+	 *
 	 * @uses display_field_toggle(), display_field_text(), display_field_textarea()
 	 * @uses display_field_select(), display_field_number(), display_field_repeater()
 	 */
@@ -228,10 +230,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 		}
 		$html .= '</tbody>';
 		$html .= '<tfoot><tr><th class="add-row">';
-		$html .= sprintf(
-			'<input data-repeater-create type="button" class="button button-primary" value="%s"/>',
-			$field['options']['add_button']
-		);
+		$html .= sprintf('<input data-repeater-create type="button" class="button button-primary" value="%s"/>', $field['options']['add_button']);
 		$html .= '</th></tr></tfoot>';
 		$html .= '</table>';
 
@@ -325,7 +324,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 	}
 
 	protected function get_custom_attribute_html($data) {
-		$custom_attributes = array();
+		$custom_attributes = [];
 
 		if (!empty($data['custom_attributes']) && is_array($data['custom_attributes'])) {
 			foreach ($data['custom_attributes'] as $attribute => $attribute_value) {

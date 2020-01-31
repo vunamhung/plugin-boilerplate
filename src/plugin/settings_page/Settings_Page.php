@@ -7,8 +7,10 @@ defined('WPINC') || die();
 use vnh_namespace\admin\Settings;
 use vnh_namespace\tools\contracts\Bootable;
 use WP_Error;
+
 use function vnh_namespace\get_plugin_url;
 use function vnh_namespace\is_plugin_settings_page;
+
 use const vnh_namespace\MENU_SLUG;
 use const vnh_namespace\PLUGIN_DESCRIPTION;
 use const vnh_namespace\PLUGIN_NAME;

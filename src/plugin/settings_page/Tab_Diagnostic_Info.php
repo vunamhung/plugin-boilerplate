@@ -5,6 +5,7 @@ namespace vnh_namespace\settings_page;
 defined('WPINC') || die();
 
 use vnh_namespace\tools\contracts\Renderable;
+
 use const vnh_namespace\DS;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
