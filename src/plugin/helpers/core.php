@@ -25,5 +25,5 @@ function get_plugin_url($dir = null) {
 }
 
 function is_dev() {
-	return (defined(__NAMESPACE__ . '\DEV_MODE') && DEV_MODE !== 'disable' && DEV_MODE !== false) || isset($_GET['dev']);
+	return (defined(__NAMESPACE__ . '\DEV_MODE') && DEV_MODE !== 'disable' && !empty(DEV_MODE)) || isset($_GET['dev']);
 }
