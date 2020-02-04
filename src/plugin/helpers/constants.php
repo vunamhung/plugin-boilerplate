@@ -18,6 +18,7 @@ const PLUGIN_AUTHOR_URI = PLUGIN_DATA['AuthorURI'];
 const PLUGIN_TEXT_DOMAIN = PLUGIN_DATA['TextDomain'];
 
 const DS = '/';
+const MIN_PHP_VERSION = 5.6;
 const DEV_MODE = 'vnh_dev_mode';
 const WPORG = false;
 

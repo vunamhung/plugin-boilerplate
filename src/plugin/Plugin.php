@@ -23,6 +23,7 @@ use vnh_namespace\admin\Admin;
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\KSES;
+use vnh_namespace\tools\PHP_Checker;
 use vnh_namespace\tools\Register_Assets;
 
 final class Plugin {
@@ -38,6 +39,7 @@ final class Plugin {
 
 	public function __construct() {
 		$this->load();
+		$this->check_php();
 		$this->init();
 		$this->core();
 		$this->register_assets();
@@ -47,6 +49,15 @@ final class Plugin {
 	public function load() {
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		require_once __DIR__ . '/vendor/autoload.php';
+	}
+
+	public function check_php() {
+		$php_checker = new PHP_Checker();
+		$php_checker->boot();
+
+		if (!$php_checker->is_compatible_check()) {
+			register_activation_hook(__FILE__, [$php_checker, 'php_version_too_low']);
+		}
 	}
 
 	public function init() {
