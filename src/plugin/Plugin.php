@@ -46,7 +46,7 @@ final class Plugin {
 		$this->boot();
 	}
 
-	public function load() {
+	private function load() {
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		require_once __DIR__ . '/vendor/autoload.php';
 	}
