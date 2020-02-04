@@ -15,6 +15,7 @@
     "require": {
         "julien731/wp-review-me": "^2.0.1",
         "cmb2/cmb2": "^2.6.0",
-        "vunamhung/cmb2_tab": "^1.0.0"
+        "vunamhung/cmb2_tab": "^1.0.0",
+        "vunamhung/cmb2_select2": "^1.0.1"
     }
 }

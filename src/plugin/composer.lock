@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f51012163b7db7e416c2641ab075af1d",
+    "content-hash": "78266326f132d7ae703c20770874f463",
     "packages": [
         {
             "name": "cmb2/cmb2",
-            "version": "v2.6.0",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CMB2/CMB2.git",
-                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3"
+                "reference": "438c26dda7ac110d0741448d65614b3ec6379034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/008d9b83263d971d6bd41c27e31113db852d5ef3",
-                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/438c26dda7ac110d0741448d65614b3ec6379034",
+                "reference": "438c26dda7ac110d0741448d65614b3ec6379034",
                 "shasum": ""
             },
             "require": {
@@ -38,15 +38,15 @@
             ],
             "authors": [
                 {
-                    "name": "WebDevStudios",
-                    "email": "contact@webdevstudios.com",
-                    "homepage": "https://github.com/WebDevStudios",
-                    "role": "Developer"
-                },
-                {
                     "name": "Justin Sternberg",
                     "email": "justin@dsgnwrks.pro",
                     "homepage": "https://dsgnwrks.pro",
+                    "role": "Developer"
+                },
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
                     "role": "Developer"
                 }
             ],
@@ -57,7 +57,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2019-01-21T04:30:08+00:00"
+            "time": "2020-01-21T17:49:50+00:00"
         },
         {
             "name": "julien731/wp-dismissible-notices-handler",
@@ -140,17 +140,17 @@
             "time": "2016-09-27T04:04:50+00:00"
         },
         {
-            "name": "vunamhung/cmb2_tab",
-            "version": "1.0.0",
+            "name": "vunamhung/cmb2_select2",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vunamhung/cmb2_tab.git",
-                "reference": "cdea42063c6ff76b80195f3c3c811ed05b8b4347"
+                "url": "https://github.com/vunamhung/cmb2_select2.git",
+                "reference": "d67b8417984bfa0f1b4e017b08d2ae98f8b9388e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vunamhung/cmb2_tab/zipball/cdea42063c6ff76b80195f3c3c811ed05b8b4347",
-                "reference": "cdea42063c6ff76b80195f3c3c811ed05b8b4347",
+                "url": "https://api.github.com/repos/vunamhung/cmb2_select2/zipball/d67b8417984bfa0f1b4e017b08d2ae98f8b9388e",
+                "reference": "d67b8417984bfa0f1b4e017b08d2ae98f8b9388e",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,54 @@
             "type": "library",
             "autoload": {
                 "files": [
-                    "tab.php"
+                    "Select2.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Vu Nam Hung",
+                    "email": "vunamhung@gmail.com",
+                    "homepage": "https://github.com/vunamhung/",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "This is a CMB2 Extension repository which help modify the default behavior of CMB2 and extends it's functionality.",
+            "homepage": "https://github.com/vunamhung/cmb2_select2",
+            "keywords": [
+                "CMB2",
+                "cmb2_select2",
+                "wordpress"
+            ],
+            "time": "2020-02-04T09:26:06+00:00"
+        },
+        {
+            "name": "vunamhung/cmb2_tab",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vunamhung/cmb2_tab.git",
+                "reference": "6472633aa96f60ddab087beea348348652931a89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vunamhung/cmb2_tab/zipball/6472633aa96f60ddab087beea348348652931a89",
+                "reference": "6472633aa96f60ddab087beea348348652931a89",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Tab.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -181,10 +228,10 @@
             "homepage": "https://github.com/vunamhung/cmb2_tab",
             "keywords": [
                 "CMB2",
-                "cmb2 tab",
+                "cmb2_tab",
                 "wordpress"
             ],
-            "time": "2020-01-21T08:42:12+00:00"
+            "time": "2020-01-21T09:21:01+00:00"
         }
     ],
     "packages-dev": [],

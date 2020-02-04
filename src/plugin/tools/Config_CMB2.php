@@ -62,7 +62,7 @@ class Config_CMB2 implements Bootable {
 			'name' => __('Styles', 'vnh_textdomain'),
 			'desc' => __('Choose a style to filter result', 'vnh_textdomain'),
 			'id' => 'style',
-			'type' => 'select',
+			'type' => 'select2',
 			'options' => [
 				'Guys Tee' => __('Guys Tee', 'vnh_textdomain'),
 				'Hoodie' => __('Hoodie', 'vnh_textdomain'),
