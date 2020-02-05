@@ -21,9 +21,9 @@ defined('ABSPATH') || die();
 
 use vnh_namespace\admin\Admin;
 use vnh_namespace\settings_page\Settings_Page;
+use vnh_namespace\tools\Checker;
 use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\KSES;
-use vnh_namespace\tools\PHP_Checker;
 use vnh_namespace\tools\Register_Assets;
 
 final class Plugin {
@@ -40,6 +40,7 @@ final class Plugin {
 	public function __construct() {
 		$this->load();
 		$this->check_php();
+		$this->check_wp();
 		$this->init();
 		$this->core();
 		$this->register_assets();
@@ -52,11 +53,22 @@ final class Plugin {
 	}
 
 	public function check_php() {
-		$php_checker = new PHP_Checker();
+		$php_checker = new Checker(PHP_VERSION, MIN_PHP_VERSION, 'PHP');
 		$php_checker->boot();
 
 		if (!$php_checker->is_compatible_check()) {
-			register_activation_hook(__FILE__, [$php_checker, 'php_version_too_low']);
+			register_activation_hook(__FILE__, [$php_checker, 'version_too_low']);
+		}
+	}
+
+	public function check_wp() {
+		global $wp_version;
+
+		$wp_checker = new Checker($wp_version, MIN_WP_VERSION, 'WordPress');
+		$wp_checker->boot();
+
+		if (!$wp_checker->is_compatible_check()) {
+			register_activation_hook(__FILE__, [$wp_checker, 'version_too_low']);
 		}
 	}
 
