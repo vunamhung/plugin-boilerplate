@@ -48,13 +48,10 @@ class Settings_Page implements Bootable {
 	}
 
 	public function add_menu_page() {
-		global $menu;
-		$geargag_menu_exist = false;
-		foreach ($menu as $item) {
-			if ($item[2] === MENU_SLUG) {
-				$geargag_menu_exist = true;
-			}
-		}
+		global $admin_page_hooks;
+
+		$geargag_menu_exist = isset($admin_page_hooks[MENU_SLUG]);
+
 		if (!$geargag_menu_exist) {
 			add_menu_page(
 				esc_html__('GearGag Plugins', 'vnh_textdomain'),
