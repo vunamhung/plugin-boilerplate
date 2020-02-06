@@ -10,7 +10,7 @@ use const vnh_namespace\DS;
 use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
 
-class Tab_Diagnostic_Info implements Renderable {
+class Diagnostic_Page implements Renderable {
 	public $download_button_text;
 	public $debug_file_url;
 

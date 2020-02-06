@@ -1,5 +1,4 @@
 .plugins-list {
-	margin-top: baseline(2);
 	@include grid(md, repeat(2, 1fr));
 	@include grid(xl, repeat(3, 1fr));
 	h5, .h5 {

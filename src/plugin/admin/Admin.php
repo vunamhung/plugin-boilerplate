@@ -4,7 +4,6 @@ namespace vnh_namespace\admin;
 
 defined('ABSPATH') || die();
 
-use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\contracts\Bootable;
 use vnh_namespace\tools\contracts\Initable;
 use WP_Review_Me;
@@ -44,7 +43,7 @@ class Admin implements Initable, Bootable {
 
 		$links['settings'] = sprintf(
 			'<a href="%s">%s</a>',
-			add_query_arg(['page' => Settings_Page::PLUGIN_PAGE_SLUG], admin_url('admin.php')),
+			add_query_arg(['page' => PLUGIN_SLUG], admin_url('admin.php')),
 			esc_html__('Settings', 'vnh_textdomain')
 		);
 

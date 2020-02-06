@@ -8,7 +8,7 @@ use vnh_namespace\tools\contracts\Renderable;
 
 use function vnh_namespace\get_plugin_path;
 
-class Tab_Changelog implements Renderable {
+class Changelog_Page implements Renderable {
 	public function __toString() {
 		return $this->render();
 	}
