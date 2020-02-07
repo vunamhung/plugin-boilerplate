@@ -1,14 +1,20 @@
 .settings-page {
 	background-color: #fff;
+	.button + .button {
+		margin-left: 5px;
+	}
 	#wpfooter {
 		padding: 20px;
 		background-color: #e5e5e5;
+	}
+	#wpbody-content {
+		padding-top: baseline(1);
 	}
 	#wpcontent {
 		//padding-left: 0;
 	}
 	.wrapper {
-		padding: baseline(2);
+		padding: baseline(1) 15px;
 		background: #fff;
 		h1 {
 			margin: 0;

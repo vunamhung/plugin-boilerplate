@@ -83,6 +83,9 @@ final class Plugin {
 			$this->settings_page = new Settings_Page();
 			$this->settings_page->init();
 			$this->settings_page->boot();
+
+			$this->config_cmb2 = new Config_CMB2();
+			$this->config_cmb2->boot();
 		}
 	}
 
@@ -90,9 +93,6 @@ final class Plugin {
 		if (!is_woocommerce_active()) {
 			return;
 		}
-
-		$this->config_cmb2 = new Config_CMB2();
-		$this->config_cmb2->boot();
 
 		$this->widgets = new Register_Widgets();
 		$this->widgets->boot();
