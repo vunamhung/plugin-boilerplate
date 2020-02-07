@@ -17,5 +17,11 @@
         "cmb2/cmb2": "^2.6.0",
         "vunamhung/cmb2_tab": "^1.0.0",
         "vunamhung/cmb2_select2": "^1.0.1"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "config": {
+        "sort-packages": true
     }
 }
