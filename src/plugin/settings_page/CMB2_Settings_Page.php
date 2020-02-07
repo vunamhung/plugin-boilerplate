@@ -15,7 +15,7 @@ class CMB2_Settings_Page implements Bootable {
 	public function __construct() {
 		$this->display_cb = function (\CMB2_Options_Hookup $object) {
 			$html = '<div class="wrapper">';
-			$html .= $object->cmb->prop('heading') ? sprintf('<h1>%s</h1>', $object->cmb->prop('heading')) : null;
+			$html .= $object->cmb->prop('title') ? sprintf('<h1>%s</h1>', $object->cmb->prop('title')) : null;
 			$html .= $object->cmb->prop('description') ? sprintf('<p class="about-text">%s</p>', $object->cmb->prop('description')) : null;
 			$html .= sprintf('<div class="wrap cmb2-options-page option-%s">', esc_attr(sanitize_html_class($object->option_key)));
 			$html .= sprintf(
@@ -42,8 +42,7 @@ class CMB2_Settings_Page implements Bootable {
 	public function fields() {
 		$cmb = new_cmb2_box([
 			'id' => PLUGIN_SLUG,
-			'title' => __('Page <strong>Options</strong>', 'vnh_textdomain'),
-			'heading' => sprintf(
+			'title' => sprintf(
 				'<h1>' . __('Getting Started with <strong>%1$s</strong> <code>%2$s</code>', 'vnh_textdomain') . '</h1>',
 				PLUGIN_NAME,
 				PLUGIN_VERSION
@@ -54,7 +53,7 @@ class CMB2_Settings_Page implements Bootable {
 			'option_key' => PLUGIN_SLUG . '_options',
 			// The option key and admin menu page slug.
 			// 'icon_url'        => '', // Menu icon. Only applicable if 'parent_slug' is left empty.
-			// 'menu_title'      => esc_html__( 'Options', 'cmb2' ), // Falls back to 'title' (above).
+			'menu_title' => esc_html__('Page Options', 'vnh_textdomain'), // Falls back to 'title' (above).
 			'parent_slug' => PLUGIN_SLUG,
 			// Make options page a submenu item of the themes menu.
 			'capability' => 'manage_options',
