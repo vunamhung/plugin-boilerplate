@@ -6,7 +6,8 @@
             "helpers/general.php",
             "helpers/woo.php",
             "helpers/http.php",
-            "vendor/cmb2/cmb2/init.php"
+            "vendor/cmb2/cmb2/init.php",
+            "vendor/jcchavezs/cmb2-conditionals/cmb2-conditionals.php"
         ],
         "psr-4": {
             "vnh_namespace\\": "."
@@ -15,6 +16,7 @@
     "require": {
         "julien731/wp-review-me": "^2.0.1",
         "cmb2/cmb2": "^2.6.0",
+        "jcchavezs/cmb2-conditionals": "dev-master",
         "vunamhung/cmb2_tab": "^1.0.0",
         "vunamhung/cmb2_select2": "^1.0.1"
     },

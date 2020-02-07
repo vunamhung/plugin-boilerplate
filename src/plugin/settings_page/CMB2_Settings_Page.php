@@ -126,6 +126,10 @@ class CMB2_Settings_Page implements Bootable {
 				'female' => __('Female', 'vnh_textdomain'),
 				'unisex' => __('Unisex', 'vnh_textdomain'),
 			],
+			'attributes' => [
+				'required' => true, // Will be required only if visible.
+				'data-conditional-id' => 'file_name',
+			],
 		]);
 	}
 }
