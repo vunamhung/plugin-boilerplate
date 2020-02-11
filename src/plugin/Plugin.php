@@ -146,7 +146,7 @@ final class Plugin {
 	}
 
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain('vnh_textdomain');
+		load_plugin_textdomain('vnh_textdomain', false, dirname(plugin_basename(__FILE__)) . '/languages');
 	}
 
 	public function enqueue_backend_assets() {
