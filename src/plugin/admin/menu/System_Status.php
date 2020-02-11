@@ -1,6 +1,6 @@
 <?php
 
-namespace vnh_namespace\settings_page;
+namespace vnh_namespace\admin\menu;
 
 defined('ABSPATH') || die();
 
@@ -8,16 +8,16 @@ use vnh_namespace\tools\contracts\Renderable;
 
 use const vnh_namespace\DS;
 use const vnh_namespace\PLUGIN_NAME;
-use const vnh_namespace\PLUGIN_SLUG;
+use const vnh_namespace\SYSTEM_STATUS;
 
-class Diagnostic_Page implements Renderable {
+class System_Status implements Renderable {
 	public $download_button_text;
 	public $debug_file_url;
 
 	public function __construct() {
 		$this->download_button_text = esc_attr_x('Download', 'Download log file to your computer', 'vnh_textdomain');
 
-		$query = ['page' => PLUGIN_SLUG, 'tab' => 'diagnostic', 'download-log' => true, 'nonce' => wp_create_nonce('download-log')];
+		$query = ['page' => SYSTEM_STATUS, 'download-log' => true, 'nonce' => wp_create_nonce('download-log')];
 		$this->debug_file_url = add_query_arg($query, admin_url('admin.php'));
 		$this->http_prepare_download_log();
 	}

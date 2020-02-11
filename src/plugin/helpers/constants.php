@@ -25,4 +25,5 @@ const WPORG = false;
 
 const PREMIUM_URL = 'https://geargag.com/';
 const MENU_SLUG = 'geargag_plugins';
+const SYSTEM_STATUS = MENU_SLUG . '_system_status';
 const PLUGINS_LIST_FILE = 'https://geargag.com/geargag_plugins.json';

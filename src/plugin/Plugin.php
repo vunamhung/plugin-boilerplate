@@ -20,6 +20,7 @@ namespace vnh_namespace;
 defined('ABSPATH') || die();
 
 use vnh_namespace\admin\Admin;
+use vnh_namespace\admin\menu\Admin_Menu;
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Checker;
 use vnh_namespace\tools\Config_CMB2;
@@ -28,6 +29,7 @@ use vnh_namespace\tools\Register_Assets;
 
 final class Plugin {
 	public $settings_page;
+	public $admin_menus;
 	public $admin_notices;
 	public $frontend_assets;
 	public $backend_assets;
@@ -76,6 +78,9 @@ final class Plugin {
 		new KSES();
 
 		if (is_admin()) {
+			$this->admin_menus = new Admin_Menu();
+			$this->admin_menus->boot();
+
 			$this->admin_notices = new Admin();
 			$this->admin_notices->init();
 			$this->admin_notices->boot();
