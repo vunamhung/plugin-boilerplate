@@ -7,7 +7,6 @@ defined('ABSPATH') || die();
 use vnh_namespace\tools\contracts\Renderable;
 
 use const vnh_namespace\DS;
-use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\SYSTEM_STATUS;
 
 class System_Status implements Renderable {
@@ -93,6 +92,7 @@ class System_Status implements Renderable {
 	public function get_diagnostic_info() {
 		global $wpdb;
 
+		$theme_name = wp_get_theme()->get('Name');
 		$theme_dir = wp_get_theme()->get_stylesheet_directory();
 		$parent_theme_dir = wp_get_theme()->get('Template');
 
@@ -200,7 +200,7 @@ class System_Status implements Renderable {
 		];
 
 		$theme_info_log = [
-			__('Active Theme Name', 'vnh_textdomain') => PLUGIN_NAME,
+			__('Active Theme Name', 'vnh_textdomain') => $theme_name,
 			__('Active Theme Folder', 'vnh_textdomain') => $theme_dir,
 		];
 
@@ -223,7 +223,7 @@ class System_Status implements Renderable {
 			$diagnostic_info['active-plugins'] = $active_plugins_log;
 		}
 
-		return $diagnostic_info;
+		return apply_filters('diagnostic_info', $diagnostic_info);
 	}
 
 	protected function get_post_max_size() {
