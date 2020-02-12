@@ -40,7 +40,7 @@ class Our_Plugins {
 	}
 
 	protected function get_plugins_list() {
-		$cached_plugins_list = get_transient('geargag_plugins_list');
+		$cached_plugins_list = get_transient('plugins_list');
 
 		if (!empty($cached_plugins_list)) {
 			return $cached_plugins_list;
@@ -51,7 +51,7 @@ class Our_Plugins {
 			$response = request(PLUGINS_LIST_FILE);
 		}
 
-		set_transient('geargag_plugins_list', $response, DAY_IN_SECONDS * 7);
+		set_transient('plugins_list', $response, DAY_IN_SECONDS * 7);
 
 		return $response;
 	}

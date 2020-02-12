@@ -17,9 +17,9 @@ class Admin_Menu implements Bootable {
 	public function add_menus() {
 		global $submenu;
 
-		$geargag_menu_not_exist = empty($submenu['index.php'][11]);
+		$menu_not_exist = empty($submenu['index.php'][11]);
 
-		if ($geargag_menu_not_exist) {
+		if ($menu_not_exist) {
 			add_submenu_page(
 				'index.php',
 				esc_html__('GearGag Plugins', 'vnh_textdomain'),
@@ -57,7 +57,7 @@ class Admin_Menu implements Bootable {
 		$html .= new Our_Plugins();
 		$html .= '</div>';
 
-		echo $html;
+		echo wp_kses($html, 'default');
 	}
 
 	public function system_status() {
@@ -67,6 +67,6 @@ class Admin_Menu implements Bootable {
 		$html .= new System_Status();
 		$html .= '</div>';
 
-		echo $html;
+		echo wp_kses($html, 'default');
 	}
 }
