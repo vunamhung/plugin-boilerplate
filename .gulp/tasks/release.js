@@ -13,17 +13,17 @@ const { plugin } = require("../../package");
 
 export function zipPlugin() {
 	return gulp
-		.src(["./dist/done/**/*", "!**/composer.*"])
+		.src(["dist/done/**/*", "!**/composer.*"])
 		.pipe(zip(`${plugin.slug}.zip`))
-		.pipe(gulp.dest("./dist"));
+		.pipe(gulp.dest("dist"));
 }
 
 export function deleteEmptyDir() {
-	return deleteEmpty("./dist/build/");
+	return deleteEmpty("dist/build/");
 }
 
 export function cleanDSStore(done) {
-	const cmd = "find ./src -type f -name '*.DS_Store' -ls -delete",
+	const cmd = "find plugin -type f -name '*.DS_Store' -ls -delete",
 		run = exec(cmd);
 
 	run.stdout.pipe(process.stdout);
@@ -33,7 +33,7 @@ export function cleanDSStore(done) {
 }
 
 export function updateComposer(done) {
-	const cmd = `cd ./dist/done/${plugin.slug}/ && composer install --no-dev && composer dump-autoload --no-interaction --ansi --verbose --optimize`,
+	const cmd = `cd dist/done/${plugin.slug}/ && composer install --no-dev && composer dump-autoload --no-interaction --ansi --verbose --optimize`,
 		run = exec(cmd);
 
 	run.stdout.pipe(process.stdout);
@@ -43,16 +43,16 @@ export function updateComposer(done) {
 }
 
 export function cleanDist() {
-	return del("./dist/**");
+	return del("dist/**");
 }
 
 export function copyPlugin() {
-	return gulp.src(paths.plugin.build).pipe(gulp.dest(`./dist/build/${plugin.slug}`));
+	return gulp.src(paths.plugin.build).pipe(gulp.dest(`dist/build/${plugin.slug}`));
 }
 
 export function replacePluginTexts() {
 	return gulp
-		.src(`./dist/build/${plugin.slug}/**/*`)
+		.src(`dist/build/${plugin.slug}/**/*`)
 		.pipe(
 			replace({
 				patterns: [
@@ -88,7 +88,7 @@ export function replacePluginTexts() {
 				prefix: "vnh_",
 			}),
 		)
-		.pipe(gulp.dest(`./dist/done/${plugin.slug}`));
+		.pipe(gulp.dest(`dist/done/${plugin.slug}`));
 }
 
 export function getPluginSize() {
@@ -98,7 +98,7 @@ export function getPluginSize() {
 	});
 
 	return gulp
-		.src("./dist/*.zip")
+		.src("dist/*.zip")
 		.pipe(s)
 		.pipe(
 			notify({

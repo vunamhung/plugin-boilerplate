@@ -12,7 +12,7 @@ import autoprefixer from "autoprefixer";
 import mqpacker from "css-mqpacker";
 import pxtorem from "postcss-pxtorem";
 
-const { title } = require("../../package").plugin;
+const { slug } = require("../../package").plugin;
 const { plugin } = require("../paths").default;
 
 const processors = {
@@ -39,14 +39,14 @@ function errorHandler(error) {
 
 	if (error.file) {
 		line = `${error.line}:${error.column}`;
-		file = error.file.replace(resolve("./src/"), "");
+		file = error.file.replace(resolve("./plugin/"), "");
 		message = `L${line}:${file}`;
 	} else {
 		message = "See console!";
 	}
 
 	notify({
-		title: `${title} | ${error.plugin}`,
+		title: `${slug} | ${error.plugin}`,
 		subtitle: "😭Failed!😭",
 		message,
 		sound: "Sosumi",
@@ -66,5 +66,5 @@ export function buildPluginSass() {
 		.pipe(sass({ outputStyle: "compressed" }))
 		.pipe(postcss(processors.modules))
 		.pipe(sourcemaps.write("./"))
-		.pipe(dest("src/plugin/assets/css"));
+		.pipe(dest("plugin/assets/css"));
 }

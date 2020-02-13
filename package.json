@@ -2,8 +2,8 @@
     "author": "Vu Nam Hung",
     "license": "GPL-3.0",
     "scripts": {
-        "download:libs": "node ./node_modules/frontend-dependencies/index.js",
-        "clean:composer": "rm -rf ./vendor && rm -rf src/plugin/vendor",
+        "download:libs": "node node_modules/frontend-dependencies/index.js",
+        "clean:composer": "rm -rf vendor && rm -rf plugin/vendor",
         "start": "webpack --watch & gulp default",
         "build": "webpack --mode=production",
         "build:analytic": "webpack --mode=production --analytic"
@@ -95,30 +95,30 @@
                 "version": "latest",
                 "src": "src/*",
                 "namespaced": true,
-                "target": "src/plugin/assets/libs"
+                "target": "plugin/assets/libs"
             },
             "hint.css": {
                 "version": "latest",
                 "src": "src/*",
                 "namespaced": true,
-                "target": "src/plugin/assets/libs"
+                "target": "plugin/assets/libs"
             },
             "family.scss": {
                 "version": "latest",
                 "src": "source/src/*",
                 "namespaced": true,
-                "target": "src/plugin/assets/libs"
+                "target": "plugin/assets/libs"
             }
         }
     },
     "bundlesize": [
         {
-            "path": "./dist/done/*/assets/js/*.js",
+            "path": "dist/done/*/assets/js/*.js",
             "maxSize": "250 kB",
             "compression": "gzip"
         },
         {
-            "path": "./dist/done/**/*.jpg",
+            "path": "dist/done/**/*.jpg",
             "maxSize": "700 kB"
         }
     ],

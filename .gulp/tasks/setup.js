@@ -7,7 +7,7 @@ const { plugin } = require("../../package");
 
 export function linkPlugin(done) {
 	let pluginFinalPath = resolve(`dist/done/${plugin.slug}`),
-		pluginPath = resolve("src/plugin"),
+		pluginPath = resolve("plugin"),
 		targetPluginPath = resolve(localPath, "wp-content/plugins");
 
 	let linkFinalPlugin = `ln -s ${pluginFinalPath} ${targetPluginPath}`,
