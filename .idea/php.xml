@@ -10,6 +10,13 @@
       <path value="$WORDPRESS$" />
       <path value="$KINT$" />
       <path value="$LIBS$/woocommerce" />
+      <path value="$PROJECT_DIR$/plugin/vendor/cmb2/cmb2" />
+      <path value="$PROJECT_DIR$/plugin/vendor/jcchavezs/cmb2-conditionals" />
+      <path value="$PROJECT_DIR$/plugin/vendor/vunamhung/cmb2_tab" />
+      <path value="$PROJECT_DIR$/plugin/vendor/julien731/wp-dismissible-notices-handler" />
+      <path value="$PROJECT_DIR$/plugin/vendor/julien731/wp-review-me" />
+      <path value="$PROJECT_DIR$/plugin/vendor/composer" />
+      <path value="$PROJECT_DIR$/plugin/vendor/vunamhung/cmb2_select2" />
     </include_path>
   </component>
   <component name="PhpRuntimeConfiguration" default_stubs_path="$STUBS$" />

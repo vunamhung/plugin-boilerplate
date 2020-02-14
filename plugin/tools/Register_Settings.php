@@ -328,7 +328,7 @@ abstract class Register_Settings implements Initable, Bootable, Renderable {
 
 		if (!empty($data['custom_attributes']) && is_array($data['custom_attributes'])) {
 			foreach ($data['custom_attributes'] as $attribute => $attribute_value) {
-				$custom_attributes[] = esc_attr($attribute) . '="' . esc_attr($attribute_value) . '"';
+				$custom_attributes[] = sprintf('%s="%s"', esc_attr($attribute), esc_attr($attribute_value));
 			}
 		}
 

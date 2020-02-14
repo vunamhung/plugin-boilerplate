@@ -5,6 +5,13 @@
       <sourceFolder url="file://$MODULE_DIR$/plugin" isTestSource="false" packagePrefix="vnh_namespace" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/plugin/assets/css" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/cmb2/cmb2" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/jcchavezs/cmb2-conditionals" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/julien731/wp-dismissible-notices-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/julien731/wp-review-me" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_select2" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_tab" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
