@@ -4,10 +4,10 @@ namespace vnh_namespace;
 
 defined('ABSPATH') || die();
 
-define(__NAMESPACE__ . '\PLUGIN_DATA', get_plugin_data(Plugin::FILE));
-define(__NAMESPACE__ . '\PLUGIN_SLUG', basename(Plugin::DIR));
-define(__NAMESPACE__ . '\PLUGIN_BASE', plugin_basename(Plugin::FILE));
-define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', get_file_data(Plugin::FILE, ['Document URI'])[0]);
+define(__NAMESPACE__ . '\PLUGIN_DATA', get_plugin_data(PLUGIN_FILE));
+define(__NAMESPACE__ . '\PLUGIN_SLUG', basename(PLUGIN_DIR));
+define(__NAMESPACE__ . '\PLUGIN_BASE', plugin_basename(PLUGIN_FILE));
+define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', get_file_data(PLUGIN_DIR, ['Document URI'])[0]);
 
 const PLUGIN_NAME = PLUGIN_DATA['Name'];
 const PLUGIN_DESCRIPTION = PLUGIN_DATA['Description'];

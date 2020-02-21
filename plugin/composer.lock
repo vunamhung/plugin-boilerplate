@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acb34d2a668356afc07cfc7e4e542c1d",
+    "content-hash": "1ffda7673e221f5faa960e8aa5d6bc3e",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -279,16 +279,16 @@
         },
         {
             "name": "vunamhung/wptoolkit",
-            "version": "0.9.2",
+            "version": "0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vunamhung/wptoolkit.git",
-                "reference": "252b14ae9c7c361b4f458c2db7f976fea8613323"
+                "reference": "634f1f40bc5aafccf7b2f84f46ab832320d5d944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vunamhung/wptoolkit/zipball/252b14ae9c7c361b4f458c2db7f976fea8613323",
-                "reference": "252b14ae9c7c361b4f458c2db7f976fea8613323",
+                "url": "https://api.github.com/repos/vunamhung/wptoolkit/zipball/634f1f40bc5aafccf7b2f84f46ab832320d5d944",
+                "reference": "634f1f40bc5aafccf7b2f84f46ab832320d5d944",
                 "shasum": ""
             },
             "require": {
@@ -302,6 +302,7 @@
                 "files": [
                     "bootstrap.php",
                     "helpers/global.php",
+                    "helpers/general.php",
                     "helpers/array.php",
                     "helpers/woo.php",
                     "helpers/http.php"
@@ -322,13 +323,13 @@
                     "role": "Lead Developer"
                 }
             ],
-            "description": "This is a toolkit for developing a plugin.",
+            "description": "This is a toolkit for WordPress developer.",
             "homepage": "https://github.com/vunamhung/wptoolkit",
             "keywords": [
                 "toolkit",
                 "wordpress"
             ],
-            "time": "2020-02-21T02:16:58+00:00"
+            "time": "2020-02-21T05:01:16+00:00"
         }
     ],
     "packages-dev": [

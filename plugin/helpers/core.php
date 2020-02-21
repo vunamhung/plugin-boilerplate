@@ -10,18 +10,18 @@ function is_plugin_settings_page() {
 
 function get_plugin_path($dir = null) {
 	if (empty($dir)) {
-		return trailingslashit(Plugin::DIR);
+		return trailingslashit(PLUGIN_DIR);
 	}
 
-	return trailingslashit(Plugin::DIR) . $dir;
+	return trailingslashit(PLUGIN_DIR) . $dir;
 }
 
 function get_plugin_url($dir = null) {
 	if (empty($dir)) {
-		return plugin_dir_url(Plugin::FILE);
+		return plugin_dir_url(PLUGIN_FILE);
 	}
 
-	return plugin_dir_url(Plugin::FILE) . $dir;
+	return plugin_dir_url(PLUGIN_FILE) . $dir;
 }
 
 function is_dev() {

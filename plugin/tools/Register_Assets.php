@@ -5,6 +5,8 @@ namespace vnh_namespace\tools;
 defined('ABSPATH') || die();
 
 use vnh\contracts\Bootable;
+use vnh\utilities\Register_Script;
+use vnh\utilities\Register_Style;
 
 class Register_Assets implements Bootable {
 	public $scripts;
@@ -39,33 +41,8 @@ class Register_Assets implements Bootable {
 		}
 
 		foreach ($this->scripts as $handle => $args) {
-			$args = wp_parse_args($args, [
-				'deps' => [],
-				'version' => null,
-				'in_footer' => true,
-				'have_min' => false,
-				'inline_script_position' => 'after',
-			]);
-			$args = apply_filters("$this->context/register/scripts/args", $args);
-			$args = apply_filters("$this->context/register/scripts/$handle/args", $args);
-
-			if ($args['have_min'] === true) {
-				$src = preg_replace('/\.js$/', '.min.js', $args['src']);
-			} else {
-				$src = $args['src'];
-			}
-
-			wp_register_script($handle, esc_url($src), $args['deps'], $this->flatten_version($args['version']), $args['in_footer']);
-
-			if (!empty($args['inline_script'])) {
-				wp_add_inline_script($handle, $args['inline_script'], $args['inline_script_position']);
-			}
-
-			if (!empty($args['localize_script'])) {
-				foreach ($args['localize_script'] as $object_name => $data) {
-					wp_localize_script($handle, $object_name, $data);
-				}
-			}
+			$register = new Register_Script($handle, $args);
+			$register->register_script();
 		}
 	}
 
@@ -75,34 +52,8 @@ class Register_Assets implements Bootable {
 		}
 
 		foreach ($this->styles as $handle => $args) {
-			$args = wp_parse_args($args, [
-				'deps' => false,
-				'version' => null,
-				'media' => 'all',
-				'has_rtl' => false,
-			]);
-			$args = apply_filters("$this->context/register/styles/args", $args);
-			$args = apply_filters("$this->context/register/styles/$handle/args", $args);
-
-			wp_register_style($handle, esc_url($args['src']), $args['deps'], $this->flatten_version($args['version']), $args['media']);
-
-			if ($args['has_rtl']) {
-				wp_style_add_data($handle, 'rtl', 'replace');
-			}
+			$register = new Register_Style($handle, $args);
+			$register->register_style();
 		}
-	}
-
-	protected function flatten_version($version) {
-		if (empty($version)) {
-			return null;
-		}
-
-		$parts = explode('.', $version);
-
-		if (count($parts) === 2) {
-			$parts[] = '0';
-		}
-
-		return implode('', $parts);
 	}
 }

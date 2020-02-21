@@ -20,6 +20,7 @@ namespace vnh_namespace;
 defined('ABSPATH') || die();
 
 use vnh\Plugin_Checker;
+use vnh\Singleton;
 use vnh_namespace\admin\Admin;
 use vnh_namespace\admin\menu\Admin_Menu;
 use vnh_namespace\settings_page\Settings_Page;
@@ -29,7 +30,14 @@ use vnh_namespace\tools\Register_Assets;
 
 use function vnh\is_woocommerce_active;
 
-final class Plugin {
+const PLUGIN_FILE = __FILE__;
+const PLUGIN_DIR = __DIR__;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+final class Plugin extends Singleton {
+	public $php_checker;
+	public $wp_checker;
 	public $settings_page;
 	public $admin_menus;
 	public $admin_notices;
@@ -38,49 +46,36 @@ final class Plugin {
 	public $widgets;
 	public $config_cmb2;
 
-	const FILE = __FILE__;
-	const DIR = __DIR__;
-
-	public function __construct() {
-		$this->load();
-		$this->check_php();
-		$this->check_wp();
-		$this->init();
-		$this->core();
-		$this->register_assets();
-		$this->boot();
-	}
-
-	private function load() {
-		require_once __DIR__ . '/vendor/autoload.php';
-	}
-
-	public function check_php() {
-		$php_checker = new Plugin_Checker(MIN_PHP_VERSION, 'PHP', __FILE__);
-		$php_checker->init();
-	}
-
-	public function check_wp() {
-		$wp_checker = new Plugin_Checker(MIN_WP_VERSION, 'WordPress', __FILE__);
-		$wp_checker->init();
+	protected function __construct() {
+		$this->php_checker = new Plugin_Checker(MIN_PHP_VERSION, 'PHP', PLUGIN_FILE);
+		$this->wp_checker = new Plugin_Checker(MIN_WP_VERSION, 'WordPress', PLUGIN_FILE);
+		$this->admin_menus = new Admin_Menu();
+		$this->admin_notices = new Admin();
+		$this->settings_page = new Settings_Page();
+		$this->config_cmb2 = new Config_CMB2();
+		$this->backend_assets = new Register_Assets($this->register_backend_assets(), 'backend');
+		$this->frontend_assets = new Register_Assets($this->register_frontend_assets(), 'frontend');
 	}
 
 	public function init() {
 		new KSES();
 
+		$this->php_checker->init();
+		$this->wp_checker->init();
+
+		$this->frontend_assets->boot();
+
 		if (is_admin()) {
-			$this->admin_menus = new Admin_Menu();
+			$this->backend_assets->boot();
+
 			$this->admin_menus->boot();
 
-			$this->admin_notices = new Admin();
 			$this->admin_notices->init();
 			$this->admin_notices->boot();
 
-			$this->settings_page = new Settings_Page();
 			$this->settings_page->init();
 			$this->settings_page->boot();
 
-			$this->config_cmb2 = new Config_CMB2();
 			$this->config_cmb2->boot();
 		}
 	}
@@ -89,17 +84,6 @@ final class Plugin {
 		if (!is_woocommerce_active()) {
 			return;
 		}
-
-		$this->widgets = new Register_Widgets();
-		$this->widgets->boot();
-	}
-
-	public function register_assets() {
-		$this->backend_assets = new Register_Assets($this->register_backend_assets(), 'backend');
-		$this->backend_assets->boot();
-
-		$this->frontend_assets = new Register_Assets($this->register_frontend_assets(), 'frontend');
-		$this->frontend_assets->boot();
 	}
 
 	public function register_backend_assets() {
@@ -142,7 +126,7 @@ final class Plugin {
 	}
 
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain('vnh_textdomain', false, dirname(plugin_basename(__FILE__)) . '/languages');
+		load_plugin_textdomain('vnh_textdomain', false, plugin_languages_path(PLUGIN_FILE));
 	}
 
 	public function enqueue_backend_assets() {
@@ -157,4 +141,7 @@ final class Plugin {
 	}
 }
 
-new Plugin();
+Plugin::instance();
+Plugin::instance()->init();
+Plugin::instance()->core();
+Plugin::instance()->boot();
