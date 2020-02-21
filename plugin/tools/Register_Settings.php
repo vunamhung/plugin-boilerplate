@@ -4,9 +4,9 @@ namespace vnh_namespace\tools;
 
 defined('ABSPATH') || die();
 
-use vnh_namespace\tools\contracts\Bootable;
-use vnh_namespace\tools\contracts\Initable;
-use vnh_namespace\tools\contracts\Renderable;
+use vnh\contracts\Bootable;
+use vnh\contracts\Initable;
+use vnh\contracts\Renderable;
 
 use const vnh_namespace\PLUGIN_SLUG;
 

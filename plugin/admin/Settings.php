@@ -6,7 +6,7 @@ defined('ABSPATH') || die();
 
 use vnh_namespace\tools\Register_Settings;
 
-use function vnh_namespace\all_currencies;
+use function vnh\all_currencies;
 
 class Settings extends Register_Settings {
 	public function register_default_settings() {

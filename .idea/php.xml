@@ -17,7 +17,13 @@
       <path value="$PROJECT_DIR$/plugin/vendor/julien731/wp-review-me" />
       <path value="$PROJECT_DIR$/plugin/vendor/composer" />
       <path value="$PROJECT_DIR$/plugin/vendor/vunamhung/cmb2_select2" />
+      <path value="$PROJECT_DIR$/plugin/vendor/vunamhung/wptoolkit" />
     </include_path>
   </component>
   <component name="PhpRuntimeConfiguration" default_stubs_path="$STUBS$" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/plugin/vendor/autoload.php" />
+    </phpunit_settings>
+  </component>
 </project>

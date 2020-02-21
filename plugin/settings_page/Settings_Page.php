@@ -5,8 +5,8 @@ namespace vnh_namespace\settings_page;
 defined('ABSPATH') || die();
 
 use vnh_namespace\admin\Settings;
-use vnh_namespace\tools\contracts\Bootable;
-use vnh_namespace\tools\contracts\Initable;
+use vnh\contracts\Bootable;
+use vnh\contracts\Initable;
 
 use function vnh_namespace\is_plugin_settings_page;
 

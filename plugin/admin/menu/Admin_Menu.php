@@ -2,7 +2,8 @@
 
 namespace vnh_namespace\admin\menu;
 
-use vnh_namespace\tools\contracts\Bootable;
+use vnh\contracts\Bootable;
+use vnh\System_Status;
 
 use const vnh_namespace\MENU_SLUG;
 use const vnh_namespace\SYSTEM_STATUS;
@@ -64,7 +65,9 @@ class Admin_Menu implements Bootable {
 		$html = '<div class="wrapper">';
 		$html .= '<h1>' . __('Your Website <strong>Status</strong>', 'vnh_textdomain') . '</h1>';
 		$html .= '<p>' . __('Get all info about your system here', 'vnh_textdomain') . '</p>';
-		$html .= new System_Status();
+		$html .= new System_Status([
+			'menu_slug' => SYSTEM_STATUS,
+		]);
 		$html .= '</div>';
 
 		echo wp_kses($html, 'default');

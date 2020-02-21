@@ -2,7 +2,7 @@
 
 namespace vnh_namespace\tools;
 
-use vnh_namespace\tools\contracts\Bootable;
+use vnh\contracts\Bootable;
 
 use function vnh_namespace\get_plugin_url;
 

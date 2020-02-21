@@ -4,7 +4,7 @@ namespace vnh_namespace\settings_page;
 
 defined('ABSPATH') || die();
 
-use vnh_namespace\tools\contracts\Renderable;
+use vnh\contracts\Renderable;
 
 use function vnh_namespace\get_plugin_path;
 

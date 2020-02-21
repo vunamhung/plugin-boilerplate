@@ -2,8 +2,8 @@
 
 namespace vnh_namespace\admin\menu;
 
+use function vnh\request;
 use function vnh_namespace\get_plugin_url;
-use function vnh_namespace\request;
 
 use const vnh_namespace\PLUGINS_LIST_FILE;
 

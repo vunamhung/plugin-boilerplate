@@ -2,7 +2,7 @@
 
 namespace vnh_namespace;
 
-use vnh_namespace\tools\contracts\Bootable;
+use vnh\contracts\Bootable;
 
 class Register_Widgets implements Bootable {
 	public $registry = [];

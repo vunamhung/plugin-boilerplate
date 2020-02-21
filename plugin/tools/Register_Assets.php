@@ -4,7 +4,7 @@ namespace vnh_namespace\tools;
 
 defined('ABSPATH') || die();
 
-use vnh_namespace\tools\contracts\Bootable;
+use vnh\contracts\Bootable;
 
 class Register_Assets implements Bootable {
 	public $scripts;

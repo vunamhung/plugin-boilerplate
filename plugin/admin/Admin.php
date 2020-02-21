@@ -4,11 +4,11 @@ namespace vnh_namespace\admin;
 
 defined('ABSPATH') || die();
 
-use vnh_namespace\tools\contracts\Bootable;
-use vnh_namespace\tools\contracts\Initable;
+use vnh\contracts\Bootable;
+use vnh\contracts\Initable;
 use WP_Review_Me;
 
-use function vnh_namespace\is_woocommerce_active;
+use function vnh\is_woocommerce_active;
 
 use const vnh_namespace\PLUGIN_BASE;
 use const vnh_namespace\PLUGIN_DOCUMENT_URI;

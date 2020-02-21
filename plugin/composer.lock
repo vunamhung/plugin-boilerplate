@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d9b21518bd4566993e1b98218614aa7",
+    "content-hash": "acb34d2a668356afc07cfc7e4e542c1d",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -276,6 +276,59 @@
                 "wordpress"
             ],
             "time": "2020-01-21T09:21:01+00:00"
+        },
+        {
+            "name": "vunamhung/wptoolkit",
+            "version": "0.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vunamhung/wptoolkit.git",
+                "reference": "252b14ae9c7c361b4f458c2db7f976fea8613323"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vunamhung/wptoolkit/zipball/252b14ae9c7c361b4f458c2db7f976fea8613323",
+                "reference": "252b14ae9c7c361b4f458c2db7f976fea8613323",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php",
+                    "helpers/global.php",
+                    "helpers/array.php",
+                    "helpers/woo.php",
+                    "helpers/http.php"
+                ],
+                "psr-4": {
+                    "vnh\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Vu Nam Hung",
+                    "email": "vunamhung@gmail.com",
+                    "homepage": "https://github.com/vunamhung/",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "This is a toolkit for developing a plugin.",
+            "homepage": "https://github.com/vunamhung/wptoolkit",
+            "keywords": [
+                "toolkit",
+                "wordpress"
+            ],
+            "time": "2020-02-21T02:16:58+00:00"
         }
     ],
     "packages-dev": [

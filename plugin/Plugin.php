@@ -19,13 +19,15 @@ namespace vnh_namespace;
 
 defined('ABSPATH') || die();
 
+use vnh\Plugin_Checker;
 use vnh_namespace\admin\Admin;
 use vnh_namespace\admin\menu\Admin_Menu;
 use vnh_namespace\settings_page\Settings_Page;
-use vnh_namespace\tools\Checker;
 use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\KSES;
 use vnh_namespace\tools\Register_Assets;
+
+use function vnh\is_woocommerce_active;
 
 final class Plugin {
 	public $settings_page;
@@ -50,28 +52,17 @@ final class Plugin {
 	}
 
 	private function load() {
-		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		require_once __DIR__ . '/vendor/autoload.php';
 	}
 
 	public function check_php() {
-		$php_checker = new Checker(PHP_VERSION, MIN_PHP_VERSION, 'PHP');
-		$php_checker->boot();
-
-		if (!$php_checker->is_compatible_check()) {
-			register_activation_hook(__FILE__, [$php_checker, 'version_too_low']);
-		}
+		$php_checker = new Plugin_Checker(MIN_PHP_VERSION, 'PHP', __FILE__);
+		$php_checker->init();
 	}
 
 	public function check_wp() {
-		global $wp_version;
-
-		$wp_checker = new Checker($wp_version, MIN_WP_VERSION, 'WordPress');
-		$wp_checker->boot();
-
-		if (!$wp_checker->is_compatible_check()) {
-			register_activation_hook(__FILE__, [$wp_checker, 'version_too_low']);
-		}
+		$wp_checker = new Plugin_Checker(MIN_WP_VERSION, 'WordPress', __FILE__);
+		$wp_checker->init();
 	}
 
 	public function init() {

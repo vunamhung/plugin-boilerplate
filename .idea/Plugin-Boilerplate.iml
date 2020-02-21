@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/julien731/wp-review-me" />
       <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_select2" />
       <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_tab" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/wptoolkit" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -2,7 +2,7 @@
 
 namespace vnh_namespace\settings_page;
 
-use vnh_namespace\tools\contracts\Bootable;
+use vnh\contracts\Bootable;
 
 use const vnh_namespace\PLUGIN_DESCRIPTION;
 use const vnh_namespace\PLUGIN_NAME;
