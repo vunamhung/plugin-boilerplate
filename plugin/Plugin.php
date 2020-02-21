@@ -33,7 +33,7 @@ use function vnh\is_woocommerce_active;
 const PLUGIN_FILE = __FILE__;
 const PLUGIN_DIR = __DIR__;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once PLUGIN_DIR . '/vendor/autoload.php';
 
 final class Plugin extends Singleton {
 	public $php_checker;
