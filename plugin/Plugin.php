@@ -20,7 +20,7 @@ namespace vnh_namespace;
 defined('ABSPATH') || die();
 
 use vnh\Allowed_HTML;
-use vnh\contracts\Bootable;
+use vnh\contracts\Enqueueable;
 use vnh\contracts\Initable;
 use vnh\contracts\Loadable;
 use vnh\Plugin_Checker;
@@ -39,7 +39,7 @@ const PLUGIN_DIR = __DIR__;
 
 require_once PLUGIN_DIR . '/vendor/autoload.php';
 
-final class Plugin extends Singleton implements Loadable, Initable, Bootable {
+final class Plugin extends Singleton implements Loadable, Initable, Enqueueable {
 	public $allow_html;
 	public $php_checker;
 	public $wp_checker;
@@ -124,12 +124,12 @@ final class Plugin extends Singleton implements Loadable, Initable, Bootable {
 	}
 
 	public function boot() {
-		add_action('plugin_loaded', [$this, 'load_plugin_textdomain']);
+		add_action('plugin_loaded', [$this, 'plugin_loaded']);
 		add_action('admin_enqueue_scripts', [$this, 'enqueue_backend_assets']);
-		add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
+		add_action('wp_enqueue_scripts', [$this, 'enqueue']);
 	}
 
-	public function load_plugin_textdomain() {
+	public function plugin_loaded() {
 		load_plugin_textdomain('vnh_textdomain', false, plugin_languages_path(PLUGIN_FILE));
 	}
 
@@ -140,7 +140,7 @@ final class Plugin extends Singleton implements Loadable, Initable, Bootable {
 		}
 	}
 
-	public function enqueue_frontend_assets() {
+	public function enqueue() {
 		wp_enqueue_script(PLUGIN_SLUG);
 	}
 }
