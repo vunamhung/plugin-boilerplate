@@ -4,13 +4,17 @@ namespace vnh_namespace\admin;
 
 defined('ABSPATH') || die();
 
-use vnh_namespace\tools\Register_Settings;
+use vnh\Register_Settings;
 
 use function vnh\all_currencies;
 
+use const vnh_namespace\PLUGIN_SLUG;
+
 class Settings extends Register_Settings {
-	public function register_default_settings() {
-		return [
+	public function __construct() {
+		$this->prefix = PLUGIN_SLUG;
+
+		$this->default_settings = [
 			'enable' => true,
 			'currency_options' => [
 				[
@@ -20,10 +24,8 @@ class Settings extends Register_Settings {
 				],
 			],
 		];
-	}
 
-	public function register_setting_fields() {
-		return [
+		$this->setting_fields = [
 			'head' => [
 				'title' => __('General', 'vnh_textdomain'),
 				'fields' => [
