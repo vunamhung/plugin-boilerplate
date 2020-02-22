@@ -23,7 +23,7 @@ export function deleteEmptyDir() {
 }
 
 export function cleanDSStore(done) {
-	const cmd = "find plugin -type f -name '*.DS_Store' -ls -delete",
+	const cmd = "find src -type f -name '*.DS_Store' -ls -delete",
 		run = exec(cmd);
 
 	run.stdout.pipe(process.stdout);

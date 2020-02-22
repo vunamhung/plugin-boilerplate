@@ -19,7 +19,7 @@ export function replaceIml(done) {
 
 export function readmeToMarkdown() {
 	return gulp
-		.src("plugin/readme.txt")
+		.src("src/readme.txt")
 		.pipe(
 			readme({
 				details: false,
@@ -34,7 +34,7 @@ export function readmeToMarkdown() {
 
 export function replaceNamespaceText() {
 	return gulp
-		.src("plugin/**/*")
+		.src("src/**/*")
 		.pipe(
 			replace({
 				patterns: [
@@ -47,5 +47,5 @@ export function replaceNamespaceText() {
 				prefix: "vnh_",
 			}),
 		)
-		.pipe(gulp.dest("plugin"));
+		.pipe(gulp.dest("src"));
 }

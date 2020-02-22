@@ -1,19 +1,19 @@
 const paths = {
 	plugin: {
 		sass: {
-			watch: ["plugin/assets/scss/**/*.scss"],
-			generate: "plugin/assets/scss/*.scss",
+			watch: ["src/assets/scss/**/*.scss"],
+			generate: "src/assets/scss/*.scss",
 		},
-		files: ["plugin/assets/css/*.css", "plugin/assets/js/*.js", "plugin/**/*.php"],
+		files: ["src/assets/css/*.css", "src/assets/js/*.js", "src/**/*.php"],
 		build: [
-			"plugin/**",
-			"!plugin/**/.*",
-			"!plugin/**/phpcs.xml",
-			"!plugin/**/package*.json",
-			"!plugin/**/example-functions.php",
-			"!plugin/**/*.scss",
-			"!plugin/assets/js/src/**",
-			"!plugin/**/*.md",
+			"src/**",
+			"!src/**/.*",
+			"!src/**/phpcs.xml",
+			"!src/**/package*.json",
+			"!src/**/example-functions.php",
+			"!src/**/*.scss",
+			"!src/assets/js/src/**",
+			"!src/**/*.md",
 		],
 	},
 };

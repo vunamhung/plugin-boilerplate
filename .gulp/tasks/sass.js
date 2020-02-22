@@ -39,7 +39,7 @@ function errorHandler(error) {
 
 	if (error.file) {
 		line = `${error.line}:${error.column}`;
-		file = error.file.replace(resolve("./plugin/"), "");
+		file = error.file.replace(resolve("src/"), "");
 		message = `L${line}:${file}`;
 	} else {
 		message = "See console!";
@@ -66,5 +66,5 @@ export function buildPluginSass() {
 		.pipe(sass({ outputStyle: "compressed" }))
 		.pipe(postcss(processors.modules))
 		.pipe(sourcemaps.write("./"))
-		.pipe(dest("plugin/assets/css"));
+		.pipe(dest("src/assets/css"));
 }

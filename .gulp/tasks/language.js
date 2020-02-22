@@ -6,8 +6,8 @@ const { plugin } = require("../../package");
 const { team, bugReport, lastTranslator } = require("../../package").languages;
 
 export function buildPluginPotFile() {
-	return src("plugin/**/*.php")
+	return src("src/**/*.php")
 		.pipe(sort())
 		.pipe(wpPot({ bugReport, team, lastTranslator }))
-		.pipe(dest(`plugin/languages/${plugin.slug}.pot`));
+		.pipe(dest(`src/languages/${plugin.slug}.pot`));
 }

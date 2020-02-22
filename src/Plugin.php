@@ -146,6 +146,9 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 }
 
 Plugin::instance();
+do_action('vnh_prefix/before/init');
 Plugin::instance()->init();
+do_action('vnh_prefix/before/load');
 Plugin::instance()->load();
+do_action('vnh_prefix/after/load');
 Plugin::instance()->boot();

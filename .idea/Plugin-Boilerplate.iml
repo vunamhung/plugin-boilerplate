@@ -2,7 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/plugin" isTestSource="false" packagePrefix="vnh_namespace" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="vnh_namespace" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/plugin/assets/css" />
       <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/cmb2/cmb2" />

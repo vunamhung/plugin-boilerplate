@@ -1,0 +1,1319 @@
+# Copyright (C) 2019 unnamed project
+# This file is distributed under the same license as the unnamed project package.
+msgid ""
+msgstr ""
+"Project-Id-Version: unnamed project\n"
+"Report-Msgid-Bugs-To: https://geargag.com\n"
+"POT-Creation-Date: 2020-02-11 14:05+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: GearGag Team <geargag.com@gmail.com>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;"
+"_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: Plugin.php:122
+msgid "Settings Saved Successfully"
+msgstr ""
+
+#: admin/Admin.php:34
+msgid "Please install and activate WooCommerce to use Plugin Boilerplate by VNH plugin."
+msgstr ""
+
+#: admin/Admin.php:47
+msgid "Settings"
+msgstr ""
+
+#: admin/Admin.php:58
+msgid "Go Pro"
+msgstr ""
+
+#: admin/Admin.php:70
+msgid "Docs & FAQ"
+msgstr ""
+
+#: admin/Settings.php:28
+msgid "General"
+msgstr ""
+
+#: admin/Settings.php:32
+msgid "Toggle"
+msgstr ""
+
+#: admin/Settings.php:33 admin/Settings.php:39 admin/Settings.php:48
+#: admin/Settings.php:57 admin/Settings.php:68
+msgid "On/off global"
+msgstr ""
+
+#: admin/Settings.php:38
+msgid "Text"
+msgstr ""
+
+#: admin/Settings.php:42 admin/Settings.php:51
+msgid "Enter your text here"
+msgstr ""
+
+#: admin/Settings.php:47
+msgid "Textarea"
+msgstr ""
+
+#: admin/Settings.php:56
+msgid "Select"
+msgstr ""
+
+#: admin/Settings.php:60
+msgid "Option 1"
+msgstr ""
+
+#: admin/Settings.php:61
+msgid "Option 2"
+msgstr ""
+
+#: admin/Settings.php:62
+msgid "Option 3"
+msgstr ""
+
+#: admin/Settings.php:67
+msgid "Number"
+msgstr "Số lượng"
+
+#: admin/Settings.php:76
+msgid "Enter your number here"
+msgstr ""
+
+#: admin/Settings.php:81
+msgid "Currency Options"
+msgstr "Cài đặt Tiền tệ"
+
+#: admin/Settings.php:84
+msgid "Add Currency"
+msgstr "Thêm đơn vị tiền tệ"
+
+#: admin/Settings.php:85 vendor/cmb2/cmb2/includes/CMB2_JS.php:236
+#: vendor/cmb2/cmb2/includes/CMB2_Types.php:408
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_File_Base.php:84
+msgid "Remove"
+msgstr "Loại bỏ"
+
+#: admin/Settings.php:88
+msgid "Update Rate"
+msgstr "Cập nhập Giá"
+
+#: admin/Settings.php:97
+msgid "Currency"
+msgstr "Tiền tệ"
+
+#: admin/Settings.php:103
+msgid "Rate + Fee"
+msgstr "Tỷ lệ + phí"
+
+#: admin/Settings.php:106
+msgid "Rate plus exchange free rate"
+msgstr "Tỷ giá cộng với tỷ giá miễn phí"
+
+#: admin/Settings.php:113
+msgid "Decimals"
+msgstr "Số thập phân"
+
+#: admin/Settings.php:116
+msgid "Number of decimals"
+msgstr ""
+
+#: admin/Settings.php:124
+msgid "Custom Symbol"
+msgstr "Biểu tượng tùy chỉnh"
+
+#: admin/Settings.php:128
+msgid "eg: CAD $"
+msgstr ""
+
+#: helpers/http.php:19
+msgid "Failed to connect to the server"
+msgstr ""
+
+#: helpers/http.php:27
+msgid "Too Many Requests"
+msgstr ""
+
+#: helpers/http.php:31
+msgid "Invalid Status code."
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:46 settings_page/Settings_Page.php:137
+#, php-format
+msgid "Getting Started with <strong>%1$s</strong> <code>%2$s</code>"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:56
+msgid "Page Options"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:65
+msgid "Save Plugin Options"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:72
+msgid "Product Description"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:74
+msgid ""
+"Add description for each product, can use [title], [color], [size] for generate "
+"dynamic product title, color, size"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:81
+msgid "Enter your placeholder here."
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:87
+msgid "Styles"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:88
+msgid "Choose a style to filter result"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:92
+msgid "Guys Tee"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:93
+msgid "Hoodie"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:94
+msgid "Guys V-Neck"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:95
+msgid "Ladies Flowy Tank"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:96
+msgid "Ladies Tee"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:97
+msgid "Ladies V-Neck"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:98
+msgid "Sweat Shirt"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:99
+msgid "Unisex Long Sleeve"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:100
+msgid "Unisex Tank Top"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:101
+msgid "Youth Tee"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:102
+msgid "Baby Onesie"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:103
+msgid "Coffee Mug (colored)"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:104
+msgid "Coffee Mug (white)"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:109
+msgid "File Name"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:110
+msgid "Name of csv products feed file"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:114
+msgid "products_feed"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:120
+msgid "Gender"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:124
+msgid "Male"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:125
+msgid "Female"
+msgstr ""
+
+#: settings_page/CMB2_Settings_Page.php:126
+msgid "Unisex"
+msgstr ""
+
+#: settings_page/Changelog_Page.php:29
+msgid "No changelog found"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:18
+msgctxt "Download log file to your computer"
+msgid "Download"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:99
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+#: settings_page/Diagnostic_Page.php:100
+msgid "Disabled"
+msgstr "Vô hiệu hóa"
+
+#: settings_page/Diagnostic_Page.php:101
+msgid "Yes"
+msgstr "Có"
+
+#: settings_page/Diagnostic_Page.php:102
+msgid "No"
+msgstr "Không"
+
+#: settings_page/Diagnostic_Page.php:103
+msgid "Not defined"
+msgstr "Không xác định"
+
+#: settings_page/Diagnostic_Page.php:113
+msgid "Multisite"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:117
+msgid "Database Name"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:118
+msgid "Table Prefix"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:123
+msgid "n/a"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:131
+msgid "WordPress Version"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:132
+msgid "WordPress Remote"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:132
+msgid "true"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:132
+msgid "false"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:133
+msgid "Permalink"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:136
+msgid "Show On Front"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:138
+msgid "Page On Front"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:139
+msgid "Page For Posts"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:142
+msgid "Total Users"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:145
+msgid "jQuery Version"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:149
+msgid "Registered Post Types"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:153
+#, php-format
+msgid "Partially (Accessible Hosts: %s)"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:155
+msgid "All"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:159
+msgid "Web Server"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:160
+msgid "PHP"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:161
+msgid "WP Memory Limit"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:162
+msgid "PHP Time Limit"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:163
+msgid "Blocked External HTTP Requests"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:164 vendor/cmb2/cmb2/includes/CMB2_Field.php:1471
+#: vendor/cmb2/cmb2/includes/CMB2_Field.php:1475
+msgid "None"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:168
+msgid "Opcache Enabled"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:173
+msgid "yes"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:173
+msgid "no"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:179
+msgid "Debug Mode"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:180
+msgid "Debug Log"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:181
+msgid "Debug Display"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:182
+msgid "Script Debug"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:183
+msgid "PHP Error Log"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:187
+msgid "WP Max Upload Size"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:188
+msgid "PHP Post Max Size"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:189
+msgid "Max Execution Time"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:190
+msgid "Max Input Vars"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:203
+msgid "Active Theme Name"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:204
+msgid "Active Theme Folder"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:208
+msgid "Parent Theme Folder"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:212
+msgid "WARNING"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:212
+msgid "Active Theme Folder Not Found"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:219
+msgid "Active Plugins:"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:238
+#, php-format
+msgid "(v%s)"
+msgstr ""
+
+#: settings_page/Diagnostic_Page.php:239
+#, php-format
+msgid " by %s"
+msgstr ""
+
+#: settings_page/Our_Plugins_Page.php:31
+msgid "More info"
+msgstr ""
+
+#: settings_page/Our_Plugins_Page.php:33
+msgid "by "
+msgstr ""
+
+#: settings_page/Settings_Page.php:58 settings_page/Settings_Page.php:59
+msgid "GearGag Plugins"
+msgstr ""
+
+#: settings_page/Settings_Page.php:68 settings_page/Settings_Page.php:69
+msgid "System Status"
+msgstr "Trạng thái Hệ thống"
+
+#: settings_page/Settings_Page.php:78 settings_page/Settings_Page.php:79
+msgid "Plugin Boilerplate"
+msgstr ""
+
+#: settings_page/Settings_Page.php:89 settings_page/Settings_Page.php:90
+msgid "Getting Started"
+msgstr "Khởi động"
+
+#: settings_page/Settings_Page.php:98 settings_page/Settings_Page.php:99
+msgid "Changelog"
+msgstr "Thay đổi"
+
+#: settings_page/Settings_Page.php:108
+msgid "Welcome to <strong>GearGag Plugins Ecosystem</strong>"
+msgstr ""
+
+#: settings_page/Settings_Page.php:112
+#, php-format
+msgid ""
+"Thanks for choosing our plugins for your website! If you are satisfied, please reward "
+"it a full five-star %s rating."
+msgstr ""
+
+#: settings_page/Settings_Page.php:126
+msgid "Your Website <strong>Status</strong>"
+msgstr ""
+
+#: settings_page/Settings_Page.php:127
+msgid "Get all info about your system here"
+msgstr ""
+
+#: settings_page/Settings_Page.php:150
+#, php-format
+msgid "Changelog of <strong>%s</strong>"
+msgstr ""
+
+#: settings_page/Settings_Page.php:151
+msgid "Get all info about changelog here"
+msgstr ""
+
+#: tools/Checker.php:41
+#, php-format
+msgid ""
+"%s requires %s version %s or higher and cannot be activated. You are currently "
+"running version %s."
+msgstr ""
+
+#: tools/Checker.php:62
+#, php-format
+msgid ""
+"%s requires %s version %s or higher to run and has been deactivated. You are "
+"currently running version %s."
+msgstr ""
+
+#: tools/Register_Settings.php:220
+msgid "Actions"
+msgstr ""
+
+#: tools/Singleton.php:25 tools/Singleton.php:34
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:115
+msgid "Test Metabox"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:148 vendor/cmb2/cmb2/example-functions.php:492
+msgid "Test Text"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:149 vendor/cmb2/cmb2/example-functions.php:162
+#: vendor/cmb2/cmb2/example-functions.php:175 vendor/cmb2/cmb2/example-functions.php:182
+#: vendor/cmb2/cmb2/example-functions.php:195 vendor/cmb2/cmb2/example-functions.php:203
+#: vendor/cmb2/cmb2/example-functions.php:212 vendor/cmb2/cmb2/example-functions.php:220
+#: vendor/cmb2/cmb2/example-functions.php:235 vendor/cmb2/cmb2/example-functions.php:243
+#: vendor/cmb2/cmb2/example-functions.php:251 vendor/cmb2/cmb2/example-functions.php:268
+#: vendor/cmb2/cmb2/example-functions.php:277 vendor/cmb2/cmb2/example-functions.php:293
+#: vendor/cmb2/cmb2/example-functions.php:300 vendor/cmb2/cmb2/example-functions.php:307
+#: vendor/cmb2/cmb2/example-functions.php:332 vendor/cmb2/cmb2/example-functions.php:345
+#: vendor/cmb2/cmb2/example-functions.php:358 vendor/cmb2/cmb2/example-functions.php:370
+#: vendor/cmb2/cmb2/example-functions.php:384 vendor/cmb2/cmb2/example-functions.php:392
+#: vendor/cmb2/cmb2/example-functions.php:401 vendor/cmb2/cmb2/example-functions.php:408
+#: vendor/cmb2/cmb2/example-functions.php:422 vendor/cmb2/cmb2/example-functions.php:493
+#: vendor/cmb2/cmb2/example-functions.php:583 vendor/cmb2/cmb2/example-functions.php:591
+#: vendor/cmb2/cmb2/example-functions.php:598 vendor/cmb2/cmb2/example-functions.php:605
+#: vendor/cmb2/cmb2/example-functions.php:612 vendor/cmb2/cmb2/example-functions.php:619
+#: vendor/cmb2/cmb2/example-functions.php:626 vendor/cmb2/cmb2/example-functions.php:652
+#: vendor/cmb2/cmb2/example-functions.php:660 vendor/cmb2/cmb2/example-functions.php:667
+#: vendor/cmb2/cmb2/example-functions.php:716
+#: vendor/jcchavezs/cmb2-conditionals/example-functions.php:184
+msgid "field description (optional)"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:161
+msgid "Test Text Small"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:174
+msgid "Test Text Medium"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:181
+msgid "Read-only Disabled Field"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:185
+msgid "Hey there, I'm a read-only field"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:194
+msgid "Custom Rendered Field"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:202
+msgid "Website URL"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:211
+msgid "Test Text Email"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:219
+msgid "Test Time"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:227 vendor/cmb2/cmb2/example-functions.php:228
+msgid "Time zone"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:234
+msgid "Test Date Picker"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:242
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:250
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:267
+msgid "Test Money"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:276
+msgid "Test Color Picker"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:292
+msgid "Test Text Area"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:299
+msgid "Test Text Area Small"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:306
+msgid "Test Text Area for Code"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:324
+msgid "Test Title Weeeee"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:325
+msgid "This is a title description"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:331
+msgid "Test Select"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:337 vendor/cmb2/cmb2/example-functions.php:350
+#: vendor/cmb2/cmb2/example-functions.php:362
+msgid "Option One"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:338 vendor/cmb2/cmb2/example-functions.php:351
+#: vendor/cmb2/cmb2/example-functions.php:363
+msgid "Option Two"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:339 vendor/cmb2/cmb2/example-functions.php:352
+#: vendor/cmb2/cmb2/example-functions.php:364
+msgid "Option Three"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:344
+msgid "Test Radio inline"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:357
+msgid "Test Radio"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:369
+msgid "Test Taxonomy Radio"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:383
+msgid "Test Taxonomy Select"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:391
+msgid "Test Taxonomy Multi Checkbox"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:400
+msgid "Test Checkbox"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:407
+#: vendor/jcchavezs/cmb2-conditionals/example-functions.php:183
+msgid "Test Multi Checkbox"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:413
+#: vendor/jcchavezs/cmb2-conditionals/example-functions.php:188
+msgid "Check One"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:414
+#: vendor/jcchavezs/cmb2-conditionals/example-functions.php:189
+msgid "Check Two"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:415
+#: vendor/jcchavezs/cmb2-conditionals/example-functions.php:190
+msgid "Check Three"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:421
+msgid "Test wysiwyg"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:431
+msgid "Test Image"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:432
+msgid "Upload an image or enter a URL."
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:438
+msgid "Multiple Files"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:439
+msgid "Upload or add multiple images/attachments."
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:446
+msgid "oEmbed"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:449
+#, php-format
+msgid "Enter a youtube, twitter, or instagram URL. Supports services listed at %s."
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:481
+msgid "About Page Metabox"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:511
+msgid "Repeating Field Group"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:519
+msgid "Generates reusable form entries"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:521
+msgid "Entry {#}"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:522
+msgid "Add Another Entry"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:523
+msgid "Remove Entry"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:537
+msgid "Entry Title"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:544
+msgid "Description"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:545
+msgid "Write a short description for this entry"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:551
+msgid "Entry Image"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:557
+msgid "Image Caption"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:575
+msgid "User Profile Metabox"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:582 vendor/cmb2/cmb2/example-functions.php:651
+msgid "Extra Info"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:590
+msgid "Avatar"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:597
+msgid "Facebook URL"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:604
+msgid "Twitter URL"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:611
+msgid "Google+ URL"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:618
+msgid "Linkedin URL"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:625
+msgid "User Field"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:644
+msgid "Category Metabox"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:659
+msgid "Term Image"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:666
+msgid "Arbitrary Term Field"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:685
+msgid "Theme Options"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:715
+msgid "Site Background Color"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:752
+#, php-format
+msgid "%s &mdash; Updated!"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:784
+msgid "REST Test Box"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:793
+msgid "REST Test Text"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:794
+msgid "Will show in the REST API for this box and for pages."
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:800
+msgid "REST Editable Test Text"
+msgstr ""
+
+#: vendor/cmb2/cmb2/example-functions.php:801
+msgid "Will show in REST API \"editable\" contexts only (`POST` requests)."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2.php:199
+msgid "Metabox configuration is required to have an ID parameter."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2.php:609
+msgid "Click to toggle"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Ajax.php:75
+msgid "Please Try Again"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Ajax.php:181
+msgid "Remove Embed"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Ajax.php:189
+#: vendor/cmb2/cmb2/includes/helper-functions.php:107
+#, php-format
+msgid "No oEmbed Results Found for %1$s. View more info at %2$s."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Base.php:422
+#, php-format
+msgid ""
+"The \"%1$s\" field parameter has been deprecated in favor of the \"%2$s\" parameter."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Base.php:426
+#, php-format
+msgid ""
+"Using the \"%1$s\" field parameter as a callback has been deprecated in favor of the "
+"\"%2$s\" parameter."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Base.php:456
+#, php-format
+msgid ""
+"%1$s was called with a parameter that is <strong>deprecated</strong> since version "
+"%2$s! %3$s"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Base.php:458
+#, php-format
+msgid ""
+"%1$s was called with a parameter that is <strong>deprecated</strong> since version "
+"%2$s with no alternative available."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Base.php:491
+#: vendor/cmb2/cmb2/includes/CMB2_Hookup_Base.php:102
+#: vendor/cmb2/cmb2/includes/CMB2_Options.php:247
+#: vendor/cmb2/cmb2/includes/CMB2_Options_Hookup.php:357
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Base.php:173
+#, php-format
+msgid "Invalid %1$s property: %2$s"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Base.php:509
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Base.php:157
+#, php-format
+msgid "Invalid %1$s method: %2$s"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Field.php:1438
+msgid "Add Group"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Field.php:1439
+msgid "Remove Group"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Field.php:1589
+msgid "Sorry, this field does not have a cmb_id specified."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Field_Display.php:453
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:237
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_File_Base.php:79
+msgid "File:"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Hookup.php:188
+msgid ""
+"Term Metadata is a WordPress 4.4+ feature. Please upgrade your WordPress install."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Hookup.php:192
+msgid "Term metaboxes configuration requires a \"taxonomies\" parameter."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Hookup.php:550
+#, php-format
+msgid "Toggle panel: %s"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Hookup_Base.php:44
+#, php-format
+msgid "%1$s should be implemented by the extended class."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:172 vendor/cmb2/cmb2/includes/CMB2_JS.php:217
+msgid "Clear"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:173
+msgid "Default"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:174
+msgid "Select Color"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:175
+msgid "Current Color"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:207
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:208
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:209
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:210
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:211
+msgid ""
+"January, February, March, April, May, June, July, August, September, October, "
+"November, December"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:212
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:213
+msgid "Next"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:214
+msgid "Prev"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:215
+msgid "Today"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:216 vendor/cmb2/cmb2/includes/CMB2_JS.php:226
+msgid "Done"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:220
+msgid "Choose Time"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:221
+msgid "Time"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:222
+msgid "Hour"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:223
+msgid "Minute"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:224
+msgid "Second"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:225
+msgid "Now"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:227
+msgctxt ""
+"Valid formatting string, as per http://trentrichardson.com/examples/timepicker/"
+msgid "hh:mm TT"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:233
+msgid "Use this file"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:234
+msgid "Use these files"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:235
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_File_Base.php:64
+msgid "Remove Image"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:238
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_File_Base.php:82
+msgid "Download"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_JS.php:239
+msgid "Select / Deselect All"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Options_Hookup.php:139
+msgid "Nothing to update."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Options_Hookup.php:143
+msgid "Settings updated."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Types.php:226
+msgid "Custom CMB2 field type classes must extend CMB2_Type_Base."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Types.php:344
+msgid "Add Row"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/CMB2_Types.php:408
+msgid "Remove Row"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/helper-functions.php:307
+msgid "Save"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller.php:257
+msgid "This box does not have read permissions."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller.php:277
+msgid "This box does not have write permissions."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller.php:300
+msgid ""
+"No box found by that id. A box needs to be registered with the \"show_in_rest\" "
+"parameter configured."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller.php:378
+msgid "A human-readable description of the object."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller.php:385
+msgid "The id for the object."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller.php:392
+msgid "The title for the object."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:51
+msgid "Includes the registered fields for the box in the response."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:72
+msgid ""
+"Includes the fully rendered attributes, 'form_open', 'form_close', as well as the "
+"enqueued 'js_dependencies' script handles, and 'css_dependencies' stylesheet handles."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:122
+msgid "No boxes found."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:27
+msgid "Includes the box object which the fields are registered to in the response."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:30
+msgid ""
+"When the '_rendered' argument is passed, the renderable field attributes will be "
+"returned fully rendered. By default, the names of the callback handers for the "
+"renderable attributes will be returned."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:33
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:36
+msgid ""
+"To view or modify the field's value, the 'object_id' and 'object_type' arguments are "
+"required."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:236
+msgid "CMB2 Field value cannot be updated without the value parameter specified."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:297
+msgid ""
+"CMB2 Field value cannot be modified without the object_id and object_type parameters "
+"specified."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:312
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:341
+msgid "No field found by that id."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:415
+#, php-format
+msgid "Value Error for %s"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:25
+#, php-format
+msgid "Method '%s' must be overridden."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:35
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:47
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:59
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:71
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:83
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:95
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:107
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:119
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:131
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:143
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:155
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:168
+#, php-format
+msgid "Method '%s' not implemented. Must be overridden in subclass."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:273
+msgid "Current page of the collection."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:281
+msgid "Maximum number of items to be returned in result set."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:290
+msgid "Limit results to those matching a string."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/shim/WP_REST_Controller.php:308
+msgid "Scope under which the request is made; determines fields present in response."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Counter_Base.php:50
+msgid "Words left"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Counter_Base.php:51
+msgid "Words"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Counter_Base.php:56
+msgid "Characters left"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Counter_Base.php:57
+msgid "Characters"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Counter_Base.php:62
+msgid "Your text may be truncated."
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_File.php:76
+msgid "Add or Upload File"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_File_List.php:41
+msgid "Add or Upload Files"
+msgstr ""
+
+#: vendor/cmb2/cmb2/includes/types/CMB2_Type_Taxonomy_Base.php:115
+msgid "No terms"
+msgstr ""
+
+#: vendor/julien731/wp-dismissible-notices-handler/handler.php:92
+#: vendor/julien731/wp-review-me/review.php:134
+#, php-format
+msgid ""
+"The library can not be used because your version of WordPress is too old. You need "
+"version %s at least."
+msgstr ""
+
+#: vendor/julien731/wp-dismissible-notices-handler/handler.php:105
+#: vendor/julien731/wp-review-me/review.php:149
+#, php-format
+msgid ""
+"The library can not be used because your version of PHP is too old. You need version "
+"%s at least."
+msgstr ""
+
+#: vendor/julien731/wp-dismissible-notices-handler/handler.php:213
+msgid "Dismissible Notices Handler Error:"
+msgstr ""
+
+#: vendor/julien731/wp-dismissible-notices-handler/handler.php:300
+#, php-format
+msgid "A notice with the ID %s has already been registered."
+msgstr ""
+
+#: vendor/julien731/wp-review-me/review.php:109
+msgid ""
+"Hey! It&#039;s been a little while that you&#039;ve been using this product. You "
+"might not realize it, but user reviews are such a great help to us. We would be so "
+"grateful if you could take a minute to leave a review on WordPress.org. Many thanks "
+"in advance :)"
+msgstr ""
+
+#: vendor/julien731/wp-review-me/review.php:113
+msgid "Click here to leave your review"
+msgstr ""
+
+#: vendor/julien731/wp-review-me/review.php:169
+#, php-format
+msgid "Dependencies are missing. Please run a %s."
+msgstr ""
+
+#: vendor/julien731/wp-review-me/review.php:223
+msgid "WP Review Me Error:"
+msgstr ""
+
+#: vendor/vunamhung/cmb2_select2/Select2.php:34
+msgid "Select and option"
+msgstr ""
+
+#: widgets/Widget.php:64
+msgid "There are no options for this widget."
+msgstr ""
+
+#: widgets/Widget.php:151
+msgid "No menus have been created yet."
+msgstr ""
+
+#: widgets/Widget.php:153
+msgid "Create some"
+msgstr ""
+
+#: widgets/Widget.php:156
+msgid "No taxonomy have been created yet. Create some"
+msgstr ""
+
+#~ msgid "Diagnostic Info"
+#~ msgstr "Chẩn đoán"
