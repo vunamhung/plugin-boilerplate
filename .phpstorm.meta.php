@@ -25,7 +25,7 @@ namespace PHPSTORM_META {
 		'date_format'
 	);
 	expectedArguments(\get_bloginfo(), 0, 'version');
-	expectedArguments(\class_exists(), 0, 'WP_CLI', 'Jetpack', 'Freemius');
+	expectedArguments(\class_exists(), 0, 'WP_CLI', 'Jetpack', 'Kirki');
 	expectedArguments(
 		\wp_kses(),
 		1,

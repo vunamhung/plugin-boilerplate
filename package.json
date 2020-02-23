@@ -3,7 +3,7 @@
     "license": "GPL-3.0",
     "scripts": {
         "download:libs": "node node_modules/frontend-dependencies/index.js",
-        "clean:composer": "rm -rf vendor && rm -rf plugin/vendor",
+        "clean:composer": "rm -rf src/vendor",
         "start": "webpack --watch & gulp default",
         "build": "webpack --mode=production",
         "build:analytic": "webpack --mode=production --analytic"
@@ -95,19 +95,19 @@
                 "version": "latest",
                 "src": "src/*",
                 "namespaced": true,
-                "target": "plugin/assets/libs"
+                "target": "src/assets/libs"
             },
             "hint.css": {
                 "version": "latest",
                 "src": "src/*",
                 "namespaced": true,
-                "target": "plugin/assets/libs"
+                "target": "src/assets/libs"
             },
             "family.scss": {
                 "version": "latest",
                 "src": "source/src/*",
                 "namespaced": true,
-                "target": "plugin/assets/libs"
+                "target": "src/assets/libs"
             }
         }
     },

@@ -9,7 +9,7 @@ dist/
 .idea/jsLinters/jshint.xml
 
 #PLUGIN
-/plugin/vendor/
-/plugin/languages/
-/plugin/assets/js/dist
-/plugin/assets/css
+/src/vendor/
+/src/languages/
+/src/assets/js/dist
+/src/assets/css
