@@ -4,8 +4,8 @@ namespace vnh_namespace\admin;
 
 defined('ABSPATH') || die();
 
-use vnh\admin\Plugin_Action_Links;
-use vnh\admin\Plugin_Row_Meta;
+use vnh\Plugin_Action_Links;
+use vnh\Plugin_Row_Meta;
 use vnh\contracts\Bootable;
 use vnh\contracts\Initable;
 use WP_Review_Me;
