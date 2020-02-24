@@ -6,8 +6,6 @@ defined('ABSPATH') || die();
 
 use vnh\Register_Settings;
 
-use function vnh\all_currencies;
-
 use const vnh_namespace\PLUGIN_SLUG;
 
 class Settings extends Register_Settings {
@@ -99,7 +97,16 @@ class Settings extends Register_Settings {
 								'name' => __('Currency', 'vnh_textdomain'),
 								'type' => 'select',
 								'width' => 37,
-								'options' => all_currencies(),
+								'options' => [
+									'AED' => __('United Arab Emirates dirham', 'vnh_textdomain'),
+									'AFN' => __('Afghan afghani', 'vnh_textdomain'),
+									'ALL' => __('Albanian lek', 'vnh_textdomain'),
+									'AMD' => __('Armenian dram', 'vnh_textdomain'),
+									'ANG' => __('Netherlands Antillean guilder', 'vnh_textdomain'),
+									'AOA' => __('Angolan kwanza', 'vnh_textdomain'),
+									'ARS' => __('Argentine peso', 'vnh_textdomain'),
+									'AUD' => __('Australian dollar', 'vnh_textdomain'),
+								],
 							],
 							'rate' => [
 								'name' => __('Rate + Fee', 'vnh_textdomain'),

@@ -20,7 +20,6 @@ const PLUGIN_TEXT_DOMAIN = PLUGIN_DATA['TextDomain'];
 const DS = '/';
 const MIN_PHP_VERSION = 5.6;
 const MIN_WP_VERSION = 5.0;
-const DEV_MODE = 'vnh_dev_mode';
 const WPORG = false;
 
 const PREMIUM_URL = 'https://geargag.com/';

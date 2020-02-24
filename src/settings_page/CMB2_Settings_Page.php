@@ -25,7 +25,7 @@ class CMB2_Settings_Page implements Bootable {
 			'description' => PLUGIN_DESCRIPTION,
 			'object_types' => ['options-page'],
 			'option_key' => PLUGIN_SLUG . '_options',
-			'menu_title' => esc_html__('Page Options', 'vnh_textdomain'), // Falls back to 'title' (above).
+			'menu_title' => esc_html__('CMB2 Page Options', 'vnh_textdomain'), // Falls back to 'title' (above).
 			'parent_slug' => PLUGIN_SLUG,
 			'capability' => 'manage_options',
 			'display_cb' => [$this, 'display_cb'],
@@ -35,6 +35,12 @@ class CMB2_Settings_Page implements Bootable {
 			// 'icon_url'        => '', // Menu icon. Only applicable if 'parent_slug' is left empty.
 			// 'admin_menu_hook' => 'network_admin_menu', // 'network_admin_menu' to add network-level options page.
 			// 'position'        => 1, // Menu position. Only applicable if 'parent_slug' is left empty.
+		]);
+
+		$cmb->add_field([
+			'name' => __('Enable', 'vnh_textdomain'),
+			'id' => 'enable',
+			'type' => 'toggle',
 		]);
 
 		$cmb->add_field([

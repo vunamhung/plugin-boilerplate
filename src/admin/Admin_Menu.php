@@ -1,11 +1,14 @@
 <?php
 
-namespace vnh_namespace\admin\menu;
+namespace vnh_namespace\admin;
 
 use vnh\contracts\Bootable;
+use vnh\Our_Plugins;
 use vnh\System_Status;
 
 use const vnh_namespace\MENU_SLUG;
+use const vnh_namespace\PLUGIN_SLUG;
+use const vnh_namespace\PLUGINS_LIST_FILE;
 use const vnh_namespace\SYSTEM_STATUS;
 
 class Admin_Menu implements Bootable {
@@ -55,10 +58,10 @@ class Admin_Menu implements Bootable {
 			'<span style="color:#ffb900">★★★★★</span>'
 		);
 		$html .= '</p>';
-		$html .= new Our_Plugins();
+		$html .= new Our_Plugins(PLUGINS_LIST_FILE, PLUGIN_SLUG . '-plugin-list');
 		$html .= '</div>';
 
-		echo wp_kses($html, 'default');
+		echo $html;
 	}
 
 	public function system_status() {

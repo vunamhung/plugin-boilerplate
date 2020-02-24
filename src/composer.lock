@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ffda7673e221f5faa960e8aa5d6bc3e",
+    "content-hash": "82e073aca90bf48c6ae7c0ace1a2bd1d",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -278,17 +278,64 @@
             "time": "2020-01-21T09:21:01+00:00"
         },
         {
-            "name": "vunamhung/wptoolkit",
-            "version": "0.9.11",
+            "name": "vunamhung/cmb2_toggle",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vunamhung/wptoolkit.git",
-                "reference": "6a8fed934c82191740972336b271103df169e66a"
+                "url": "https://github.com/vunamhung/cmb2_toggle.git",
+                "reference": "0b50f36b1ae1354547b22eb7ce36f02d88e304af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vunamhung/wptoolkit/zipball/6a8fed934c82191740972336b271103df169e66a",
-                "reference": "6a8fed934c82191740972336b271103df169e66a",
+                "url": "https://api.github.com/repos/vunamhung/cmb2_toggle/zipball/0b50f36b1ae1354547b22eb7ce36f02d88e304af",
+                "reference": "0b50f36b1ae1354547b22eb7ce36f02d88e304af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Toggle.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Vu Nam Hung",
+                    "email": "vunamhung@gmail.com",
+                    "homepage": "https://github.com/vunamhung/",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "This is a CMB2 Extension repository which help modify the default behavior of CMB2 and extends it's functionality.",
+            "homepage": "https://github.com/vunamhung/cmb2_toggle",
+            "keywords": [
+                "CMB2",
+                "cmb2_toggle",
+                "wordpress"
+            ],
+            "time": "2020-01-22T04:12:30+00:00"
+        },
+        {
+            "name": "vunamhung/wptoolkit",
+            "version": "0.9.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vunamhung/wptoolkit.git",
+                "reference": "32e17926e170a87b9d3b9821cfab6ca7eb90018a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vunamhung/wptoolkit/zipball/32e17926e170a87b9d3b9821cfab6ca7eb90018a",
+                "reference": "32e17926e170a87b9d3b9821cfab6ca7eb90018a",
                 "shasum": ""
             },
             "require": {
@@ -328,7 +375,7 @@
                 "toolkit",
                 "wordpress"
             ],
-            "time": "2020-02-23T12:09:31+00:00"
+            "time": "2020-02-24T04:54:21+00:00"
         }
     ],
     "packages-dev": [

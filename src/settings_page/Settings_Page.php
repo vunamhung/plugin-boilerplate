@@ -6,7 +6,6 @@ defined('ABSPATH') || die();
 
 use vnh_namespace\admin\Settings;
 use vnh\contracts\Bootable;
-use vnh\contracts\Initable;
 
 use function vnh_namespace\is_plugin_settings_page;
 
@@ -15,26 +14,14 @@ use const vnh_namespace\PLUGIN_NAME;
 use const vnh_namespace\PLUGIN_SLUG;
 use const vnh_namespace\PLUGIN_VERSION;
 
-class Settings_Page implements Initable, Bootable {
+class Settings_Page implements Bootable {
 	public $icon_url = 'dashicons-carrot';
 	public $capacity = 'manage_options';
 	public $settings;
 
-	public function init() {
-		$cmb2 = new CMB2_Settings_Page();
-		$cmb2->boot();
-	}
-
 	public function boot() {
-		add_action('init', [$this, 'init_settings']);
 		add_filter('admin_body_class', [$this, 'body_class'], 10, 2);
 		add_action('admin_menu', [$this, 'add_menu_page']);
-	}
-
-	public function init_settings() {
-		$this->settings = new Settings();
-		$this->settings->init();
-		$this->settings->boot();
 	}
 
 	public function body_class($classes) {

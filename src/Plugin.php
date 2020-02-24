@@ -26,7 +26,9 @@ use vnh\contracts\Loadable;
 use vnh\Plugin_Checker;
 use vnh\Singleton;
 use vnh_namespace\admin\Admin;
-use vnh_namespace\admin\menu\Admin_Menu;
+use vnh_namespace\admin\Admin_Menu;
+use vnh_namespace\admin\Settings;
+use vnh_namespace\settings_page\CMB2_Settings_Page;
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\Register_Assets;
@@ -40,18 +42,10 @@ const PLUGIN_DIR = __DIR__;
 require_once PLUGIN_DIR . '/vendor/autoload.php';
 
 final class Plugin extends Singleton implements Loadable, Initable, Enqueueable {
-	public $allow_html;
-	public $php_checker;
-	public $wp_checker;
-	public $settings_page;
-	public $admin_menus;
-	public $admin_notices;
 	public $backend_assets;
 	public $frontend_assets;
-	public $register_backend_assets;
-	public $register_frontend_assets;
-	public $widgets;
-	public $config_cmb2;
+
+	use Plugin_Variables;
 
 	protected function __construct() {
 		$this->backend_assets = [
@@ -89,9 +83,11 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 		$this->php_checker = new Plugin_Checker(MIN_PHP_VERSION, 'PHP', PLUGIN_FILE);
 		$this->wp_checker = new Plugin_Checker(MIN_WP_VERSION, 'WordPress', PLUGIN_FILE);
 		$this->admin_menus = new Admin_Menu();
-		$this->admin_notices = new Admin();
-		$this->settings_page = new Settings_Page();
+		$this->admin = new Admin();
 		$this->config_cmb2 = new Config_CMB2();
+		$this->cmb2_settings_page = new CMB2_Settings_Page();
+		$this->settings = new Settings();
+		$this->settings_page = new Settings_Page();
 		$this->register_backend_assets = new Register_Assets($this->backend_assets, 'backend');
 		$this->register_frontend_assets = new Register_Assets($this->frontend_assets, 'frontend');
 	}
@@ -108,18 +104,21 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 
 		$this->register_frontend_assets->boot();
 
+		$this->config_cmb2->boot();
+
 		if (is_admin()) {
 			$this->register_backend_assets->boot();
 
 			$this->admin_menus->boot();
 
-			$this->admin_notices->init();
-			$this->admin_notices->boot();
+			$this->admin->init();
+			$this->admin->boot();
 
-			$this->settings_page->init();
+			$this->settings->init();
+			$this->settings->boot();
+
+			$this->cmb2_settings_page->boot();
 			$this->settings_page->boot();
-
-			$this->config_cmb2->boot();
 		}
 	}
 
