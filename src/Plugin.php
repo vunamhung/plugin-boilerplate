@@ -112,7 +112,6 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 			$this->admin_menus->boot();
 
 			$this->admin->init();
-			$this->admin->boot();
 
 			$this->settings->init();
 			$this->settings->boot();
