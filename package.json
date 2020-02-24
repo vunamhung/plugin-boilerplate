@@ -97,6 +97,12 @@
                 "namespaced": true,
                 "target": "src/assets/libs"
             },
+            "cmb2-conditional-logic": {
+                "version": "latest",
+                "src": "*.js",
+                "namespaced": true,
+                "target": "src/assets/libs"
+            },
             "hint.css": {
                 "version": "latest",
                 "src": "src/*",
