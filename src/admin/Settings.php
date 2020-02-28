@@ -22,8 +22,10 @@ class Settings extends Register_Settings {
 				],
 			],
 		];
+	}
 
-		$this->setting_fields = [
+	public function register_setting_fields() {
+		return [
 			'head' => [
 				'title' => __('General', 'vnh_textdomain'),
 				'fields' => [

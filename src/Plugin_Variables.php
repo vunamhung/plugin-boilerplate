@@ -4,6 +4,7 @@ namespace vnh_namespace;
 
 use vnh\Allowed_HTML;
 use vnh\Checker;
+use vnh\License_Management;
 use vnh_namespace\admin\Admin;
 use vnh_namespace\admin\Admin_Menu;
 use vnh_namespace\admin\Settings;
@@ -13,6 +14,11 @@ use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\Register_Assets;
 
 trait Plugin_Variables {
+	/**
+	 * @var License_Management
+	 */
+	public $license;
+
 	/**
 	 * @var Allowed_HTML
 	 */

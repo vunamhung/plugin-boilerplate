@@ -23,6 +23,7 @@ use vnh\Allowed_HTML;
 use vnh\contracts\Enqueueable;
 use vnh\contracts\Initable;
 use vnh\contracts\Loadable;
+use vnh\License_Management;
 use vnh\Plugin_Checker;
 use vnh\Singleton;
 use vnh_namespace\admin\Admin;
@@ -79,6 +80,14 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 	}
 
 	public function init() {
+		$this->license = new License_Management([
+			'plugin_file' => PLUGIN_FILE,
+			'remote_api_url' => 'https://geargag.com/',
+			'parent_menu_slug' => PLUGIN_SLUG,
+			'name' => PLUGIN_NAME,
+			'version' => PLUGIN_VERSION,
+			'item_id' => 272,
+		]);
 		$this->allow_html = new Allowed_HTML();
 		$this->php_checker = new Plugin_Checker(MIN_PHP_VERSION, 'PHP', PLUGIN_FILE);
 		$this->wp_checker = new Plugin_Checker(MIN_WP_VERSION, 'WordPress', PLUGIN_FILE);
@@ -96,6 +105,8 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 		if (!is_woocommerce_active()) {
 			return;
 		}
+
+		$this->license->init();
 
 		$this->allow_html->boot();
 
@@ -134,7 +145,6 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 	public function enqueue_backend_assets() {
 		if (is_plugin_settings_page()) {
 			wp_enqueue_style(handle('settings-page'));
-			wp_enqueue_script(handle('settings-page'));
 		}
 	}
 
