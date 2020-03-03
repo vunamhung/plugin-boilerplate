@@ -2,8 +2,6 @@
 
 namespace vnh_namespace;
 
-defined('ABSPATH') || die();
-
 define(__NAMESPACE__ . '\PLUGIN_DATA', get_plugin_data(PLUGIN_FILE));
 define(__NAMESPACE__ . '\PLUGIN_SLUG', basename(PLUGIN_DIR));
 define(__NAMESPACE__ . '\PLUGIN_BASE', plugin_basename(PLUGIN_FILE));
@@ -24,5 +22,4 @@ const WPORG = false;
 
 const PREMIUM_URL = 'https://geargag.com/';
 const MENU_SLUG = 'geargag_plugins';
-const SYSTEM_STATUS = MENU_SLUG . '_system_status';
-const PLUGINS_LIST_FILE = 'https://geargag.com/geargag_plugins.json';
+const PLUGINS_LIST_URL = 'https://geargag.com/geargag_plugins.json';

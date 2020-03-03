@@ -4,15 +4,16 @@ namespace vnh_namespace\admin;
 
 use vnh\contracts\Bootable;
 use vnh\Our_Plugins;
-use vnh\System_Status;
 
 use const vnh_namespace\MENU_SLUG;
-use const vnh_namespace\PLUGIN_SLUG;
-use const vnh_namespace\PLUGINS_LIST_FILE;
-use const vnh_namespace\SYSTEM_STATUS;
 
-class Admin_Menu implements Bootable {
+class Our_Plugins_Menu implements Bootable {
+	public $our_plugins;
 	public $capacity = 'manage_options';
+
+	public function __construct(Our_Plugins $our_plugins) {
+		$this->our_plugins = $our_plugins;
+	}
 
 	public function boot() {
 		add_action('admin_menu', [$this, 'add_menus']);
@@ -21,9 +22,7 @@ class Admin_Menu implements Bootable {
 	public function add_menus() {
 		global $submenu;
 
-		$menu_not_exist = empty($submenu['index.php'][11]);
-
-		if ($menu_not_exist) {
+		if (empty($submenu['index.php'][11])) {
 			add_submenu_page(
 				'index.php',
 				esc_html__('GearGag Plugins', 'vnh_textdomain'),
@@ -32,16 +31,6 @@ class Admin_Menu implements Bootable {
 				MENU_SLUG,
 				[$this, 'our_plugins'],
 				11
-			);
-
-			add_submenu_page(
-				'index.php',
-				esc_html__('System Status', 'vnh_textdomain'),
-				esc_html__('System Status', 'vnh_textdomain'),
-				$this->capacity,
-				SYSTEM_STATUS,
-				[$this, 'system_status'],
-				12
 			);
 		}
 	}
@@ -58,21 +47,9 @@ class Admin_Menu implements Bootable {
 			'<span style="color:#ffb900">★★★★★</span>'
 		);
 		$html .= '</p>';
-		$html .= new Our_Plugins(PLUGINS_LIST_FILE, PLUGIN_SLUG . '-plugin-list');
+		$html .= $this->our_plugins;
 		$html .= '</div>';
 
 		echo $html;
-	}
-
-	public function system_status() {
-		$html = '<div class="wrapper">';
-		$html .= '<h1>' . __('Your Website <strong>Status</strong>', 'vnh_textdomain') . '</h1>';
-		$html .= '<p>' . __('Get all info about your system here', 'vnh_textdomain') . '</p>';
-		$html .= new System_Status([
-			'menu_slug' => SYSTEM_STATUS,
-		]);
-		$html .= '</div>';
-
-		echo wp_kses($html, 'default');
 	}
 }

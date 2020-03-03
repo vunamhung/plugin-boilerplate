@@ -17,24 +17,29 @@
 
 namespace vnh_namespace;
 
-defined('ABSPATH') || die();
-
+use DI\Container;
+use DI\ContainerBuilder;
 use vnh\Allowed_HTML;
 use vnh\contracts\Enqueueable;
-use vnh\contracts\Initable;
 use vnh\contracts\Loadable;
 use vnh\License_Management;
-use vnh\Plugin_Checker;
+use vnh\Our_Plugins;
+use vnh\Plugin_Action_Links;
+use vnh\Plugin_Row_Meta;
 use vnh\Singleton;
-use vnh_namespace\admin\Admin;
-use vnh_namespace\admin\Admin_Menu;
+use vnh_namespace\admin\Our_Plugins_Menu;
 use vnh_namespace\admin\Settings;
 use vnh_namespace\settings_page\CMB2_Settings_Page;
 use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Config_CMB2;
-use vnh_namespace\tools\Register_Assets;
-
-use function vnh\is_woocommerce_active;
+use vnh_namespace\tools\PHP_Checker;
+use vnh_namespace\tools\Register_Backend_Assets;
+use vnh_namespace\tools\Register_Frontend_Assets;
+use vnh_namespace\tools\WordPress_Checker;
+use WP_Review_Me;
+use function DI\autowire;
+use function DI\create;
+use function DI\get;
 use function vnh\plugin_languages_path;
 
 const PLUGIN_FILE = __FILE__;
@@ -42,93 +47,96 @@ const PLUGIN_DIR = __DIR__;
 
 require_once PLUGIN_DIR . '/vendor/autoload.php';
 
-final class Plugin extends Singleton implements Loadable, Initable, Enqueueable {
-	public $backend_assets;
-	public $frontend_assets;
-
-	use Plugin_Variables;
+final class Plugin extends Singleton implements Loadable, Enqueueable {
+	/**
+	 * @var Container
+	 */
+	public $container;
 
 	protected function __construct() {
-		$this->backend_assets = [
-			'styles' => [
-				handle('settings-page') => [
-					'src' => get_plugin_url('assets/css/settings_page.css'),
-				],
-			],
-			'scripts' => [
-				handle('settings-page') => [
-					'src' => get_plugin_url('assets/js/dist/settings_page.js'),
-					'deps' => ['jquery', 'jquery-form', 'jquery-ui-sortable'],
-					'localize_script' => [
-						'settingsPage' => [
-							'saveMessage' => esc_html__('Settings Saved Successfully', 'vnh_textdomain'),
+		$builder = new ContainerBuilder();
+		$builder->addDefinitions(
+			apply_filters('vnh_prefix/definitions', [
+				'backend_assets' => [
+					'styles' => [
+						handle('settings-page') => [
+							'src' => get_plugin_url('assets/css/settings_page.css'),
+						],
+					],
+					'scripts' => [
+						handle('settings-page') => [
+							'src' => get_plugin_url('assets/js/dist/settings_page.js'),
+							'deps' => ['jquery', 'jquery-form', 'jquery-ui-sortable'],
+							'localize_script' => [
+								'settingsPage' => [
+									'saveMessage' => esc_html__('Settings Saved Successfully', 'vnh_textdomain'),
+								],
+							],
 						],
 					],
 				],
-			],
-		];
-
-		$this->frontend_assets = [
-			'styles' => [],
-			'scripts' => [
-				PLUGIN_SLUG => [
-					'src' => get_plugin_url('assets/js/dist/frontend.js'),
-					'deps' => ['jquery'],
+				'frontend_assets' => [
+					'styles' => [],
+					'scripts' => [
+						PLUGIN_SLUG => [
+							'src' => get_plugin_url('assets/js/dist/frontend.js'),
+							'deps' => ['jquery'],
+						],
+					],
 				],
-			],
-		];
-	}
+				License_Management::class => create()->constructor([
+					'plugin_file' => PLUGIN_FILE,
+					'remote_api_url' => 'https://geargag.com/',
+					'parent_menu_slug' => PLUGIN_SLUG,
+					'name' => PLUGIN_NAME,
+					'version' => PLUGIN_VERSION,
+					'item_id' => 272,
+				]),
+				PHP_Checker::class => create(),
+				WordPress_Checker::class => create(),
+				Our_Plugins::class => create()->constructor(PLUGINS_LIST_URL),
+				Our_Plugins_Menu::class => autowire(),
+				Allowed_HTML::class => create(),
+				WP_Review_Me::class => create()->constructor(['days_after' => 10, 'type' => 'plugin', 'slug' => PLUGIN_SLUG]),
+				Plugin_Action_Links::class => create()->constructor(PLUGIN_BASE, PLUGIN_SLUG),
+				Plugin_Row_Meta::class => create()->constructor(PLUGIN_BASE, PLUGIN_SLUG),
+				Config_CMB2::class => create(),
+				CMB2_Settings_Page::class => create(),
+				Settings::class => create(),
+				Settings_Page::class => create(),
+				Register_Backend_Assets::class => create()->constructor(get('backend_assets')),
+				Register_Frontend_Assets::class => create()->constructor(get('frontend_assets')),
+			])
+		);
 
-	public function init() {
-		$this->license = new License_Management([
-			'plugin_file' => PLUGIN_FILE,
-			'remote_api_url' => 'https://geargag.com/',
-			'parent_menu_slug' => PLUGIN_SLUG,
-			'name' => PLUGIN_NAME,
-			'version' => PLUGIN_VERSION,
-			'item_id' => 272,
-		]);
-		$this->allow_html = new Allowed_HTML();
-		$this->php_checker = new Plugin_Checker(MIN_PHP_VERSION, 'PHP', PLUGIN_FILE);
-		$this->wp_checker = new Plugin_Checker(MIN_WP_VERSION, 'WordPress', PLUGIN_FILE);
-		$this->admin_menus = new Admin_Menu();
-		$this->admin = new Admin();
-		$this->config_cmb2 = new Config_CMB2();
-		$this->cmb2_settings_page = new CMB2_Settings_Page();
-		$this->settings = new Settings();
-		$this->settings_page = new Settings_Page();
-		$this->register_backend_assets = new Register_Assets($this->backend_assets, 'backend');
-		$this->register_frontend_assets = new Register_Assets($this->frontend_assets, 'frontend');
+		$this->container = $builder->build();
 	}
 
 	public function load() {
-		if (!is_woocommerce_active()) {
-			return;
-		}
+		$this->container->get(PHP_Checker::class)->show_admin_notice();
+		$this->container->get(PHP_Checker::class)->version_too_low();
+		$this->container->get(PHP_Checker::class)->maybe_deactivate_plugin();
 
-		$this->license->init();
+		$this->container->get(WordPress_Checker::class)->show_admin_notice();
+		$this->container->get(WordPress_Checker::class)->version_too_low();
+		$this->container->get(WordPress_Checker::class)->maybe_deactivate_plugin();
 
-		$this->allow_html->boot();
-
-		$this->php_checker->init();
-		$this->wp_checker->init();
-
-		$this->register_frontend_assets->boot();
-
-		$this->config_cmb2->boot();
-
+		$this->container->get(License_Management::class)->init();
+		$this->container->get(Allowed_HTML::class)->boot();
+		$this->container->get(Register_Frontend_Assets::class)->boot();
+		$this->container->get(Config_CMB2::class)->boot();
 		if (is_admin()) {
-			$this->register_backend_assets->boot();
+			$this->container->get(Register_Backend_Assets::class)->boot();
+			$this->container->get(Our_Plugins_Menu::class)->boot();
+			$this->container->get(WP_Review_Me::class);
+			$this->container->get(Plugin_Action_Links::class)->boot();
+			$this->container->get(Plugin_Row_Meta::class)->boot();
 
-			$this->admin_menus->boot();
+			$this->container->get(Settings::class)->init();
+			$this->container->get(Settings::class)->boot();
 
-			$this->admin->init();
-
-			$this->settings->init();
-			$this->settings->boot();
-
-			$this->cmb2_settings_page->boot();
-			$this->settings_page->boot();
+			$this->container->get(CMB2_Settings_Page::class)->boot();
+			$this->container->get(Settings_Page::class)->boot();
 		}
 	}
 
@@ -154,8 +162,6 @@ final class Plugin extends Singleton implements Loadable, Initable, Enqueueable 
 }
 
 Plugin::instance();
-do_action('vnh_prefix/before/init');
-Plugin::instance()->init();
 do_action('vnh_prefix/before/load');
 Plugin::instance()->load();
 do_action('vnh_prefix/after/load');

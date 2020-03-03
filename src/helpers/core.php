@@ -2,8 +2,6 @@
 
 namespace vnh_namespace;
 
-defined('ABSPATH') || die();
-
 function is_plugin_settings_page() {
 	return strpos(get_current_screen()->id, MENU_SLUG) !== false || strpos(get_current_screen()->id, PLUGIN_SLUG) !== false;
 }

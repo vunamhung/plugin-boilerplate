@@ -1,6 +1,16 @@
 <?php
 
 namespace PHPSTORM_META {
+	registerArgumentsSet('di_values', 'backend_assets', 'frontend_assets');
+	expectedArguments(DI\get(), 0, argumentsSet("di_values"));
+	expectedArguments(\DI\Container::get(), 0, argumentsSet("di_values"));
+
+	expectedArguments(\vnh_namespace\handle(), 0, "settings-page");
+
+	registerArgumentsSet('assets_paths', 'assets/', 'assets/css/', 'assets/js/dist', 'assets/js/dist/settings_page.js');
+	expectedArguments(\vnh_namespace\get_plugin_path(), 0, argumentsSet("assets_paths"));
+	expectedArguments(\vnh_namespace\get_plugin_url(), 0, argumentsSet("assets_paths"));
+
 	registerArgumentsSet('textdomain_values', 'vnh_textdomain');
 	expectedArguments(\__(), 1, argumentsSet("textdomain_values"));
 	expectedArguments(\_nx(), 4, argumentsSet("textdomain_values"));

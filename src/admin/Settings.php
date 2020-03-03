@@ -2,8 +2,6 @@
 
 namespace vnh_namespace\admin;
 
-defined('ABSPATH') || die();
-
 use vnh\Register_Settings;
 
 use const vnh_namespace\PLUGIN_SLUG;

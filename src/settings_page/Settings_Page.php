@@ -2,8 +2,6 @@
 
 namespace vnh_namespace\settings_page;
 
-defined('ABSPATH') || die();
-
 use vnh_namespace\admin\Settings;
 use vnh\contracts\Bootable;
 
