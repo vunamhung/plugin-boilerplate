@@ -17,12 +17,10 @@
 
 namespace vnh_namespace;
 
-use DI\Container;
 use DI\ContainerBuilder;
 use vnh\Allowed_HTML;
 use vnh\contracts\Enqueueable;
 use vnh\contracts\Loadable;
-use vnh\License_Management;
 use vnh\Our_Plugins;
 use vnh\Plugin_Action_Links;
 use vnh\Plugin_Row_Meta;
@@ -39,7 +37,6 @@ use vnh_namespace\tools\WordPress_Checker;
 use WP_Review_Me;
 use function DI\autowire;
 use function DI\create;
-use function DI\get;
 use function vnh\plugin_languages_path;
 
 const PLUGIN_FILE = __FILE__;
@@ -48,50 +45,13 @@ const PLUGIN_DIR = __DIR__;
 require_once PLUGIN_DIR . '/vendor/autoload.php';
 
 final class Plugin extends Singleton implements Loadable, Enqueueable {
-	/**
-	 * @var Container
-	 */
+	public $builder;
 	public $container;
 
 	protected function __construct() {
-		$builder = new ContainerBuilder();
-		$builder->addDefinitions(
+		$this->builder = new ContainerBuilder();
+		$this->builder->addDefinitions(
 			apply_filters('vnh_prefix/definitions', [
-				'backend_assets' => [
-					'styles' => [
-						handle('settings-page') => [
-							'src' => get_plugin_url('assets/css/settings_page.css'),
-						],
-					],
-					'scripts' => [
-						handle('settings-page') => [
-							'src' => get_plugin_url('assets/js/dist/settings_page.js'),
-							'deps' => ['jquery', 'jquery-form', 'jquery-ui-sortable'],
-							'localize_script' => [
-								'settingsPage' => [
-									'saveMessage' => esc_html__('Settings Saved Successfully', 'vnh_textdomain'),
-								],
-							],
-						],
-					],
-				],
-				'frontend_assets' => [
-					'styles' => [],
-					'scripts' => [
-						PLUGIN_SLUG => [
-							'src' => get_plugin_url('assets/js/dist/frontend.js'),
-							'deps' => ['jquery'],
-						],
-					],
-				],
-				License_Management::class => create()->constructor([
-					'plugin_file' => PLUGIN_FILE,
-					'remote_api_url' => 'https://geargag.com/',
-					'parent_menu_slug' => PLUGIN_SLUG,
-					'name' => PLUGIN_NAME,
-					'version' => PLUGIN_VERSION,
-					'item_id' => 272,
-				]),
 				PHP_Checker::class => create(),
 				WordPress_Checker::class => create(),
 				Our_Plugins::class => create()->constructor(PLUGINS_LIST_URL),
@@ -104,24 +64,18 @@ final class Plugin extends Singleton implements Loadable, Enqueueable {
 				CMB2_Settings_Page::class => create(),
 				Settings::class => create(),
 				Settings_Page::class => create(),
-				Register_Backend_Assets::class => create()->constructor(get('backend_assets')),
-				Register_Frontend_Assets::class => create()->constructor(get('frontend_assets')),
+				Register_Backend_Assets::class => create(),
+				Register_Frontend_Assets::class => create(),
 			])
 		);
 
-		$this->container = $builder->build();
+		$this->container = $this->builder->build();
 	}
 
 	public function load() {
-		$this->container->get(PHP_Checker::class)->show_admin_notice();
-		$this->container->get(PHP_Checker::class)->version_too_low();
-		$this->container->get(PHP_Checker::class)->maybe_deactivate_plugin();
+		$this->container->get(PHP_Checker::class)->init();
+		$this->container->get(WordPress_Checker::class)->init();
 
-		$this->container->get(WordPress_Checker::class)->show_admin_notice();
-		$this->container->get(WordPress_Checker::class)->version_too_low();
-		$this->container->get(WordPress_Checker::class)->maybe_deactivate_plugin();
-
-		$this->container->get(License_Management::class)->init();
 		$this->container->get(Allowed_HTML::class)->boot();
 		$this->container->get(Register_Frontend_Assets::class)->boot();
 		$this->container->get(Config_CMB2::class)->boot();
