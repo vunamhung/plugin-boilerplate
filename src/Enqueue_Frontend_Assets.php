@@ -1,15 +1,11 @@
 <?php
 
-namespace vnh_namespace\tools;
+namespace vnh_namespace;
 
+use vnh\contracts\Enqueueable;
 use vnh\Register_Assets;
-use function vnh_namespace\get_plugin_url;
-use const vnh_namespace\PLUGIN_SLUG;
 
-class Register_Frontend_Assets extends Register_Assets {
-	public $scripts;
-	public $styles;
-
+class Enqueue_Frontend_Assets extends Register_Assets implements Enqueueable {
 	public function __construct() {
 		$this->scripts = [
 			PLUGIN_SLUG => [
@@ -22,5 +18,10 @@ class Register_Frontend_Assets extends Register_Assets {
 	public function boot() {
 		add_action('wp_enqueue_scripts', [$this, 'register_scripts']);
 		add_action('wp_enqueue_scripts', [$this, 'register_styles']);
+		add_action('wp_enqueue_scripts', [$this, 'enqueue']);
+	}
+
+	public function enqueue() {
+		wp_enqueue_script(PLUGIN_SLUG);
 	}
 }

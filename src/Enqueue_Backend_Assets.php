@@ -1,15 +1,11 @@
 <?php
 
-namespace vnh_namespace\tools;
+namespace vnh_namespace;
 
+use vnh\contracts\Enqueueable;
 use vnh\Register_Assets;
-use function vnh_namespace\get_plugin_url;
-use function vnh_namespace\handle;
 
-class Register_Backend_Assets extends Register_Assets {
-	public $scripts;
-	public $styles;
-
+class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 	public function __construct() {
 		$this->scripts = [
 			handle('settings-page') => [
@@ -32,5 +28,12 @@ class Register_Backend_Assets extends Register_Assets {
 	public function boot() {
 		add_action('admin_enqueue_scripts', [$this, 'register_scripts']);
 		add_action('admin_enqueue_scripts', [$this, 'register_styles']);
+		add_action('admin_enqueue_scripts', [$this, 'enqueue']);
+	}
+
+	public function enqueue() {
+		if (is_plugin_settings_page()) {
+			wp_enqueue_style(handle('settings-page'));
+		}
 	}
 }
