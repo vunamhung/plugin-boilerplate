@@ -11,7 +11,6 @@
     "require": {
         "cmb2/cmb2": "^2.6.0",
         "jcchavezs/cmb2-conditionals": "dev-master",
-        "julien731/wp-review-me": "^2.0.1",
         "php-di/php-di": "^6.0.11",
         "vunamhung/cmb2_select2": "^1.0.1",
         "vunamhung/cmb2_tab": "^1.0.0",

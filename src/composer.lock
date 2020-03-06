@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1115f39f91f00e3109876b0942c8cae",
+    "content-hash": "473a5d5b17a49a6663d5e72b01883979",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -160,86 +160,6 @@
                 "tokenizer"
             ],
             "time": "2018-03-21T22:21:57+00:00"
-        },
-        {
-            "name": "julien731/wp-dismissible-notices-handler",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/julien731/WP-Dismissible-Notices-Handler.git",
-                "reference": "e8f43ea7f9f58c75888a849ed6329ff9b91e23ec"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/julien731/WP-Dismissible-Notices-Handler/zipball/e8f43ea7f9f58c75888a849ed6329ff9b91e23ec",
-                "reference": "e8f43ea7f9f58c75888a849ed6329ff9b91e23ec",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "handler.php",
-                    "includes/helper-functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU GPL"
-            ],
-            "authors": [
-                {
-                    "name": "Julien Liabeuf",
-                    "email": "julien@liabeuf.fr",
-                    "homepage": "https://julienliabeuf.com",
-                    "role": "Lead Developer"
-                }
-            ],
-            "description": "A simple library to handle Ajax-dismissible admin notices for WordPress",
-            "homepage": "https://github.com/julien731/WP-Dismissible-Notices-Handler",
-            "time": "2018-09-12T14:49:52+00:00"
-        },
-        {
-            "name": "julien731/wp-review-me",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/julien731/WP-Review-Me.git",
-                "reference": "cb43e768e0dc1e2eb8e1a3a96ffa3dfd9f890602"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/julien731/WP-Review-Me/zipball/cb43e768e0dc1e2eb8e1a3a96ffa3dfd9f890602",
-                "reference": "cb43e768e0dc1e2eb8e1a3a96ffa3dfd9f890602",
-                "shasum": ""
-            },
-            "require": {
-                "julien731/wp-dismissible-notices-handler": "1.*",
-                "php": ">=5.5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "review.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU GPL"
-            ],
-            "authors": [
-                {
-                    "name": "Julien Liabeuf",
-                    "email": "julien@liabeuf.fr",
-                    "homepage": "https://julienliabeuf.com",
-                    "role": "Lead Developer"
-                }
-            ],
-            "description": "A lightweight library to help you get more reviews for your WordPress theme/plugin",
-            "homepage": "https://github.com/julien731/WP-Review-Me",
-            "time": "2016-09-27T04:04:50+00:00"
         },
         {
             "name": "nikic/php-parser",

@@ -4,16 +4,11 @@ namespace vnh_namespace\admin;
 
 use vnh\contracts\Bootable;
 use vnh\Our_Plugins;
-
+use vnh_namespace\Container;
 use const vnh_namespace\MENU_SLUG;
 
 class Our_Plugins_Menu implements Bootable {
-	public $our_plugins;
 	public $capacity = 'manage_options';
-
-	public function __construct(Our_Plugins $our_plugins) {
-		$this->our_plugins = $our_plugins;
-	}
 
 	public function boot() {
 		add_action('admin_menu', [$this, 'add_menus']);
@@ -47,7 +42,7 @@ class Our_Plugins_Menu implements Bootable {
 			'<span style="color:#ffb900">★★★★★</span>'
 		);
 		$html .= '</p>';
-		$html .= $this->our_plugins;
+		$html .= Container::instance()->services->get(Our_Plugins::class);
 		$html .= '</div>';
 
 		echo $html;

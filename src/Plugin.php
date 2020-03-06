@@ -28,7 +28,6 @@ use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\PHP_Checker;
 use vnh_namespace\tools\WordPress_Checker;
-use WP_Review_Me;
 use function vnh\plugin_languages_path;
 
 const PLUGIN_FILE = __FILE__;
@@ -57,7 +56,6 @@ final class Plugin implements Loadable {
 
 		if (is_admin()) {
 			$services->get(Our_Plugins_Menu::class)->boot();
-			$services->get(WP_Review_Me::class);
 			$services->get(Plugin_Action_Links::class)->boot();
 			$services->get(Plugin_Row_Meta::class)->boot();
 
