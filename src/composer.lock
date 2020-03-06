@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "473a5d5b17a49a6663d5e72b01883979",
+    "content-hash": "101c92c3da6f0a74807682537844a6f7",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -58,50 +58,6 @@
                 "wordpress"
             ],
             "time": "2020-01-21T17:49:50+00:00"
-        },
-        {
-            "name": "jcchavezs/cmb2-conditionals",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jcchavezs/cmb2-conditionals.git",
-                "reference": "6c8cafc3d1fdfd5780642cf696e4df120d540377"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jcchavezs/cmb2-conditionals/zipball/6c8cafc3d1fdfd5780642cf696e4df120d540377",
-                "reference": "6c8cafc3d1fdfd5780642cf696e4df120d540377",
-                "shasum": ""
-            },
-            "require": {
-                "cmb2/cmb2": "~v2.0",
-                "php": ">5.2.4"
-            },
-            "suggest": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "José Carlos Chávez",
-                    "email": "jcchavezs@gmail.com",
-                    "homepage": "https://github.com/jcchavezs",
-                    "role": "Developer"
-                }
-            ],
-            "description": "CMB2 Conditionals is a plugin for CMB2 which allows developers to relate fields so one of them could only appear when one other have an specific value or when is not empty.",
-            "homepage": "https://github.com/jcchavezs/cmb2-conditionals",
-            "keywords": [
-                "conditionals",
-                "metabox",
-                "plugin",
-                "wordpress"
-            ],
-            "time": "2019-04-24T12:14:30+00:00"
         },
         {
             "name": "jeremeamia/superclosure",
@@ -975,7 +931,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jcchavezs/cmb2-conditionals": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
