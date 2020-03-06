@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d076f8b100233b8361a7e1876ba1225c",
+    "content-hash": "f1115f39f91f00e3109876b0942c8cae",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -734,51 +734,6 @@
                 "wordpress"
             ],
             "time": "2020-02-26T03:32:08+00:00"
-        },
-        {
-            "name": "vunamhung/eddsl",
-            "version": "0.9.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vunamhung/eddsl.git",
-                "reference": "b02206151380b9900e60b11b79805083381c4999"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vunamhung/eddsl/zipball/b02206151380b9900e60b11b79805083381c4999",
-                "reference": "b02206151380b9900e60b11b79805083381c4999",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "php-di/php-di": "^6.0.11",
-                "vunamhung/wptoolkit": "^0.9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "vnh\\": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Vu Nam Hung",
-                    "email": "vunamhung@gmail.com",
-                    "homepage": "https://github.com/vunamhung/",
-                    "role": "Lead Developer"
-                }
-            ],
-            "description": "This is a toolkit for WordPress developer.",
-            "homepage": "https://github.com/vunamhung/eddsl",
-            "keywords": [
-                "toolkit",
-                "wordpress"
-            ],
-            "time": "2020-03-03T15:08:53+00:00"
         },
         {
             "name": "vunamhung/wptoolkit",
