@@ -2,6 +2,15 @@
 
 namespace vnh_namespace;
 
+function handle($name) {
+	return PLUGIN_SLUG . '-' . $name;
+}
+
+function set_cookie($name, $value, $time = DAY_IN_SECONDS, $path = '/') {
+	setcookie($name, $value, time() + $time, $path);
+	$_COOKIE[$name] = $value;
+}
+
 function is_plugin_settings_page() {
 	return strpos(get_current_screen()->id, MENU_SLUG) !== false || strpos(get_current_screen()->id, PLUGIN_SLUG) !== false;
 }
@@ -20,4 +29,7 @@ function get_plugin_url($dir = null) {
 	}
 
 	return plugin_dir_url(PLUGIN_FILE) . $dir;
+}
+
+trait Helpers {
 }

@@ -1,9 +1,6 @@
 {
     "autoload": {
         "files": [
-            "helpers/constants.php",
-            "helpers/core.php",
-            "helpers/general.php",
             "vendor/cmb2/cmb2/init.php",
             "vendor/jcchavezs/cmb2-conditionals/cmb2-conditionals.php"
         ],

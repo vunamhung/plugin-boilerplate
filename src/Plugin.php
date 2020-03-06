@@ -37,6 +37,9 @@ const PLUGIN_DIR = __DIR__;
 require_once PLUGIN_DIR . '/vendor/autoload.php';
 
 final class Plugin implements Loadable {
+	use Constants;
+	use Helpers;
+
 	public function __construct() {
 		$this->load();
 		$this->boot();
