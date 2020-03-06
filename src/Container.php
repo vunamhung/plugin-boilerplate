@@ -15,8 +15,6 @@ use vnh_namespace\settings_page\Settings_Page;
 use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\PHP_Checker;
 use vnh_namespace\tools\WordPress_Checker;
-use WP_Review_Me;
-use function DI\autowire;
 use function DI\create;
 
 final class Container extends Singleton {
