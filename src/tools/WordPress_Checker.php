@@ -9,10 +9,9 @@ use const vnh_namespace\PLUGIN_FILE;
 
 class WordPress_Checker extends Plugin_Checker implements Initable {
 	public function __construct() {
-		global $wp_version;
 		$this->file = PLUGIN_FILE;
 		$this->require_version = MIN_WP_VERSION;
-		$this->current_version = $wp_version;
+		$this->current_version = get_bloginfo('version');
 		$this->context = 'WordPress';
 	}
 
