@@ -1,134 +1,143 @@
 {
-    "author": "Vu Nam Hung",
-    "license": "GPL-3.0",
-    "scripts": {
-        "download:libs": "node node_modules/frontend-dependencies/index.js",
-        "clean:composer": "rm -rf src/vendor",
-        "start": "webpack --watch & gulp default",
-        "build": "webpack --mode=production",
-        "build:analytic": "webpack --mode=production --analytic"
-    },
-    "languages": {
-        "team": "GearGag Team <geargag.com@gmail.com>",
-        "bugReport": "https://geargag.com",
-        "lastTranslator": "Vu Nam Hung <vunamhung@gmail.com>"
-    },
-    "plugin": {
-        "namespace": "Plugin_Boilerplate",
-        "prefix": "plugin_boilerplate",
-        "slug": "plugin-boilerplate",
-        "name": "Plugin Boilerplate by VNH",
-        "short_name": "Plugin Boilerplate",
-        "version": "1.0.0",
-        "tags": "woocommerce, currency, switcher, exchange, currency for woocommerce, multi currency for woocommerce, woocommerce multi currency, woocommerce currency, currency switcher, woocommerce currency, bitcoin",
-        "uri": "https://geargag.com",
-        "author": "GearGag Team",
-        "contributors": "geargag",
-        "author_uri": "https://geargag.com",
-        "plugin_uri": "https://geargag.com",
-        "document_uri": "https://plugin.geargag.com/documentation",
-        "wp_requires": "5.0",
-        "php_requires": "5.6",
-        "tested_up_to": "5.3",
-        "dev_mode": "disable",
-        "license": "GPL-3.0",
-        "license_uri": "http://www.opensource.org/licenses/gpl-license.php",
-        "copyright": "Copyright (c) 2019, GearGag Group",
-        "description": "vnh_name plugin allows your customers to browse products and checkout in multiple currencies. The plugin converts WooCommerce product price, coupons, shipping price, taxes to customer-preferred currency. Customers can select the currency on front-end with widget, currencies bar. Or you can set the plugin to detect currency based on customer’s location, site’s language.",
-        "wc_requires": "3.2.0",
-        "wc_tested_up_to": "3.8.0"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.8.3",
-        "@babel/preset-env": "^7.8.3",
-        "autoprefixer": "^9.7.4",
-        "babel-eslint": "^10.0.3",
-        "babel-loader": "^8.0.4",
-        "babel-plugin-transform-class-properties": "^6.24.1",
-        "browser-sync": "^2.21.0",
-        "bs-html-injector": "^3.0.3",
-        "bundlesize": "^0.18.0",
-        "classnames": "^2.2.6",
-        "css-loader": "^3.4.2",
-        "css-mqpacker": "^7.0.0",
-        "dateformat": "^3.0.3",
-        "del": "^5.0.0",
-        "delete-empty": "^2.0.0",
-        "downloadjs": "^1.4.7",
-        "duplicate-package-checker-webpack-plugin": "^3.0.0",
-        "eslint": "^6.8.0",
-        "esm": "^3.2.25",
-        "frontend-dependencies": "^1.1.5",
-        "gulp": "^4.0.2",
-        "gulp-imagemin": "^7.0.0",
-        "gulp-jsdoc3": "^2.0.0",
-        "gulp-notify": "^3.2.0",
-        "gulp-plumber": "^1.2.1",
-        "gulp-postcss": "^8.0.0",
-        "gulp-readme-to-markdown": "^0.2.1",
-        "gulp-rename": "^1.4.0",
-        "gulp-replace-task": "^0.11.0",
-        "gulp-rtlcss": "^1.4.0",
-        "gulp-sass": "^4.0.2",
-        "gulp-sass-glob": "^1.1.0",
-        "gulp-size": "^3.0.0",
-        "gulp-sort": "^2.0.0",
-        "gulp-sourcemaps": "^2.6.4",
-        "gulp-svg-sprite": "^1.5.0",
-        "gulp-wp-pot": "^2.3.6",
-        "gulp-zip": "^5.0.1",
-        "mini-css-extract-plugin": "^0.9.0",
-        "postcss-inline-svg": "^4.1.0",
-        "postcss-pxtorem": "^4.0.1",
-        "postcss-svgo": "^4.0.1",
-        "sass-loader": "^8.0.2",
-        "url-loader": "^3.0.0",
-        "webpack": "^4.41.5",
-        "webpack-bundle-analyzer": "^3.6.0",
-        "webpack-cli": "^3.3.10",
-        "webpack-error-notification": "^0.1.8",
-        "yargs": "^15.1.0"
-    },
-    "frontendDependencies": {
-        "packages": {
-            "spectre.css": {
-                "version": "latest",
-                "src": "src/*",
-                "namespaced": true,
-                "target": "src/assets/libs"
-            },
-            "cmb2-conditional-logic": {
-                "version": "latest",
-                "src": "*.js",
-                "namespaced": true,
-                "target": "src/assets/libs"
-            },
-            "hint.css": {
-                "version": "latest",
-                "src": "src/*",
-                "namespaced": true,
-                "target": "src/assets/libs"
-            },
-            "family.scss": {
-                "version": "latest",
-                "src": "source/src/*",
-                "namespaced": true,
-                "target": "src/assets/libs"
-            }
-        }
-    },
-    "bundlesize": [
-        {
-            "path": "dist/done/*/assets/js/*.js",
-            "maxSize": "250 kB",
-            "compression": "gzip"
-        },
-        {
-            "path": "dist/done/**/*.jpg",
-            "maxSize": "700 kB"
-        }
-    ],
-    "dependencies": {
-        "jquery.repeater": "^1.2.1"
-    }
+	"author": "Vu Nam Hung",
+	"license": "GPL-3.0",
+	"scripts": {
+		"download:libs": "node node_modules/frontend-dependencies/index.js",
+		"clean:composer": "rm -rf src/vendor",
+		"start": "webpack --watch & gulp default",
+		"build": "webpack --mode=production",
+		"build:analytic": "webpack --mode=production --analytic"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
+	"languages": {
+		"team": "GearGag Team <geargag.com@gmail.com>",
+		"bugReport": "https://geargag.com",
+		"lastTranslator": "Vu Nam Hung <vunamhung@gmail.com>"
+	},
+	"plugin": {
+		"namespace": "Plugin_Boilerplate",
+		"prefix": "plugin_boilerplate",
+		"slug": "plugin-boilerplate",
+		"name": "Plugin Boilerplate by VNH",
+		"short_name": "Plugin Boilerplate",
+		"version": "1.0.0",
+		"tags": "woocommerce, currency, switcher, exchange, currency for woocommerce, multi currency for woocommerce, woocommerce multi currency, woocommerce currency, currency switcher, woocommerce currency, bitcoin",
+		"uri": "https://geargag.com",
+		"author": "GearGag Team",
+		"contributors": "geargag",
+		"author_uri": "https://geargag.com",
+		"plugin_uri": "https://geargag.com",
+		"document_uri": "https://plugin.geargag.com/documentation",
+		"wp_requires": "5.0",
+		"php_requires": "5.6",
+		"tested_up_to": "5.3",
+		"dev_mode": "disable",
+		"license": "GPL-3.0",
+		"license_uri": "http://www.opensource.org/licenses/gpl-license.php",
+		"copyright": "Copyright (c) 2019, GearGag Group",
+		"description": "vnh_name plugin allows your customers to browse products and checkout in multiple currencies. The plugin converts WooCommerce product price, coupons, shipping price, taxes to customer-preferred currency. Customers can select the currency on front-end with widget, currencies bar. Or you can set the plugin to detect currency based on customer’s location, site’s language.",
+		"wc_requires": "3.2.0",
+		"wc_tested_up_to": "3.8.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.3",
+		"@babel/preset-env": "^7.8.3",
+		"@prettier/plugin-php": "^0.14.0",
+		"autoprefixer": "^9.7.4",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^8.0.4",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"browser-sync": "^2.21.0",
+		"bs-html-injector": "^3.0.3",
+		"bundlesize": "^0.18.0",
+		"classnames": "^2.2.6",
+		"css-loader": "^3.4.2",
+		"css-mqpacker": "^7.0.0",
+		"dateformat": "^3.0.3",
+		"del": "^5.0.0",
+		"delete-empty": "^2.0.0",
+		"downloadjs": "^1.4.7",
+		"duplicate-package-checker-webpack-plugin": "^3.0.0",
+		"eslint": "^6.8.0",
+		"esm": "^3.2.25",
+		"frontend-dependencies": "^1.1.5",
+		"gulp": "^4.0.2",
+		"gulp-imagemin": "^7.0.0",
+		"gulp-jsdoc3": "^2.0.0",
+		"gulp-notify": "^3.2.0",
+		"gulp-plumber": "^1.2.1",
+		"gulp-postcss": "^8.0.0",
+		"gulp-readme-to-markdown": "^0.2.1",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace-task": "^0.11.0",
+		"gulp-rtlcss": "^1.4.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sass-glob": "^1.1.0",
+		"gulp-size": "^3.0.0",
+		"gulp-sort": "^2.0.0",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-svg-sprite": "^1.5.0",
+		"gulp-wp-pot": "^2.3.6",
+		"gulp-zip": "^5.0.1",
+		"husky": "^4.2.5",
+		"mini-css-extract-plugin": "^0.9.0",
+		"postcss-inline-svg": "^4.1.0",
+		"postcss-pxtorem": "^4.0.1",
+		"postcss-svgo": "^4.0.1",
+		"prettier": "^2.0.4",
+		"pretty-quick": "^2.0.1",
+		"sass-loader": "^8.0.2",
+		"url-loader": "^3.0.0",
+		"webpack": "^4.41.5",
+		"webpack-bundle-analyzer": "^3.6.0",
+		"webpack-cli": "^3.3.10",
+		"webpack-error-notification": "^0.1.8",
+		"yargs": "^15.1.0"
+	},
+	"frontendDependencies": {
+		"packages": {
+			"spectre.css": {
+				"version": "latest",
+				"src": "src/*",
+				"namespaced": true,
+				"target": "src/assets/libs"
+			},
+			"cmb2-conditional-logic": {
+				"version": "latest",
+				"src": "*.js",
+				"namespaced": true,
+				"target": "src/assets/libs"
+			},
+			"hint.css": {
+				"version": "latest",
+				"src": "src/*",
+				"namespaced": true,
+				"target": "src/assets/libs"
+			},
+			"family.scss": {
+				"version": "latest",
+				"src": "source/src/*",
+				"namespaced": true,
+				"target": "src/assets/libs"
+			}
+		}
+	},
+	"bundlesize": [
+		{
+			"path": "dist/done/*/assets/js/*.js",
+			"maxSize": "250 kB",
+			"compression": "gzip"
+		},
+		{
+			"path": "dist/done/**/*.jpg",
+			"maxSize": "700 kB"
+		}
+	],
+	"dependencies": {
+		"jquery.repeater": "^1.2.1"
+	}
 }

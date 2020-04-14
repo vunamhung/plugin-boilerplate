@@ -13,6 +13,20 @@
       <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_select2" />
       <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_tab" />
       <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/wptoolkit" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/cmb2/cmb2" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/jeremeamia/superclosure" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/php-di/invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/php-di/php-di" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/php-di/phpdoc-reader" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php56" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-util" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/vunamhung/cmb2_select2" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/vunamhung/cmb2_tab" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/vunamhung/cmb2_toggle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/vunamhung/wptoolkit" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
