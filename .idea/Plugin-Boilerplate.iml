@@ -2,17 +2,8 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="vnh_namespace" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="vnh_namespace\" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/assets/css" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/cmb2/cmb2" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/composer" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/jcchavezs/cmb2-conditionals" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/julien731/wp-dismissible-notices-handler" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/julien731/wp-review-me" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_select2" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/cmb2_tab" />
-      <excludeFolder url="file://$MODULE_DIR$/plugin/vendor/vunamhung/wptoolkit" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/cmb2/cmb2" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/jeremeamia/superclosure" />

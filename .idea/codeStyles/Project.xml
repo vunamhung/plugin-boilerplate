@@ -1,6 +1,6 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
-    <option name="RIGHT_MARGIN" value="300" />
+    <option name="RIGHT_MARGIN" value="145" />
     <JSCodeStyleSettings version="0">
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
       <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
@@ -11,18 +11,25 @@
     </JSCodeStyleSettings>
     <PHPCodeStyleSettings>
       <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
-      <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true" />
-      <option name="BLANK_LINES_BETWEEN_IMPORTS" value="1" />
+      <option name="PHPDOC_BLANK_LINE_BEFORE_TAGS" value="true" />
+      <option name="PHPDOC_KEEP_BLANK_LINES" value="false" />
+      <option name="PHPDOC_WRAP_LONG_LINES" value="true" />
       <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
       <option name="LOWER_CASE_NULL_CONST" value="true" />
       <option name="ELSE_IF_STYLE" value="COMBINE" />
+      <option name="FIELDS_DEFAULT_VISIBILITY" value="public" />
       <option name="VARIABLE_NAMING_STYLE" value="SNAKE_CASE" />
       <option name="BLANK_LINES_BEFORE_RETURN_STATEMENT" value="1" />
       <option name="KEEP_RPAREN_AND_LBRACE_ON_ONE_LINE" value="true" />
       <option name="BLANK_LINES_AFTER_OPENING_TAG" value="1" />
       <option name="KEEP_BLANK_LINES_AFTER_LBRACE" value="0" />
+      <option name="SPACE_BEFORE_UNARY_NOT" value="true" />
+      <option name="SPACE_AFTER_UNARY_NOT" value="true" />
       <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
     </PHPCodeStyleSettings>
+    <SassCodeStyleSettings>
+      <option name="BLANK_LINES_AROUND_NESTED_SELECTOR" value="0" />
+    </SassCodeStyleSettings>
     <ScssCodeStyleSettings>
       <option name="BLANK_LINES_AROUND_NESTED_SELECTOR" value="0" />
     </ScssCodeStyleSettings>
@@ -43,6 +50,15 @@
         <option name="SMART_TABS" value="true" />
       </indentOptions>
     </codeStyleSettings>
+    <codeStyleSettings language="HTML">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="3" />
+        <option name="CONTINUATION_INDENT_SIZE" value="3" />
+        <option name="TAB_SIZE" value="3" />
+        <option name="USE_TAB_CHARACTER" value="true" />
+        <option name="SMART_TABS" value="true" />
+      </indentOptions>
+    </codeStyleSettings>
     <codeStyleSettings language="JavaScript">
       <option name="SOFT_MARGINS" value="145" />
       <indentOptions>
@@ -50,6 +66,7 @@
         <option name="CONTINUATION_INDENT_SIZE" value="2" />
         <option name="TAB_SIZE" value="2" />
         <option name="USE_TAB_CHARACTER" value="true" />
+        <option name="SMART_TABS" value="true" />
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="PHP">
@@ -62,7 +79,6 @@
       <option name="SPECIAL_ELSE_IF_TREATMENT" value="true" />
       <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
       <option name="ALIGN_MULTILINE_FOR" value="false" />
-      <option name="ALIGN_MULTILINE_EXTENDS_LIST" value="true" />
       <option name="CALL_PARAMETERS_WRAP" value="5" />
       <option name="CALL_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
       <option name="CALL_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true" />
@@ -72,6 +88,7 @@
       <option name="EXTENDS_LIST_WRAP" value="5" />
       <option name="PARENTHESES_EXPRESSION_LPAREN_WRAP" value="true" />
       <option name="PARENTHESES_EXPRESSION_RPAREN_WRAP" value="true" />
+      <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
       <option name="FOR_STATEMENT_LPAREN_ON_NEXT_LINE" value="true" />
       <option name="FOR_STATEMENT_RPAREN_ON_NEXT_LINE" value="true" />
       <option name="ARRAY_INITIALIZER_WRAP" value="5" />
@@ -82,6 +99,10 @@
       <option name="WHILE_BRACE_FORCE" value="3" />
       <option name="FOR_BRACE_FORCE" value="3" />
       <indentOptions>
+        <option name="INDENT_SIZE" value="3" />
+        <option name="CONTINUATION_INDENT_SIZE" value="3" />
+        <option name="TAB_SIZE" value="3" />
+        <option name="USE_TAB_CHARACTER" value="true" />
         <option name="SMART_TABS" value="true" />
       </indentOptions>
     </codeStyleSettings>

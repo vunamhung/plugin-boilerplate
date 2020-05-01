@@ -5,13 +5,14 @@ dist/
 .env
 
 #IDEA
-/.idea/workspace.xml
-/.idea/jsLinters/jshint.xml
-/.idea/.gitignore
-/.idea/dataSources.xml
+.idea/workspace.xml
+.idea/jsLinters/jshint.xml
+.idea/.gitignore
+.idea/dataSources.xml
+.idea/deployment.xml
 
 #PLUGIN
-/src/vendor/
-/src/languages/
-/src/assets/js/dist
-/src/assets/css
+src/vendor/
+src/languages/
+src/assets/js/dist
+src/assets/css
