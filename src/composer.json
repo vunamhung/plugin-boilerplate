@@ -1,19 +1,11 @@
 {
     "autoload": {
-        "files": [
-            "vendor/cmb2/cmb2/init.php"
-        ],
         "psr-4": {
             "vnh_namespace\\": "."
         }
     },
     "require": {
-        "cmb2/cmb2": "^2.6.0",
         "php-di/php-di": "^6.1",
-        "vunamhung/cmb2_select2": "^1.0.1",
-        "vunamhung/cmb2_tab": "^1.0.0",
-        "vunamhung/cmb2_toggle": "^1.0.0",
-        "vunamhung/wptoolkit": "^0.9.21"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"

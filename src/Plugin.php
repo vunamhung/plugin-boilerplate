@@ -23,9 +23,7 @@ use vnh\Plugin_Action_Links;
 use vnh\Plugin_Row_Meta;
 use vnh_namespace\admin\Our_Plugins_Menu;
 use vnh_namespace\admin\Settings;
-use vnh_namespace\settings_page\CMB2_Settings_Page;
 use vnh_namespace\settings_page\Settings_Page;
-use vnh_namespace\tools\Config_CMB2;
 use vnh_namespace\tools\PHP_Checker;
 use vnh_namespace\tools\WordPress_Checker;
 use function vnh\plugin_languages_path;
@@ -52,7 +50,6 @@ final class Plugin implements Loadable {
 
 		$services->get(Allowed_HTML::class)->boot();
 		$services->get(Enqueue_Frontend_Assets::class)->boot();
-		$services->get(Config_CMB2::class)->boot();
 
 		if (is_admin()) {
 			$services->get(Our_Plugins_Menu::class)->boot();
@@ -62,7 +59,6 @@ final class Plugin implements Loadable {
 			$services->get(Settings::class)->init();
 			$services->get(Settings::class)->boot();
 
-			$services->get(CMB2_Settings_Page::class)->boot();
 			$services->get(Settings_Page::class)->boot();
 
 			$services->get(Enqueue_Backend_Assets::class)->boot();
