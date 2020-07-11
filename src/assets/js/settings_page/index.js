@@ -22,11 +22,14 @@ class App extends Component {
 	}
 
 	saveSettings() {
+		this.setState({ isAPISaving: true });
 		const data = {
 			analytics_key: this.state.analytics_key,
 			analytics_status: this.state.analytics_status,
 		};
-		apiFetch({ path: plugin.apiPath, method: "POST", data }).then((res) => {});
+		apiFetch({ path: plugin.apiPath, method: "POST", parse: false, data }).then((res) => {
+			this.setState({ isAPISaving: false });
+		});
 	}
 
 	render() {
@@ -74,7 +77,7 @@ class App extends Component {
 								label={__("Track Admin Users?", "vnh_textdomain")}
 								help={"Would you like to track views of logged-in admin accounts?."}
 								checked={this.state.analytics_status}
-								onChange={(e) => this.setState({ analytics_status: !this.state.analytics_status })}
+								onChange={() => this.setState({ analytics_status: !this.state.analytics_status })}
 							/>
 						</PanelRow>
 					</PanelBody>
