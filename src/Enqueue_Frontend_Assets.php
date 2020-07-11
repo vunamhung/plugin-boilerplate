@@ -10,7 +10,12 @@ class Enqueue_Frontend_Assets extends Register_Assets implements Enqueueable {
 		$this->scripts = [
 			PLUGIN_SLUG => [
 				'src' => get_plugin_url('assets/js/dist/frontend.js'),
-				'deps' => ['jquery'],
+				'deps' => ['wp-api-fetch'],
+				'localize_script' => [
+					'plugin' => [
+						'apiPath' => PLUGIN_SLUG . '/v1/settings',
+					],
+				],
 			],
 		];
 	}
