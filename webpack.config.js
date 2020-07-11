@@ -41,7 +41,13 @@ const pluginConfig = {
 	},
 	module: webpackModules,
 	externals: {
-		lodash: "lodash",
+		"@wordpress/api-fetch": "wp.apiFetch",
+		"@wordpress/element": "wp.element",
+		"@wordpress/i18n": "wp.i18n",
+		"@wordpress/components": "wp.components",
+		"@wordpress/compose": "wp.compose",
+		react: "React",
+		"react-dom": "ReactDOM",
 		jquery: "jQuery",
 	},
 	stats: {
@@ -49,17 +55,15 @@ const pluginConfig = {
 	},
 	plugins: [
 		new webpack.ProvidePlugin({
-			_: "lodash",
-			_merge: ["lodash", "merge"],
-			_map: ["lodash", "map"],
-			_times: ["lodash", "times"],
-			_each: ["lodash", "each"],
-			_isNumber: ["lodash", "isNumber"],
 			$: "jquery",
 			jQuery: "jquery",
+			apiFetch: "@wordpress/api-fetch",
+			Component: ["@wordpress/element", "Component"],
+			__: ["@wordpress/i18n", "__"],
+			sprintf: ["@wordpress/i18n", "sprintf"],
 		}),
 		new MiniCssExtract({
-			filename: "../../scss/generic/gen_[name].scss",
+			filename: "../../css/[name].css",
 		}),
 		new ErrorNotification(),
 		new DuplicatePackageChecker(),

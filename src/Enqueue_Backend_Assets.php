@@ -10,10 +10,12 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 		$this->scripts = [
 			handle('settings-page') => [
 				'src' => get_plugin_url('assets/js/dist/settings_page.js'),
-				'deps' => ['jquery', 'jquery-form', 'jquery-ui-sortable'],
+				'deps' => ['wp-i18n', 'wp-components', 'wp-element', 'wp-api-fetch'],
 				'localize_script' => [
-					'settingsPage' => [
-						'saveMessage' => esc_html__('Settings Saved Successfully', 'vnh_textdomain'),
+					'plugin' => [
+						'name' => PLUGIN_NAME,
+						'version' => PLUGIN_VERSION,
+						'apiPath' => PLUGIN_SLUG . '/v1/settings',
 					],
 				],
 			],
@@ -21,6 +23,7 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 		$this->styles = [
 			handle('settings-page') => [
 				'src' => get_plugin_url('assets/css/settings_page.css'),
+				'deps' => ['wp-components'],
 			],
 		];
 	}
@@ -34,6 +37,7 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 	public function enqueue() {
 		if (is_plugin_settings_page()) {
 			wp_enqueue_style(handle('settings-page'));
+			wp_enqueue_script(handle('settings-page'));
 		}
 	}
 }

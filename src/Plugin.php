@@ -21,9 +21,7 @@ use vnh\Allowed_HTML;
 use vnh\contracts\Loadable;
 use vnh\Plugin_Action_Links;
 use vnh\Plugin_Row_Meta;
-use vnh_namespace\admin\Our_Plugins_Menu;
-use vnh_namespace\admin\Settings;
-use vnh_namespace\settings_page\Settings_Page;
+use vnh_namespace\api\Setting_API;
 use vnh_namespace\tools\PHP_Checker;
 use vnh_namespace\tools\WordPress_Checker;
 use function vnh\plugin_languages_path;
@@ -45,6 +43,8 @@ final class Plugin implements Loadable {
 	public function load() {
 		$services = Container::instance()->services;
 
+		$services->get(Setting_API::class)->boot();
+
 		$services->get(PHP_Checker::class)->init();
 		$services->get(WordPress_Checker::class)->init();
 
@@ -52,15 +52,9 @@ final class Plugin implements Loadable {
 		$services->get(Enqueue_Frontend_Assets::class)->boot();
 
 		if (is_admin()) {
-			$services->get(Our_Plugins_Menu::class)->boot();
 			$services->get(Plugin_Action_Links::class)->boot();
 			$services->get(Plugin_Row_Meta::class)->boot();
-
-			$services->get(Settings::class)->init();
-			$services->get(Settings::class)->boot();
-
 			$services->get(Settings_Page::class)->boot();
-
 			$services->get(Enqueue_Backend_Assets::class)->boot();
 		}
 	}

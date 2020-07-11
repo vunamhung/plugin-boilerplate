@@ -18,11 +18,6 @@ const PLUGIN_TEXT_DOMAIN = PLUGIN_DATA['TextDomain'];
 const DS = '/';
 const MIN_PHP_VERSION = 7.0;
 const MIN_WP_VERSION = 5.0;
-const WPORG = false;
-
-const PREMIUM_URL = 'https://geargag.com/';
-const MENU_SLUG = 'geargag_plugins';
-const PLUGINS_LIST_URL = 'https://geargag.com/geargag_plugins.json';
 
 trait Constants {
 }
