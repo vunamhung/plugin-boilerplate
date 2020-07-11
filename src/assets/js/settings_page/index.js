@@ -43,28 +43,28 @@ class App extends Component {
 
 		return (
 			<>
-				<div className="codeinwp-header">
-					<div className="codeinwp-container">
-						<div className="codeinwp-logo">
+				<div className="header">
+					<div className="container">
+						<div className="logo">
 							<h1>
-								{plugin.name} - {plugin.version}
+								{plugin.name} - v{plugin.version}
 							</h1>
 						</div>
 					</div>
 				</div>
 
-				<div className="codeinwp-main">
+				<div className="main">
 					<PanelBody title={__("Settings", "vnh_textdomain")}>
 						<PanelRow>
 							<BaseControl
 								label={__("Google Analytics Key", "vnh_textdomain")}
 								help={"In order to use Google Analytics, you need to use an API key."}
-								id="codeinwp-options-google-analytics-api"
-								className="codeinwp-text-field"
+								id="options-google-analytics-api"
+								className="text-field"
 							>
 								<input
 									type="text"
-									id="codeinwp-options-google-analytics-api"
+									id="options-google-analytics-api"
 									value={this.state.analytics_key}
 									placeholder={__("Google Analytics API Key", "vnh_textdomain")}
 									disabled={this.state.isAPISaving}

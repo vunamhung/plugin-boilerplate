@@ -27,16 +27,16 @@
 		margin-bottom: 25vh;
 	}
 
-	.codeinwp-header {
+	.header {
 		padding: 20px 10px;
 		background-color: #ffffff;
 		box-shadow: 0 1px 0 rgba(213, 213, 213, 0.5), 0 1px 2px #eee;
 
-		.codeinwp-container {
+		.container {
 			margin: 0 auto;
 			max-width: 750px;
 
-			.codeinwp-logo {
+			.logo {
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -44,7 +44,7 @@
 		}
 	}
 
-	.codeinwp-main {
+	.main {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 750px;
@@ -69,7 +69,7 @@
 						margin-bottom: 10px;
 					}
 
-					&.codeinwp-text-field {
+					&.text-field {
 						width: 100%;
 
 						.components-base-control__field {
@@ -105,7 +105,7 @@
 								}
 							}
 
-							.codeinwp-text-field-button-group {
+							.text-field-button-group {
 								display: flex;
 								align-items: center;
 								margin: 2px 0 15px;
@@ -123,7 +123,7 @@
 			}
 		}
 
-		.codeinwp-info {
+		.info {
 			padding: 0 10px 10px;
 
 			h2 {
@@ -135,7 +135,7 @@
 				margin: 0 0 1.5em 0;
 			}
 
-			.codeinwp-info-button-group {
+			.info-button-group {
 				display: flex;
 
 				.is-default {
