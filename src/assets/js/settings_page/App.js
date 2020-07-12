@@ -41,18 +41,17 @@ class App extends Component {
 
 		return (
 			<>
-				<div className="header">
-					<div className="container">
-						<div className="logo">
-							<h1>
-								{plugin.name} - v{plugin.version}
-							</h1>
+				<div className="header bg-white py-6 mb-4">
+					<div className="container w-9/12 lg:w-7/12 mx-auto">
+						<div className="flex items-center">
+							<h1>{plugin.name}</h1>
+							<div className="ml-3 text-xs rounded font-light bg-gray-200 px-1 border-gray-300">v{plugin.version}</div>
 						</div>
 					</div>
 				</div>
 
-				<div className="main">
-					<PanelBody title={__("Settings", "vnh_textdomain")}>
+				<div className="container w-9/12 lg:w-7/12 mx-auto">
+					<PanelBody title={__("Settings", "vnh_textdomain")} className="bg-white mb-4">
 						<PanelRow>
 							<BaseControl
 								label={__("Google Analytics Key", "vnh_textdomain")}
