@@ -1,3 +1,14 @@
+%grid {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-row-gap: $spacer;
+	grid-column-gap: $spacer;
+	> * {
+		min-width: 0;
+		max-width: 100%;
+	}
+}
+
 @mixin grid($breakpoint, $grid_template_columns, $grid_column_gap: -1, $grid_row_gap: -1) {
 	@extend %grid;
 	@include media-breakpoint-up($breakpoint) {
