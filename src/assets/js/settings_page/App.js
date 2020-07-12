@@ -1,5 +1,4 @@
 import { BaseControl, Button, PanelBody, PanelRow, Placeholder, Spinner, ToggleControl } from "@wordpress/components";
-import "../../scss/settings_page.scss";
 
 class App extends Component {
 	state = {

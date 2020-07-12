@@ -1,45 +1,97 @@
 const { resolve } = require("path");
 const webpack = require("webpack");
 const argv = require("yargs").argv;
+const autoprefixer = require("autoprefixer");
+const globImporter = require("node-sass-glob-importer");
 
 const BundleAnalyzer = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtract = require("mini-css-extract-plugin");
 const ErrorNotification = require("webpack-error-notification");
 const DuplicatePackageChecker = require("duplicate-package-checker-webpack-plugin");
 
-const webpackModules = {
-	rules: [
-		{
-			test: /\.js$/,
-			use: ["babel-loader"],
-			exclude: /node_modules/,
+const loaders = {
+	css: {
+		loader: "css-loader",
+		options: {
+			sourceMap: true,
 		},
-		{
-			test: /\.css$/,
-			use: [MiniCssExtract.loader, "css-loader"],
+	},
+	postCSS: {
+		loader: "postcss-loader",
+		options: {
+			plugins: [
+				autoprefixer({
+					flexbox: "no-2009",
+				}),
+			],
+			sourceMap: true,
 		},
-		{
-			test: /\.scss$/,
-			use: [MiniCssExtract.loader, "css-loader", "sass-loader"],
+	},
+	sass: {
+		loader: "sass-loader",
+		options: {
+			sourceMap: true,
+			sassOptions: {
+				// outputStyle: "compressed",
+				importer: globImporter(),
+			},
 		},
-		{
-			test: /\.(png|gif|jpg|jpeg|woff|woff2|eot|ttf|svg)$/,
-			use: ["url-loader"],
-		},
-	],
+	},
 };
 
-const pluginConfig = {
+const config = {
 	mode: "development",
 	entry: {
-		settings_page: "./src/assets/js/settings_page/index.js",
-		frontend: "./src/assets/js/frontend/index.js",
+		settings_page: ["./src/assets/js/settings_page/index.js", "./src/assets/scss/settings_page.scss"],
+		frontend: ["./src/assets/js/frontend/index.js"],
 	},
 	output: {
 		path: resolve("./src/assets/js/dist"),
 		filename: "[name].js",
 	},
-	module: webpackModules,
+	module: {
+		rules: [
+			{
+				enforce: "pre",
+				test: /\.js|.jsx/,
+				loader: "import-glob",
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.js|.jsx/,
+				loader: "babel-loader",
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.html$/,
+				loader: "raw-loader",
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.css$/,
+				use: [MiniCssExtract.loader, loaders.css, loaders.postCSS],
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.scss$/,
+				use: [MiniCssExtract.loader, loaders.css, loaders.postCSS, loaders.sass],
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "[name].[ext]",
+							outputPath: "assets/fonts/",
+						},
+					},
+				],
+				exclude: /assets/,
+			},
+		],
+	},
 	externals: {
 		"@wordpress/api-fetch": "wp.apiFetch",
 		"@wordpress/element": "wp.element",
@@ -72,12 +124,12 @@ const pluginConfig = {
 };
 
 if (argv.mode === "production") {
-	delete pluginConfig.devtool;
+	delete config.devtool;
 }
 
 if (argv.analytic) {
-	pluginConfig.plugins.push(new BundleAnalyzer());
-	delete pluginConfig.devtool;
+	config.plugins.push(new BundleAnalyzer());
+	delete config.devtool;
 }
 
-module.exports = pluginConfig;
+module.exports = config;
