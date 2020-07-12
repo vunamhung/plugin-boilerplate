@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14541908e590a20744c9e47dd038fec7",
+    "content-hash": "145d6435da8e1c9fee6ec65ade5a2913",
     "packages": [
         {
             "name": "opis/closure",
@@ -291,26 +291,16 @@
         {
             "name": "vunamhung/wptoolkit",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/vunamhung/Github/Mine/wptoolkit",
-                "reference": "8f6168993713febb61216fd26e225f764f32d687"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vunamhung/wptoolkit.git",
+                "reference": "531e98dfcf912802ec5e13777c508ce9bd97a8de"
             },
-            "archive": {
-                "exclude": [
-                    "/bin",
-                    "/vendor",
-                    "/tests",
-                    "/scss",
-                    "/sass",
-                    "*/composer.*",
-                    "*/.*",
-                    "*.dist",
-                    "*.md",
-                    "*.scss",
-                    "LICENSE",
-                    "*.sh"
-                ]
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vunamhung/wptoolkit/zipball/531e98dfcf912802ec5e13777c508ce9bd97a8de",
+                "reference": "531e98dfcf912802ec5e13777c508ce9bd97a8de",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0"
@@ -332,6 +322,7 @@
                     "vnh\\": "."
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0+"
             ],
@@ -353,9 +344,7 @@
                 "issues": "https://github.com/vunamhung/wptoolkit/issues",
                 "source": "https://github.com/vunamhung/wptoolkit"
             },
-            "transport-options": {
-                "relative": false
-            }
+            "time": "2020-07-11T07:50:00+00:00"
         }
     ],
     "packages-dev": [
@@ -365,12 +354,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "239e50ae0e1906d32b32ed58bc7d15c81bfc06f0"
+                "reference": "881b9e4a8de3186c93904230bdf6344b685fe6a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/239e50ae0e1906d32b32ed58bc7d15c81bfc06f0",
-                "reference": "239e50ae0e1906d32b32ed58bc7d15c81bfc06f0",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/881b9e4a8de3186c93904230bdf6344b685fe6a5",
+                "reference": "881b9e4a8de3186c93904230bdf6344b685fe6a5",
                 "shasum": ""
             },
             "conflict": {
@@ -648,7 +637,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T15:00:46+00:00"
+            "time": "2020-07-11T19:04:25+00:00"
         }
     ],
     "aliases": [],
@@ -659,7 +648,9 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-json": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }
