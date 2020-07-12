@@ -33,9 +33,21 @@ class App extends Component {
 	render() {
 		if (!this.state.isAPILoaded) {
 			return (
-				<Placeholder>
-					<Spinner />
-				</Placeholder>
+				<>
+					<div className="header bg-white py-6 mb-4">
+						<div className="container w-9/12 lg:w-7/12 mx-auto">
+							<div className="flex items-center">
+								<h1>{plugin.name}</h1>
+								<div className="ml-3 text-xs rounded font-light bg-gray-200 px-1 border-gray-300">v{plugin.version}</div>
+							</div>
+						</div>
+					</div>
+					<div className="container w-9/12 lg:w-7/12 mx-auto flex items-center">
+						<Placeholder>
+							<Spinner />
+						</Placeholder>
+					</div>
+				</>
 			);
 		}
 
