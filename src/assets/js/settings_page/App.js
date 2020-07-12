@@ -34,7 +34,7 @@ class App extends Component {
 		if (!this.state.isAPILoaded) {
 			return (
 				<>
-					<div className="header bg-white py-6 mb-4">
+					<div className="bg-white py-6 mb-4">
 						<div className="container w-9/12 lg:w-7/12 mx-auto">
 							<div className="flex items-center">
 								<h1>{plugin.name}</h1>
@@ -53,7 +53,7 @@ class App extends Component {
 
 		return (
 			<>
-				<div className="header bg-white py-6 mb-4">
+				<div className="bg-white py-6 mb-4">
 					<div className="container w-9/12 lg:w-7/12 mx-auto">
 						<div className="flex items-center">
 							<h1>{plugin.name}</h1>
@@ -67,9 +67,8 @@ class App extends Component {
 						<PanelRow>
 							<BaseControl
 								label={__("Google Analytics Key", "vnh_textdomain")}
-								help={"In order to use Google Analytics, you need to use an API key."}
+								help={__("In order to use Google Analytics, you need to use an API key.", "vnh_textdomain")}
 								id="options-google-analytics-api"
-								className="text-field"
 							>
 								<input
 									type="text"
@@ -84,7 +83,7 @@ class App extends Component {
 						<PanelRow>
 							<ToggleControl
 								label={__("Track Admin Users?", "vnh_textdomain")}
-								help={"Would you like to track views of logged-in admin accounts?."}
+								help={__("Would you like to track views of logged-in admin accounts?.", "vnh_textdomain")}
 								checked={this.state.analytics_status}
 								onChange={() => this.setState({ analytics_status: !this.state.analytics_status })}
 							/>
