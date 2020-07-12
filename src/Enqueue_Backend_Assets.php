@@ -21,9 +21,12 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 			],
 		];
 		$this->styles = [
+			'tailwind' => [
+				'src' => get_plugin_url('assets/css/tailwind.css'),
+			],
 			handle('settings-page') => [
 				'src' => get_plugin_url('assets/css/settings_page.css'),
-				'deps' => ['wp-components'],
+				'deps' => ['wp-components', 'tailwind'],
 			],
 		];
 	}

@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const argv = require("yargs").argv;
 const autoprefixer = require("autoprefixer");
 const globImporter = require("node-sass-glob-importer");
+const tailwindcss = require("tailwindcss");
 
 const BundleAnalyzer = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtract = require("mini-css-extract-plugin");
@@ -20,6 +21,7 @@ const loaders = {
 		loader: "postcss-loader",
 		options: {
 			plugins: [
+				tailwindcss,
 				autoprefixer({
 					flexbox: "no-2009",
 				}),
@@ -32,7 +34,6 @@ const loaders = {
 		options: {
 			sourceMap: true,
 			sassOptions: {
-				// outputStyle: "compressed",
 				importer: globImporter(),
 			},
 		},
@@ -42,6 +43,7 @@ const loaders = {
 const config = {
 	mode: "development",
 	entry: {
+		tailwind: "./src/assets/scss/tailwind.scss",
 		settings_page: ["./src/assets/js/settings_page/index.js", "./src/assets/scss/settings_page.scss"],
 		frontend: ["./src/assets/js/frontend/index.js"],
 	},
