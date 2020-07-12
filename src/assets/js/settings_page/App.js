@@ -1,4 +1,5 @@
 import { BaseControl, Button, PanelBody, PanelRow, Placeholder, Spinner, ToggleControl } from "@wordpress/components";
+import apiFetch from "@wordpress/api-fetch";
 
 class App extends Component {
 	state = {
