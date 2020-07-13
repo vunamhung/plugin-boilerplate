@@ -3,7 +3,7 @@ module.exports = {
 	theme: {
 		extend: {
 			screens: {
-				"2xl": "1440px",
+				xxl: "1440px",
 			},
 			spacing: {
 				"72": "18rem",

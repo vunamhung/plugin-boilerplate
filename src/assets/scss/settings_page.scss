@@ -1,37 +1,32 @@
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Settings
-# Tools
-# Generic
-# Components
---------------------------------------------------------------*/
+@import "variables";
+@import "boot";
 
-/*
-Settings store all variables, config switches, etc.
-Split up into logical sections, the smaller and simpler the better.
-*/
-@import "_settings/*";
+#wpcontent {
+	padding-left: 0;
+}
 
-/*
-Tools store all programic Sass functionality.
-If your tooling is simplistic enough, you can do something like:
-  tools.mixins
-If your tooling is more complex you can split it up like:
-  tools.grid
-  tools.typography
-  etc.
-*/
-@import "_tools/*";
-
-/*
-Generic rules are project-agnostic.
-These can be copied from any project to the next
-*/
-@import "generic/*";
-
-/*
-Components are the stuff of UI. Eg. buttons, special titles, etc.
-These get much more explicitly named: eg. products-list, etc.
-*/
-@import "settings_page/*";
+#plugin {
+	.components-base-control {
+		width: 100%;
+		&__field {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		&__help {
+			font-size: 90%;
+			color: $gray-600;
+		}
+		input {
+			width: 100%;
+		}
+		label {
+			display: block;
+		}
+	}
+	.components-placeholder {
+		&__fieldset {
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
