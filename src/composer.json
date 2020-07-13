@@ -6,11 +6,20 @@
     },
     "require": {
         "php-di/php-di": "^6.1",
-        "vunamhung/wptoolkit": "@dev",
+        "freemius/wordpress-sdk": "^2.3.2",
+        "vunamhung/wptoolkit": "dev-master",
         "ext-json": "*"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master"
+        "roave/security-advisories": "dev-master",
+        "mnsami/composer-custom-directory-installer": "^1.1.1"
+    },
+    "extra": {
+        "installer-paths": {
+            "freemius": [
+                "freemius/wordpress-sdk"
+            ]
+        }
     },
     "config": {
         "sort-packages": true
