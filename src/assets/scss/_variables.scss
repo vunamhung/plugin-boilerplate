@@ -153,3 +153,9 @@ $leading-relaxed: theme("lineHeight.relaxed");
 $leading-loose: theme("lineHeight.loose");
 
 // Border Radius
+$rounded-none: theme("borderRadius.none");
+$rounded-sm: theme("borderRadius.sm");
+$rounded: theme("borderRadius.default");
+$rounded-md: theme("borderRadius.md");
+$rounded-lg: theme("borderRadius.lg");
+$rounded-full: theme("borderRadius.full");
