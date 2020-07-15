@@ -1,5 +1,10 @@
 module.exports = {
-	purge: ["./src/assets/js/settings_page/**/*.js", "./src/assets/js/frontend/**/*.js"],
+	purge: {
+		content: ["./src/assets/js/settings_page/**/*.js", "./src/assets/js/frontend/**/*.js"],
+		options: {
+			whitelist: ["bg-red-500", "px-4"],
+		},
+	},
 	theme: {
 		extend: {
 			screens: {
