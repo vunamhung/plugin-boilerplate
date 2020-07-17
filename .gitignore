@@ -10,6 +10,5 @@ dist/
 #PLUGIN
 src/vendor/
 src/languages/
-src/assets/js/dist
-src/assets/css
+src/build
 src/freemius

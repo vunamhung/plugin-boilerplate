@@ -1,5 +1,8 @@
-@import "variables";
-@import "boot";
+@import-glob "_vars/*";
+@import-glob "variants/*";
+@import-glob "elements/*";
+@tailwind components;
+@tailwind utilities;
 
 #wpcontent {
 	padding-left: 0;

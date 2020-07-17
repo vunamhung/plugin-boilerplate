@@ -1,9 +1,6 @@
 const { resolve } = require("path");
 const webpack = require("webpack");
 const argv = require("yargs").argv;
-const autoprefixer = require("autoprefixer");
-const globImporter = require("node-sass-glob-importer");
-const tailwindcss = require("tailwindcss");
 
 const BundleAnalyzer = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtract = require("mini-css-extract-plugin");
@@ -21,21 +18,17 @@ const loaders = {
 		loader: "postcss-loader",
 		options: {
 			plugins: [
-				tailwindcss,
-				autoprefixer({
+				require("postcss-import-ext-glob"),
+				require("postcss-import"),
+				require("postcss-each"),
+				require("tailwindcss"),
+				require("postcss-preset-env"),
+				require("postcss-nested"),
+				require("autoprefixer")({
 					flexbox: "no-2009",
 				}),
 			],
 			sourceMap: true,
-		},
-	},
-	sass: {
-		loader: "sass-loader",
-		options: {
-			sourceMap: true,
-			sassOptions: {
-				importer: globImporter(),
-			},
 		},
 	},
 };
@@ -43,12 +36,11 @@ const loaders = {
 const config = {
 	mode: "development",
 	entry: {
-		tailwind: "./src/assets/scss/tailwind.scss",
-		settings_page: ["./src/assets/js/settings_page/index.js", "./src/assets/scss/settings_page.scss"],
+		settings_page: ["./src/assets/js/settings_page/index.js", "./src/assets/css/settings_page.css"],
 		frontend: ["./src/assets/js/frontend/index.js"],
 	},
 	output: {
-		path: resolve("./src/assets/js/dist"),
+		path: resolve("./src/build"),
 		filename: "[name].js",
 	},
 	module: {
@@ -72,11 +64,6 @@ const config = {
 			{
 				test: /\.css$/,
 				use: [MiniCssExtract.loader, loaders.css, loaders.postCSS],
-				exclude: /node_modules/,
-			},
-			{
-				test: /\.scss$/,
-				use: [MiniCssExtract.loader, loaders.css, loaders.postCSS, loaders.sass],
 				exclude: /node_modules/,
 			},
 			{
@@ -117,7 +104,7 @@ const config = {
 			sprintf: ["@wordpress/i18n", "sprintf"],
 		}),
 		new MiniCssExtract({
-			filename: "../../css/[name].css",
+			filename: "../build/[name].css",
 		}),
 		new ErrorNotification(),
 		new DuplicatePackageChecker(),

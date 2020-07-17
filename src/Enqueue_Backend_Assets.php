@@ -9,7 +9,7 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 	public function __construct() {
 		$this->scripts = [
 			handle('settings-page') => [
-				'src' => get_plugin_url('assets/js/dist/settings_page.js'),
+				'src' => get_plugin_url('build/settings_page.js'),
 				'deps' => ['wp-i18n', 'wp-components', 'wp-element', 'wp-api-fetch'],
 				'localize_script' => [
 					'plugin' => [
@@ -21,12 +21,9 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 			],
 		];
 		$this->styles = [
-			'tailwind' => [
-				'src' => get_plugin_url('assets/css/tailwind.css'),
-			],
 			handle('settings-page') => [
-				'src' => get_plugin_url('assets/css/settings_page.css'),
-				'deps' => ['wp-components', 'tailwind'],
+				'src' => get_plugin_url('build/settings_page.css'),
+				'deps' => ['wp-components'],
 			],
 		];
 	}

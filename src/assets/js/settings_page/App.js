@@ -38,7 +38,7 @@ class App extends Component {
 						<div className="container w-9/12 lg:w-7/12 mx-auto">
 							<div className="flex items-center">
 								<h1>{plugin.name}</h1>
-								<div className="ml-3 text-xs rounded font-light bg-gray-200 px-1 border-gray-300">v{plugin.version}</div>
+								<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{plugin.version}</div>
 							</div>
 						</div>
 					</div>
@@ -57,7 +57,7 @@ class App extends Component {
 					<div className="container w-9/12 lg:w-7/12 mx-auto">
 						<div className="flex items-center">
 							<h1>{plugin.name}</h1>
-							<div className="ml-3 text-xs rounded font-light bg-gray-200 px-1 border-gray-300">v{plugin.version}</div>
+							<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{plugin.version}</div>
 						</div>
 					</div>
 				</div>
