@@ -18,7 +18,7 @@ const loaders = {
 		loader: "postcss-loader",
 		options: {
 			plugins: [
-				require("postcss-import-ext-glob"),
+				require("postcss-easy-import")({ prefix: "string" }),
 				require("postcss-import"),
 				require("postcss-each"),
 				require("tailwindcss"),

@@ -1,6 +1,6 @@
-@import-glob "_vars/*";
-@import-glob "variants/*";
-@import-glob "elements/*";
+@import "_vars/*";
+@import "variants/*";
+@import "elements/*";
 @tailwind components;
 @tailwind utilities;
 
