@@ -7,6 +7,8 @@ const MiniCssExtract = require("mini-css-extract-plugin");
 const ErrorNotification = require("webpack-error-notification");
 const DuplicatePackageChecker = require("duplicate-package-checker-webpack-plugin");
 
+const postCssOptions = require("./postcss.config");
+
 const loaders = {
 	css: {
 		loader: "css-loader",
@@ -16,20 +18,7 @@ const loaders = {
 	},
 	postCSS: {
 		loader: "postcss-loader",
-		options: {
-			plugins: [
-				require("postcss-easy-import")({ prefix: "string" }),
-				require("postcss-import"),
-				require("postcss-each"),
-				require("tailwindcss"),
-				require("postcss-preset-env"),
-				require("postcss-nested"),
-				require("autoprefixer")({
-					flexbox: "no-2009",
-				}),
-			],
-			sourceMap: true,
-		},
+		options: postCssOptions,
 	},
 };
 

@@ -5,6 +5,7 @@
 		"clean:composer": "rm -rf src/vendor",
 		"start": "webpack --watch",
 		"build": "export NODE_ENV=production && webpack --mode=production",
+		"build:tailwind": "postcss src/assets/css/settings_page.css -o src/assets/css/settings_page.output.css",
 		"build:analytic": "webpack --mode=production --analytic"
 	},
 	"husky": {
@@ -85,6 +86,7 @@
 		"husky": "^4.2.5",
 		"import-glob": "^1.5.0",
 		"mini-css-extract-plugin": "^0.9.0",
+		"post-cli": "^1.0.5",
 		"postcss-each": "^0.10.0",
 		"postcss-easy-import": "^3.0.0",
 		"postcss-import": "^12.0.1",
