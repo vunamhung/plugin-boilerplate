@@ -892,6 +892,15 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
+"@tailwindcss/custom-forms@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/custom-forms/-/custom-forms-0.2.1.tgz#40e5ed1fff6d29d8ed1c508a0b2aaf8da96962e0"
+  integrity sha512-XdP5XY6kxo3x5o50mWUyoYWxOPV16baagLoZ5uM41gh6IhXzhz/vJYzqrTb/lN58maGIKlpkxgVsQUNSsbAS3Q==
+  dependencies:
+    lodash "^4.17.11"
+    mini-svg-data-uri "^1.0.3"
+    traverse "^0.6.6"
+
 "@tannin/compile@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@tannin/compile/-/compile-1.1.0.tgz#1e4d1c5364cbfeffa1c20352c053e19ef20ffe93"
@@ -1052,6 +1061,13 @@
     "@types/react" "*"
     "@types/wordpress__data" "*"
     "@types/wordpress__rich-text" "*"
+
+"@vunamhung/tailwind-config@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@vunamhung/tailwind-config/-/tailwind-config-0.9.2.tgz#c76fcb163ca2da7042f5ef83610daeb28e59eb76"
+  integrity sha512-729XFD7tRKNz0JDZ2CcoTw8G+LyzHyX7otyOI+N36xAZqsdRnNkU7BdHPZ0OxwyYG7ERrZUlwuTaPNq8tT9pmg==
+  dependencies:
+    lodash "^4.17.15"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -5715,7 +5731,7 @@ lodash@^3.10.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
   integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
 
-lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.4:
+lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.4:
   version "4.17.19"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
@@ -6027,6 +6043,11 @@ mini-css-extract-plugin@^0.9.0:
     normalize-url "1.9.1"
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
+
+mini-svg-data-uri@^1.0.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.2.3.tgz#e16baa92ad55ddaa1c2c135759129f41910bc39f"
+  integrity sha512-zd6KCAyXgmq6FV1mR10oKXYtvmA9vRoB6xPSTUJTbFApCtkefDnYueVR1gkof3KcdLZo1Y8mjF2DFmQMIxsHNQ==
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
@@ -8840,6 +8861,11 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+traverse@^0.6.6:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
+  integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
 
 trim-newlines@^1.0.0:
   version "1.0.0"
