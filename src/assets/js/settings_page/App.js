@@ -10,7 +10,7 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		apiFetch({ path: plugin.apiPath }).then((settings) => {
+		apiFetch({ path: pluginApiPath }).then((settings) => {
 			this.setState({
 				analytics_key: settings.analytics_key,
 				analytics_status: settings.analytics_status,
@@ -25,7 +25,7 @@ class App extends Component {
 			analytics_key: this.state.analytics_key,
 			analytics_status: this.state.analytics_status,
 		};
-		apiFetch({ path: plugin.apiPath, method: "POST", parse: false, data }).then((res) => {
+		apiFetch({ path: pluginApiPath, method: "POST", parse: false, data }).then((res) => {
 			this.setState({ isAPISaving: false });
 		});
 	}
@@ -37,8 +37,8 @@ class App extends Component {
 					<div className="bg-white py-6 mb-4">
 						<div className="container w-9/12 lg:w-7/12 mx-auto">
 							<div className="flex items-center">
-								<h1>{plugin.name}</h1>
-								<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{plugin.version}</div>
+								<h1>{pluginName}</h1>
+								<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{pluginVersion}</div>
 							</div>
 						</div>
 					</div>
@@ -56,8 +56,8 @@ class App extends Component {
 				<div className="bg-white py-6 mb-4">
 					<div className="container w-9/12 lg:w-7/12 mx-auto">
 						<div className="flex items-center">
-							<h1>{plugin.name}</h1>
-							<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{plugin.version}</div>
+							<h1>{pluginName}</h1>
+							<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{pluginVersion}</div>
 						</div>
 					</div>
 				</div>

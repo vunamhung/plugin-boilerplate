@@ -12,11 +12,9 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 				'src' => get_plugin_url('build/settings_page.js'),
 				'deps' => ['wp-i18n', 'wp-components', 'wp-element', 'wp-api-fetch'],
 				'localize_script' => [
-					'plugin' => [
-						'name' => PLUGIN_NAME,
-						'version' => PLUGIN_VERSION,
-						'apiPath' => PLUGIN_SLUG . '/settings',
-					],
+					'pluginApiPath' => PLUGIN_SLUG . '/settings',
+					'pluginName' => PLUGIN_NAME,
+					'pluginVersion' => PLUGIN_VERSION,
 				],
 			],
 		];
