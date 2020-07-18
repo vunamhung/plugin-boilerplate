@@ -15,7 +15,7 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 					'plugin' => [
 						'name' => PLUGIN_NAME,
 						'version' => PLUGIN_VERSION,
-						'apiPath' => PLUGIN_SLUG . '/v1/settings',
+						'apiPath' => PLUGIN_SLUG . '/settings',
 					],
 				],
 			],
