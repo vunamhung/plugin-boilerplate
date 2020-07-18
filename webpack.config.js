@@ -7,8 +7,6 @@ const MiniCssExtract = require("mini-css-extract-plugin");
 const ErrorNotification = require("webpack-error-notification");
 const DuplicatePackageChecker = require("duplicate-package-checker-webpack-plugin");
 
-const postCssOptions = require("./postcss.config");
-
 const loaders = {
 	css: {
 		loader: "css-loader",
@@ -18,7 +16,14 @@ const loaders = {
 	},
 	postCSS: {
 		loader: "postcss-loader",
-		options: postCssOptions,
+		options: require("./postcss.config"),
+	},
+	file: {
+		loader: "file-loader",
+		options: {
+			name: "[name].[ext]",
+			outputPath: "assets/fonts/",
+		},
 	},
 };
 
@@ -57,15 +62,7 @@ const config = {
 			},
 			{
 				test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				use: [
-					{
-						loader: "file-loader",
-						options: {
-							name: "[name].[ext]",
-							outputPath: "assets/fonts/",
-						},
-					},
-				],
+				use: [loaders.file],
 				exclude: /assets/,
 			},
 		],
