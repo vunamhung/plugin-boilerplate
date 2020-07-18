@@ -29,8 +29,8 @@ class Enqueue_Backend_Assets extends Register_Assets implements Enqueueable {
 	}
 
 	public function boot() {
-		add_action('admin_enqueue_scripts', [$this, 'register_scripts']);
-		add_action('admin_enqueue_scripts', [$this, 'register_styles']);
+		add_action('init', [$this, 'register_scripts']);
+		add_action('init', [$this, 'register_styles']);
 		add_action('admin_enqueue_scripts', [$this, 'enqueue']);
 	}
 
