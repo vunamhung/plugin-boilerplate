@@ -12,6 +12,7 @@ class Enqueue_Frontend_Assets extends Register_Assets implements Enqueueable {
 				'src' => get_plugin_url('build/frontend.js'),
 				'deps' => ['wp-element'],
 				'localize_script' => [
+					'apiUrl' => esc_url_raw(get_rest_url()),
 					'wcStoreApiNonce' => esc_js(wp_create_nonce('wc_store_api')),
 					'plugin' => [
 						'settings' => Settings::get_settings(),
