@@ -8,6 +8,9 @@
 		--color-core: var(--color-$(tone));
 		--color-light: var(--color-$(tone)-light, var(--color-core));
 		--color-icon: var(--color-$(tone)-normal-muted);
+		--button-padding: var(--button-padding-medium);
+		--button-fontsize: var(--button-fontsize-medium);
+		--input-padding: var(--input-padding-medium);
 	}
 
 	@each $priority in low, high {
@@ -19,5 +22,13 @@
 			--color-title: var(--color-$(tone)-$(priority)-title, var(--color-$(tone)-$(priority)-content));
 			--color-icon: var(--color-$(tone)-$(priority)-muted);
 		}
+	}
+}
+
+@each $size in small, medium, large {
+	.\!$(size) {
+		--button-padding: var(--button-padding-$(size));
+		--button-fontsize: var(--button-fontsize-$(size));
+		--input-padding: var(--input-padding-$(size));
 	}
 }
