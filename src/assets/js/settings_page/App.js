@@ -35,14 +35,14 @@ class App extends Component {
 			return (
 				<>
 					<div className="bg-white py-6 mb-4">
-						<div className="container w-9/12 lg:w-7/12 mx-auto">
+						<div className="container w-9/12 lg:w-7/12">
 							<div className="flex items-center">
 								<h1>{pluginName}</h1>
 								<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{pluginVersion}</div>
 							</div>
 						</div>
 					</div>
-					<div className="container w-9/12 lg:w-7/12 mx-auto flex items-center">
+					<div className="container w-9/12 lg:w-7/12 flex items-center">
 						<Placeholder>
 							<Spinner />
 						</Placeholder>
@@ -54,7 +54,7 @@ class App extends Component {
 		return (
 			<>
 				<div className="bg-white py-6 mb-4">
-					<div className="container w-9/12 lg:w-7/12 mx-auto">
+					<div className="container w-9/12 lg:w-7/12">
 						<div className="flex items-center">
 							<h1>{pluginName}</h1>
 							<div className="ml-3 text-xs rounded font-light bg-neutral-200 px-1 border-neutral-300">v{pluginVersion}</div>
@@ -62,7 +62,7 @@ class App extends Component {
 					</div>
 				</div>
 
-				<div className="container w-9/12 lg:w-7/12 mx-auto">
+				<div className="container w-9/12 lg:w-7/12">
 					<PanelBody title={__("Settings", "vnh_textdomain")} className="bg-white mb-4">
 						<PanelRow>
 							<BaseControl

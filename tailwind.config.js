@@ -1,11 +1,18 @@
 module.exports = {
 	purge: {
-		content: ["./src/**/*.js", "./src/**/*.css"],
+		content: ["./src/**/*.{js,css}"],
 		options: {
 			whitelist: ["bg-red-500", "px-4"],
 		},
 	},
-	theme: {},
+	theme: {
+		extend: {
+			container: {
+				center: true,
+				padding: "var(--spacing-4)",
+			},
+		},
+	},
 	variants: {},
 	plugins: [require("@vunamhung/tailwind-config"), require("@tailwindcss/custom-forms")],
 };
