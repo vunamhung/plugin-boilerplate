@@ -1,3 +1,4 @@
 vendor
 composer.json
-/src/assets/js/dist
+/src/build
+/src/assets/js/icons

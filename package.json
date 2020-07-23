@@ -3,6 +3,7 @@
 	"license": "GPL-3.0",
 	"scripts": {
 		"clean:composer": "rm -rf src/vendor",
+		"svgr": "svgr src/assets/svg/ -d src/assets/js/icons/ --icon",
 		"start": "webpack --watch",
 		"build": "export NODE_ENV=production && webpack --mode=production",
 		"build:tailwind": "postcss src/assets/css/settings_page.css -o src/assets/css/settings_page.output.css",
@@ -47,6 +48,7 @@
 		"@babel/core": "^7.10.4",
 		"@babel/preset-env": "^7.10.4",
 		"@prettier/plugin-php": "^0.14.2",
+		"@svgr/cli": "^5.4.0",
 		"@tailwindcss/custom-forms": "^0.2.1",
 		"@types/jquery": "^3.3.31",
 		"@types/lodash": "^4.14.149",
