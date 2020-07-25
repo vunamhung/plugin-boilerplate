@@ -23,6 +23,7 @@ use vnh\Plugin_Action_Links;
 use vnh\Plugin_Row_Meta;
 use vnh_namespace\api\Setting_API;
 use vnh_namespace\tools\PHP_Checker;
+use vnh_namespace\tools\WooCommerce_Checker;
 use vnh_namespace\tools\WordPress_Checker;
 use function vnh\plugin_languages_path;
 
@@ -47,6 +48,7 @@ final class Plugin implements Loadable {
 
 		$services->get(PHP_Checker::class)->init();
 		$services->get(WordPress_Checker::class)->init();
+		$services->get(WooCommerce_Checker::class)->init();
 
 		$services->get(Allowed_HTML::class)->boot();
 		$services->get(Enqueue_Frontend_Assets::class)->boot();
