@@ -6,6 +6,7 @@ define(__NAMESPACE__ . '\PLUGIN_DATA', get_plugin_data(PLUGIN_FILE));
 define(__NAMESPACE__ . '\PLUGIN_SLUG', basename(PLUGIN_DIR));
 define(__NAMESPACE__ . '\PLUGIN_BASE', plugin_basename(PLUGIN_FILE));
 define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', get_file_data(PLUGIN_FILE, ['Document URI'])[0]);
+define(__NAMESPACE__ . '\MIN_WC_VERSION', get_file_data(PLUGIN_FILE, ['WC requires at least'])[0]);
 
 const PLUGIN_NAME = PLUGIN_DATA['Name'];
 const PLUGIN_DESCRIPTION = PLUGIN_DATA['Description'];
