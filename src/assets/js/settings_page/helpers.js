@@ -14,7 +14,7 @@ export function useSettings() {
 		});
 	}, []);
 
-	return [loading, settings, setSettings];
+	return { loading, settings, setSettings };
 }
 
 export function saveSettings(data) {
