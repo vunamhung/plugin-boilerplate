@@ -19,17 +19,6 @@ class App extends Component {
 		});
 	}
 
-	saveSettings() {
-		this.setState({ isAPISaving: true });
-		const data = {
-			analytics_key: this.state.analytics_key,
-			analytics_status: this.state.analytics_status,
-		};
-		apiFetch({ path: pluginApiPath, method: "POST", parse: false, data }).then((res) => {
-			this.setState({ isAPISaving: false });
-		});
-	}
-
 	render() {
 		if (!this.state.isAPILoaded) {
 			return (
@@ -89,13 +78,27 @@ class App extends Component {
 							/>
 						</PanelRow>
 					</PanelBody>
-					<Button isPrimary isLarge disabled={this.state.isAPISaving} onClick={() => this.saveSettings()}>
+					<Button isPrimary isLarge disabled={this.state.isAPISaving} onClick={this.saveSettings}>
 						{__("Save Settings", "vnh_textdomain")}
 					</Button>
 				</div>
 			</>
 		);
 	}
+
+	saveSettings = () => {
+		this.setState({ isAPISaving: true });
+
+		const data = {
+			analytics_key: this.state.analytics_key,
+			analytics_status: this.state.analytics_status,
+		};
+
+		apiFetch({ path: pluginApiPath, method: "POST", parse: false, data }).then(() => {
+			this.setState({ isAPISaving: false });
+			console.log("Settings saved");
+		});
+	};
 }
 
 export default App;
