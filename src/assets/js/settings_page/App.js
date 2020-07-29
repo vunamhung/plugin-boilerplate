@@ -5,11 +5,12 @@ import { saveSettings, useSettings } from "./helpers";
 import General from "./General";
 
 export default function App() {
-	const { loading, settings, setSettings } = useSettings();
+	const { loading, setLoading, settings, setSettings } = useSettings();
 	const [saving, setSaving] = useState(false);
 
 	useEffect(() => {
-		!isEmpty(settings) && saveSettings(settings);
+		setLoading(true);
+		!isEmpty(settings) && saveSettings(settings, setLoading);
 	}, [saving]);
 
 	return (

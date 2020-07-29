@@ -14,11 +14,12 @@ export function useSettings() {
 		});
 	}, []);
 
-	return { loading, settings, setSettings };
+	return { loading, setLoading, settings, setSettings };
 }
 
-export function saveSettings(data) {
+export function saveSettings(data, setLoading) {
 	apiFetch({ path: pluginApiPath, method: "POST", parse: false, data }).then(() => {
+		setLoading(false);
 		console.log("Settings saved");
 	});
 }
