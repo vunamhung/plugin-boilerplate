@@ -1,6 +1,6 @@
 import { useEffect, useState } from "@wordpress/element";
 import { Button } from "@wordpress/components";
-import isEmpty from "lodash/isEmpty";
+import { isEmpty } from "ramda";
 import { saveSettings, useSettings } from "./helpers";
 import General from "./general";
 

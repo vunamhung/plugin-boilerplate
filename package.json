@@ -118,7 +118,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.19.2",
-		"lodash": "^4.17.19",
+		"ramda": "^0.27.0",
 		"tailwindcss": "^1.4.6"
 	}
 }
