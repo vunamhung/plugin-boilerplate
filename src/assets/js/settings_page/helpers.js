@@ -30,11 +30,5 @@ export function useSettings() {
 		});
 	}, []);
 
-	return { loading, setLoading, settings, setSettings };
-}
-
-export async function saveSettings(data, setLoading) {
-	await apiFetch({ path: pluginApiPath, method: "POST", parse: false, data });
-	setLoading(false);
-	console.warn("Settings saved");
+	return { loading, settings, setSettings };
 }
