@@ -17,9 +17,8 @@ export function useSettings() {
 	return { loading, setLoading, settings, setSettings };
 }
 
-export function saveSettings(data, setLoading) {
-	apiFetch({ path: pluginApiPath, method: "POST", parse: false, data }).then(() => {
-		setLoading(false);
-		console.log("Settings saved");
-	});
+export async function saveSettings(data, setLoading) {
+	await apiFetch({ path: pluginApiPath, method: "POST", parse: false, data });
+	setLoading(false);
+	console.log("Settings saved");
 }
