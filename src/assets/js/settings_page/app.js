@@ -2,7 +2,7 @@ import { useEffect, useState } from "@wordpress/element";
 import { Button } from "@wordpress/components";
 import isEmpty from "lodash/isEmpty";
 import { saveSettings, useSettings } from "./helpers";
-import General from "./General";
+import General from "./general";
 
 export default function App() {
 	const { loading, setLoading, settings, setSettings } = useSettings();
