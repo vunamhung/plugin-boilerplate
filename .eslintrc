@@ -7,11 +7,15 @@
 			"jsx": true
 		}
 	},
+	"extends": "react-app",
 	"globals": {
 		"document": true,
 		"wp": true,
 		"google": true,
-		"masterBlocks": true
+		"__": true,
+		"pluginName": true,
+		"pluginVersion": true,
+		"pluginApiPath": true
 	},
 	"rules": {
 		"no-console": [1, { "allow": ["warn", "error"] }],
@@ -28,8 +32,6 @@
 		"no-confusing-arrow": 1,
 		"no-useless-constructor": 1,
 		"no-dupe-class-members": 1,
-//		"no-duplicate-imports": 1,
-//		"no-undef": 1,
 		"prefer-const": 1,
 		"no-multi-assign": 1,
 		"no-plusplus": 1,
@@ -37,7 +39,7 @@
 		"no-unneeded-ternary": 1,
 		"nonblock-statement-body-position": 1,
 		"no-else-return": 1,
-//		"no-nested-ternary": 1,
-		"no-loop-func": 1
+		"no-loop-func": 1,
+		"react/react-in-jsx-scope": 0
 	}
 }
