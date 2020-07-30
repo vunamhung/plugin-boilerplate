@@ -6,7 +6,7 @@ import { useSettings } from "./helpers";
 import General from "./general";
 
 export default function App() {
-	const { settings, setSettings } = useSettings();
+	const [{ settings }, setSettings] = useSettings();
 	const [saving, setSaving] = useState(false);
 	const [loading, setLoading] = useState(false);
 
