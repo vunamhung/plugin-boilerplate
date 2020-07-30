@@ -18,6 +18,22 @@
 		"pluginApiPath": true
 	},
 	"rules": {
+		"no-restricted-imports": [
+			"error",
+			{
+				"paths": [
+					{
+						"name": "moment",
+						"message": "Use date-fns instead!"
+					},
+					{
+						"name": "lodash",
+						"message": "Use radam instead!"
+					}
+				],
+				"patterns": ["legacy/*"]
+			}
+		],
 		"no-console": [1, { "allow": ["warn", "error"] }],
 		"no-new-object": 1,
 		"no-array-constructor": 1,
