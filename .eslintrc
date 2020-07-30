@@ -28,7 +28,7 @@
 					},
 					{
 						"name": "lodash",
-						"message": "Use radam instead!"
+						"message": "Use ramda instead!"
 					}
 				],
 				"patterns": ["legacy/*"]
