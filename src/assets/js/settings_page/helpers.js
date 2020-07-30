@@ -23,11 +23,14 @@ export function useSettings() {
 
 	useEffect(() => {
 		setLoading(true);
-		apiFetch({ path: pluginApiPath }).then((settings) => {
-			setSettings(settings);
-			setLoading(false);
-			console.warn("Settings loaded");
-		});
+		apiFetch({ path: pluginApiPath })
+			.then((settings) => {
+				setSettings(settings);
+			})
+			.finally(() => {
+				setLoading(false);
+				console.warn("Settings loaded");
+			});
 	}, []);
 
 	return [{ loading, settings }, setSettings];

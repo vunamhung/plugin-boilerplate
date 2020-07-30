@@ -15,7 +15,7 @@ export default function App() {
 		if (isEmpty(settings) || saving === false) return;
 
 		setLoading(true);
-		apiFetch({ path: pluginApiPath, method: "POST", parse: false, data: settings }).then(() => {
+		apiFetch({ path: pluginApiPath, method: "POST", parse: false, data: settings }).finally(() => {
 			setSaving(false);
 			setLoading(false);
 			console.warn("Settings saved");
