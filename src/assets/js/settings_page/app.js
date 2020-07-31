@@ -2,8 +2,8 @@ import { useEffect, useState } from "@wordpress/element";
 import { Button } from "@wordpress/components";
 import { isEmpty } from "ramda";
 import apiFetch from "@wordpress/api-fetch";
-import { useSettings } from "./helpers";
 import General from "./general";
+import useSettings from "../hooks/useSettings";
 
 export default function App() {
 	const [{ settings }, setSettings] = useSettings();

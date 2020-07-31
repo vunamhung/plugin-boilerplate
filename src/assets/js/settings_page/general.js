@@ -1,5 +1,5 @@
 import { BaseControl, PanelBody, PanelRow, ToggleControl } from "@wordpress/components";
-import { useUpdateSettings } from "./helpers";
+import { useUpdateSettings } from "../hooks/useUpdateSettings";
 
 export default function General({ settings, setSettings }) {
 	const { analytics_key, analytics_status } = settings;
