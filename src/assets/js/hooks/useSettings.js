@@ -1,9 +1,10 @@
 import { useState } from "@wordpress/element";
 import apiFetch from "@wordpress/api-fetch";
 import useOnMount from "./useOnMount";
+import useObjectState from "./useObjectState";
 
 export default function useSettings() {
-	const [settings, setSettings] = useState([]);
+	const [settings, setSettings] = useObjectState();
 	const [loading, setLoading] = useState(true);
 
 	useOnMount(() => {

@@ -1,10 +1,7 @@
 import { BaseControl, PanelBody, PanelRow, ToggleControl } from "@wordpress/components";
-import { useUpdateSettings } from "../hooks/useUpdateSettings";
 
 export default function General({ settings, setSettings }) {
 	const { analytics_key, analytics_status } = settings;
-
-	const updateSettings = useUpdateSettings(settings, setSettings);
 
 	return (
 		<PanelBody title={__("Settings", "vnh_textdomain")} className="bg-white mb-4">
@@ -18,7 +15,7 @@ export default function General({ settings, setSettings }) {
 						type="text"
 						id="options-google-analytics-api"
 						value={analytics_key}
-						onChange={(e) => updateSettings({ analytics_key: e.target.value })}
+						onChange={(e) => setSettings({ analytics_key: e.target.value })}
 						placeholder={__("Google Analytics API Key", "vnh_textdomain")}
 					/>
 				</BaseControl>
@@ -28,7 +25,7 @@ export default function General({ settings, setSettings }) {
 					label={__("Track Admin Users?", "vnh_textdomain")}
 					help={__("Would you like to track views of logged-in admin accounts?.", "vnh_textdomain")}
 					checked={analytics_status}
-					onChange={() => updateSettings({ analytics_status: !analytics_status })}
+					onChange={() => setSettings({ analytics_status: !analytics_status })}
 				/>
 			</PanelRow>
 		</PanelBody>
