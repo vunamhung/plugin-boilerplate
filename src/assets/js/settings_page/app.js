@@ -1,26 +1,13 @@
 import { useEffect, useState } from "@wordpress/element";
 import { Button } from "@wordpress/components";
-import { isEmpty } from "ramda";
-import apiFetch from "@wordpress/api-fetch";
 import General from "./general";
 import useSettings from "../hooks/useSettings";
+import useSaveSettings from "../hooks/useSaveSettings";
 
 export default function App() {
 	const [{ settings }, setSettings] = useSettings();
 	const [saving, setSaving] = useState(false);
-	const [loading, setLoading] = useState(false);
-
-	useEffect(() => {
-		// early exit
-		if (isEmpty(settings) || saving === false) return;
-
-		setLoading(true);
-		apiFetch({ path: pluginApiPath, method: "POST", parse: false, data: settings }).finally(() => {
-			setSaving(false);
-			setLoading(false);
-			console.warn("Settings saved");
-		});
-	}, [saving]);
+	const loading = useSaveSettings(settings, saving, setSaving);
 
 	return (
 		<>
