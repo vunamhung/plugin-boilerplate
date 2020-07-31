@@ -1,4 +1,4 @@
 import { render } from "@wordpress/element";
-import App from "./app";
+import App from "./App";
 
 render(<App />, document.getElementById("plugin"));

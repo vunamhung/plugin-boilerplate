@@ -1,6 +1,6 @@
 import { useState } from "@wordpress/element";
 import { Button } from "@wordpress/components";
-import General from "./general";
+import General from "./General";
 import useSettings from "../hooks/useSettings";
 import useSaveSettings from "../hooks/useSaveSettings";
 
