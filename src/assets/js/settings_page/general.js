@@ -1,9 +1,10 @@
 import { BaseControl, PanelBody, PanelRow, ToggleControl } from "@wordpress/components";
+import { useUpdateSettings } from "./helpers";
 
 export default function General({ settings, setSettings }) {
 	const { analytics_key, analytics_status } = settings;
 
-	const updateSettings = (data) => setSettings({ ...settings, ...data });
+	const updateSettings = useUpdateSettings(settings, setSettings);
 
 	return (
 		<PanelBody title={__("Settings", "vnh_textdomain")} className="bg-white mb-4">

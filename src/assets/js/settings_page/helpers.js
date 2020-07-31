@@ -35,3 +35,7 @@ export function useSettings() {
 
 	return [{ loading, settings }, setSettings];
 }
+
+export function useUpdateSettings(settings, setSettings) {
+	return (data) => setSettings({ ...settings, ...data });
+}
