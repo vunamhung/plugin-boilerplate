@@ -1,4 +1,4 @@
-import { useEffect, useState } from "@wordpress/element";
+import { useState } from "@wordpress/element";
 import { Button } from "@wordpress/components";
 import General from "./general";
 import useSettings from "../hooks/useSettings";
