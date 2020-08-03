@@ -48,27 +48,28 @@ final class Plugin implements Loadable {
 		$services->get(Setting_API::class)->boot();
 
 		$services->get(Allowed_HTML::class)->boot();
-		$services->get(Enqueue_Frontend_Assets::class)->boot();
 
 		if (is_admin()) {
 			$services->get(Plugin_Action_Links::class)->boot();
 			$services->get(Plugin_Row_Meta::class)->boot();
 			$services->get(Settings_Page::class)->boot();
-			$services->get(Enqueue_Backend_Assets::class)->boot();
 		}
 	}
 
 	public function boot() {
 		add_action('plugin_loaded', [$this, 'plugin_loaded']);
-		add_action('init', [$this, 'checkers']);
+		add_action('init', [$this, 'init']);
 	}
 
 	public function plugin_loaded() {
 		load_plugin_textdomain('vnh_textdomain', false, plugin_languages_path(PLUGIN_FILE));
 	}
 
-	public function checkers() {
+	public function init() {
 		$services = Container::instance()->services;
+
+		$services->get(Enqueue_Frontend_Assets::class)->boot();
+		$services->get(Enqueue_Backend_Assets::class)->boot();
 
 		$services->get(PHP_Checker::class)->init();
 		$services->get(WordPress_Checker::class)->init();
