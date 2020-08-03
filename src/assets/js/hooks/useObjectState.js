@@ -1,8 +1,7 @@
 import { useState } from "@wordpress/element";
-import { is } from "ramda";
 
 const objCheck = (thing) => {
-	if (!is(Object, thing)) {
+	if (Object.prototype.toString.call(thing) !== "[object Object]") {
 		throw "`useObjectState` only accepts objects.";
 	}
 
