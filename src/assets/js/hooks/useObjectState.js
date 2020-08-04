@@ -2,7 +2,7 @@ import { useState } from "@wordpress/element";
 
 const objCheck = (thing) => {
 	if (Object.prototype.toString.call(thing) !== "[object Object]") {
-		throw "`useObjectState` only accepts objects.";
+		throw new Error("`useObjectState` only accepts objects.");
 	}
 
 	return thing;
