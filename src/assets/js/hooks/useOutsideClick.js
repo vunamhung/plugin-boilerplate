@@ -1,11 +1,18 @@
-import { useEffect } from "@wordpress/element";
+import { useCallback, useEffect, useRef } from "@wordpress/element";
 
-export default function useOutsideClick(ref, callback) {
-	const handleClick = (e) => {
-		if (ref.current && !ref.current.contains(e.target)) {
+export default function useOutsideClick(callback) {
+	const ref = useRef(null);
+
+	const handleClick = useCallback(
+		({ target }) => {
+			const inside = ref.current?.contains(target);
+
+			if (inside) return;
+
 			callback();
-		}
-	};
+		},
+		[callback, ref],
+	);
 
 	useEffect(() => {
 		document.addEventListener("click", handleClick);
@@ -13,5 +20,7 @@ export default function useOutsideClick(ref, callback) {
 		return () => {
 			document.removeEventListener("click", handleClick);
 		};
-	});
+	}, [handleClick]);
+
+	return ref;
 }
