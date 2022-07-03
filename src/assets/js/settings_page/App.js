@@ -1,13 +1,13 @@
-import { useState } from "@wordpress/element";
-import { Button } from "@wordpress/components";
+import apiFetch from "@wordpress/api-fetch";
+import { useEffect } from "@wordpress/element";
+import { actions } from "../utilities";
 import General from "./General";
-import useSettings from "../hooks/useSettings";
-import useSaveSettings from "../hooks/useSaveSettings";
+import SaveSettingsButton from "./SaveSettingsButton";
 
 export default function App() {
-	const [{ settings }, setSettings] = useSettings();
-	const [saving, setSaving] = useState(false);
-	const loading = useSaveSettings(settings, saving, setSaving);
+	useEffect(() => {
+		apiFetch({ path: pluginApiPath }).then((settings) => actions.setSettings(settings));
+	}, []);
 
 	return (
 		<>
@@ -21,10 +21,8 @@ export default function App() {
 			</div>
 
 			<div className="container w-9/12 lg:w-7/12">
-				<General settings={settings} setSettings={setSettings} />
-				<Button isPrimary isLarge disabled={loading} onClick={() => setSaving(true)}>
-					{__("Save Settings", "vnh_textdomain")}
-				</Button>
+				<General />
+				<SaveSettingsButton />
 			</div>
 		</>
 	);

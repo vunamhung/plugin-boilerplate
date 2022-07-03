@@ -1,6 +1,9 @@
 import { BaseControl, PanelBody, PanelRow, ToggleControl } from "@wordpress/components";
+import { useSnapshot } from "valtio";
+import { actions, store } from "../utilities";
 
-export default function General({ settings, setSettings }) {
+export default function General() {
+	const { settings } = useSnapshot(store);
 	const { analytics_key, analytics_status } = settings;
 
 	return (
@@ -15,7 +18,7 @@ export default function General({ settings, setSettings }) {
 						type="text"
 						id="options-google-analytics-api"
 						value={analytics_key}
-						onChange={(e) => setSettings({ analytics_key: e.target.value })}
+						onChange={({ target }) => actions.setSettings({ ...settings, analytics_key: target.value })}
 						placeholder={__("Google Analytics API Key", "vnh_textdomain")}
 					/>
 				</BaseControl>
@@ -25,7 +28,7 @@ export default function General({ settings, setSettings }) {
 					label={__("Track Admin Users?", "vnh_textdomain")}
 					help={__("Would you like to track views of logged-in admin accounts?.", "vnh_textdomain")}
 					checked={analytics_status}
-					onChange={() => setSettings({ analytics_status: !analytics_status })}
+					onChange={() => actions.setSettings({ ...settings, analytics_status: !analytics_status })}
 				/>
 			</PanelRow>
 		</PanelBody>
