@@ -6,16 +6,6 @@ const BundleAnalyzer = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const ErrorNotification = require("webpack-error-notification");
 const DuplicatePackageChecker = require("duplicate-package-checker-webpack-plugin");
 
-const loaders = {
-	file: {
-		loader: "file-loader",
-		options: {
-			name: "[name].[ext]",
-			outputPath: "assets/fonts/",
-		},
-	},
-};
-
 const config = {
 	mode: "development",
 	entry: {
@@ -38,16 +28,6 @@ const config = {
 				test: /\.js|.jsx/,
 				loader: "babel-loader",
 				exclude: /node_modules/,
-			},
-			{
-				test: /\.html$/,
-				loader: "raw-loader",
-				exclude: /node_modules/,
-			},
-			{
-				test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				use: [loaders.file],
-				exclude: /assets/,
 			},
 		],
 	},

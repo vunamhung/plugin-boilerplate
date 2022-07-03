@@ -1,6 +1,6 @@
 import apiFetch from "@wordpress/api-fetch";
 import { useEffect } from "@wordpress/element";
-import { actions } from "../utilities";
+import { actions } from "./utilities";
 import General from "./General";
 import SaveSettingsButton from "./SaveSettingsButton";
 

@@ -1,6 +1,6 @@
 import { BaseControl, PanelBody, PanelRow, ToggleControl } from "@wordpress/components";
 import { useSnapshot } from "valtio";
-import { actions, store } from "../utilities";
+import { actions, store } from "./utilities";
 
 export default function General() {
 	const { settings } = useSnapshot(store);

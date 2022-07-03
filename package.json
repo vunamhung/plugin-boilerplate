@@ -68,7 +68,6 @@
 		"eslint": "8.19.0",
 		"eslint-plugin-react-hooks": "4.6.0",
 		"esm": "^3.2.25",
-		"file-loader": "6.2.0",
 		"gulp": "^4.0.2",
 		"gulp-notify": "4.0.0",
 		"gulp-readme-to-markdown": "^0.2.1",

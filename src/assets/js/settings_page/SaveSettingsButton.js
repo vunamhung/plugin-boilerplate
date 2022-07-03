@@ -1,7 +1,7 @@
 import apiFetch from "@wordpress/api-fetch";
 import { Button } from "@wordpress/components";
 import { useSnapshot } from "valtio";
-import { store } from "../utilities";
+import { store } from "./utilities";
 
 export default function SaveSettingsButton() {
 	const { settings } = useSnapshot(store);
