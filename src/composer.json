@@ -6,14 +6,14 @@
         }
     },
     "require": {
-        "php-di/php-di": "^6.1",
-        "freemius/wordpress-sdk": "^2.3.2",
+        "php-di/php-di": "^6.4.0",
+        "freemius/wordpress-sdk": "^2.4.3",
         "vunamhung/wptoolkit": "dev-master",
         "ext-json": "*"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
-        "mnsami/composer-custom-directory-installer": "^1.1.1"
+        "roave/security-advisories": "dev-latest",
+        "mnsami/composer-custom-directory-installer": "^2.0.0"
     },
     "extra": {
         "installer-paths": {

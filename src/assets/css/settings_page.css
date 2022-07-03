@@ -1,6 +1,3 @@
-@import "_vars/*";
-@import "variants/*";
-@import "elements/*";
 @tailwind components;
 @tailwind utilities;
 
