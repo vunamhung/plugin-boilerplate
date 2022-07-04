@@ -1,5 +1,5 @@
-import apiFetch from "@wordpress/api-fetch";
 import { useEffect } from "@wordpress/element";
+import apiFetch from "@wordpress/api-fetch";
 import { Toaster } from "react-hot-toast";
 import { actions } from "./utilities";
 import General from "./General";
