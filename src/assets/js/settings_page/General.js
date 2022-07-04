@@ -1,10 +1,10 @@
 import { PanelBody, PanelRow, TextControl, ToggleControl } from "@wordpress/components";
 import { useSnapshot } from "valtio";
-import { actions, store } from "./utilities";
+import { store } from "./utilities";
 
 export default function General() {
 	const { settings } = useSnapshot(store);
-	const { analytics_key, analytics_status } = settings;
+	const { analyticsKey, analyticsStatus } = settings;
 
 	return (
 		<PanelBody title={__("Settings", "vnh_textdomain")} className="bg-white mb-4">
@@ -12,8 +12,8 @@ export default function General() {
 				<TextControl
 					label={__("Google Analytics Key", "vnh_textdomain")}
 					help={__("In order to use Google Analytics, you need to use an API key.", "vnh_textdomain")}
-					value={analytics_key}
-					onChange={(value) => actions.setSettings({ ...settings, analytics_key: value })}
+					value={analyticsKey}
+					onChange={(value) => (store.settings.analyticsKey = value)}
 					placeholder={__("Google Analytics API Key", "vnh_textdomain")}
 				/>
 			</PanelRow>
@@ -21,8 +21,8 @@ export default function General() {
 				<ToggleControl
 					label={__("Track Admin Users?", "vnh_textdomain")}
 					help={__("Would you like to track views of logged-in admin accounts?.", "vnh_textdomain")}
-					checked={analytics_status}
-					onChange={() => actions.setSettings({ ...settings, analytics_status: !analytics_status })}
+					checked={analyticsStatus}
+					onChange={() => (store.settings.analyticsStatus = !analyticsStatus)}
 				/>
 			</PanelRow>
 		</PanelBody>

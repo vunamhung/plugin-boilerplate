@@ -5,7 +5,7 @@ namespace vnh_namespace;
 class Settings {
 	protected static $option_key = PLUGIN_SLUG;
 	protected static $defaults = [
-		'analytics_key' => '123',
+		'analyticsKey' => '123',
 	];
 
 	public static function get_settings() {

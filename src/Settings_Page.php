@@ -44,10 +44,6 @@ class Settings_Page implements Bootable {
 	}
 
 	public function setting_page() {
-		$html = '<div class="wrapper">';
-		$html .= '<div id="plugin"></div>';
-		$html .= '</div>';
-
-		echo $html;
+		echo '<div class="wrapper"><div id="plugin"></div></div>';
 	}
 }
