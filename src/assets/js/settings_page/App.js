@@ -1,13 +1,13 @@
 import { useEffect } from "@wordpress/element";
 import apiFetch from "@wordpress/api-fetch";
 import { Toaster } from "react-hot-toast";
-import { store } from "./utilities";
+import { state } from "./utilities";
 import General from "./General";
 import SaveSettingsButton from "./SaveSettingsButton";
 
 export default function App() {
 	useEffect(() => {
-		apiFetch({ path: pluginApiPath }).then((settings) => (store.settings = settings));
+		apiFetch({ path: pluginApiPath }).then((settings) => (state.settings = settings));
 	}, []);
 
 	return (

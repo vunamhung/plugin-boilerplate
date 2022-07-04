@@ -9,7 +9,7 @@
 	.components-base-control {
 		@apply w-full;
 		&__field {
-			@apply mb-4 w-full;
+			@apply mb-2 w-full;
 		}
 		&__help {
 			font-size: 90%;
