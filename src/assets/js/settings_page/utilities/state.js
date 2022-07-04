@@ -8,4 +8,4 @@ export const state = proxy({
 	},
 });
 
-const unsub = devtools(state, { name: "state name", enabled: true });
+const unsub = devtools(state, { name: "state", enabled: true });
