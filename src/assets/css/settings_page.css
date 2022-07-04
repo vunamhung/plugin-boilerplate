@@ -2,31 +2,28 @@
 @tailwind utilities;
 
 #wpcontent {
-	padding-left: 0;
+	@apply pl-0;
 }
 
 #plugin {
 	.components-base-control {
-		width: 100%;
+		@apply w-full;
 		&__field {
-			margin-bottom: 10px;
-			width: 100%;
+			@apply mb-4 w-full;
 		}
 		&__help {
 			font-size: 90%;
-			color: var(--color-neutral-500);
 		}
 		input {
-			width: 100%;
+			@apply w-full;
 		}
 		label {
-			display: block;
+			@apply block;
 		}
 	}
 	.components-placeholder {
 		&__fieldset {
-			display: flex;
-			justify-content: center;
+			@apply flex justify-center;
 		}
 	}
 }

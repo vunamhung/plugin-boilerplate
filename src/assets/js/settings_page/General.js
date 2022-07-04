@@ -12,9 +12,9 @@ export default function General() {
 				<TextControl
 					label={__("Google Analytics Key", "vnh_textdomain")}
 					help={__("In order to use Google Analytics, you need to use an API key.", "vnh_textdomain")}
+					placeholder={__("Google Analytics API Key", "vnh_textdomain")}
 					value={analyticsKey}
 					onChange={(value) => (store.settings.analyticsKey = value)}
-					placeholder={__("Google Analytics API Key", "vnh_textdomain")}
 				/>
 			</PanelRow>
 			<PanelRow>

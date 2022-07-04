@@ -5,7 +5,7 @@ const colors = require("tailwindcss/colors");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	mode: "jit",
-	content: ["./app/**/*.tsx"],
+	content: ["src/assets/js/**"],
 	theme: {
 		gridAutoFit: {
 			1: spacing[1],
